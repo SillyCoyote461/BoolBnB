@@ -1977,13 +1977,7 @@ var staticRenderFns = [function () {
     staticClass: "container"
   }, [_c("div", {
     staticClass: "d-flex justify-content-between"
-  }, [_c("img", {
-    staticClass: "logo",
-    attrs: {
-      src: __webpack_require__(/*! ../../../public/images/logo.webp */ "./public/images/logo.webp"),
-      alt: ""
-    }
-  }), _vm._v(" "), _c("h1", [_vm._v("Login")])])])])]);
+  }, [_c("h1", [_vm._v("Login")])])])])]);
 }];
 render._withStripped = true;
 
@@ -2032,8 +2026,10 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", [_c("div", {
-    staticClass: "backgroundImg"
-  }, [_c("div", {}, [_c("h1", [_vm._v("test1")])]), _vm._v(" "), _c("div", {}, [_c("h1", [_vm._v("test1")])])])]);
+    staticClass: "backgroundImg d-flex flex-column align-items-center"
+  }, [_c("div", {
+    staticClass: "align-self-center"
+  }, [_c("h1", [_vm._v("test1")])]), _vm._v(" "), _c("div", {}, [_c("h1", [_vm._v("test1")])])])]);
 }];
 render._withStripped = true;
 
@@ -6437,7 +6433,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".backgroundImg[data-v-3abdf09e] {\n  border: 1px solid black;\n  height: 300px;\n}", ""]);
+exports.push([module.i, ".backgroundImg[data-v-3abdf09e] {\n  border: 1px solid #FF0000;\n  width: 100%;\n  height: 300px;\n}", ""]);
 
 // exports
 
@@ -50413,17 +50409,6 @@ module.exports = function(module) {
 	return module;
 };
 
-
-/***/ }),
-
-/***/ "./public/images/logo.webp":
-/*!*********************************!*\
-  !*** ./public/images/logo.webp ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/logo.webp?62fccfd670deb38ec874f8c77c28e550";
 
 /***/ }),
 

@@ -4,7 +4,7 @@
         <div class="background">
             <div class="container">
                 <div class="d-flex justify-content-between">
-                    <img class="logo" src="../../../public/images/logo.webp" alt="">
+                    <!---<img class="logo" src="../../../public/images/logo.webp" alt="">-->
                     <!---<img src="{{asset('images/logo.webp.jpg')}}" alt="">--->
                     <h1>Login</h1>
                 </div>
