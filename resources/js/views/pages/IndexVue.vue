@@ -1,13 +1,15 @@
 <template>
     <div>
-        <div class="backgroundImg d-flex flex-column align-items-center">
-            <div class="align-self-center">
-                <h1>test1</h1>
-            </div>
-            <div class="">
-                <h1>test1</h1>
-            </div>
-        </div>
+      <div class="container backgroundImg d-flex flex-column ">
+  <div class="d-flex align-items-center justify-content-center flex-grow-1">
+    <div class="text-center">Div centrato</div>
+  </div>
+  <div class="d-flex justify-content-center">
+    <div class="text-center">Div in basso</div>
+  </div>
+</div>
+
+
     </div>
 </template>
 

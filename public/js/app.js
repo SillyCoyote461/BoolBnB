@@ -2026,10 +2026,16 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", [_c("div", {
-    staticClass: "backgroundImg d-flex flex-column align-items-center"
+    staticClass: "container backgroundImg d-flex flex-column"
   }, [_c("div", {
-    staticClass: "align-self-center"
-  }, [_c("h1", [_vm._v("test1")])]), _vm._v(" "), _c("div", {}, [_c("h1", [_vm._v("test1")])])])]);
+    staticClass: "d-flex align-items-center justify-content-center flex-grow-1"
+  }, [_c("div", {
+    staticClass: "text-center"
+  }, [_vm._v("Div centrato")])]), _vm._v(" "), _c("div", {
+    staticClass: "d-flex justify-content-center"
+  }, [_c("div", {
+    staticClass: "text-center"
+  }, [_vm._v("Div in basso")])])])]);
 }];
 render._withStripped = true;
 
@@ -50750,8 +50756,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\mggab\OneDrive\Desktop\boolean-esercizi\es-laravel\BoolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\mggab\OneDrive\Desktop\boolean-esercizi\es-laravel\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Elia\OneDrive\Desktop\Esercizi-boolean\BoolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Elia\OneDrive\Desktop\Esercizi-boolean\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
