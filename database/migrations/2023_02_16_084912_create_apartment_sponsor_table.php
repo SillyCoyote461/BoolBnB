@@ -15,6 +15,8 @@ class CreateApartmentSponsorTable extends Migration
     {
         Schema::create('apartment_sponsor', function (Blueprint $table) {
             $table->id();
+            $table->date('start');
+            $table->date('end');
             $table->timestamps();
         });
     }

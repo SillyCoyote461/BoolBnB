@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSponsorsTable extends Migration
+class AddFkApartmentToMessagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateSponsorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('sponsors', function (Blueprint $table) {
-            $table->id();
-            $table->char('name');
-            $table->decimal('price', 8,2 );
-            $table->smallinteger('hours');
-            $table->timestamps();
+        Schema::table('messages', function (Blueprint $table) {
+            $table->unsignedBigInteger('fk_apartment');
+            $table->foreign('fk_apartment')->references('id')->on('apartments')->onDelete('cascade');
         });
     }
 
@@ -29,6 +26,8 @@ class CreateSponsorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sponsors');
+        Schema::table('messages', function (Blueprint $table) {
+            //
+        });
     }
 }
