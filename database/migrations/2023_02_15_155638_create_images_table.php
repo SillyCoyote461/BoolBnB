@@ -17,9 +17,6 @@ class CreateImagesTable extends Migration
             $table->id();
             $table->string('img');
             $table->string('cover');
-            $table->foreign('fk_apartment')
-                  ->references('id')
-                  ->on('apartments');
             $table->timestamps();
 
         });
