@@ -16,11 +16,10 @@ class CreateMessagesTable extends Migration
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
             $table->char('email');
-            $table->foreign('fk_apartment')
-                  ->references('id')
-                  ->on('apartments');
             $table->text('message');
-            $table->
+            $table->boolean('view');
+            $table->string('name');
+            $table->string('surname');
             $table->timestamps();
         });
     }
