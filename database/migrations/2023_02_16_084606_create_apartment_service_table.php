@@ -14,13 +14,9 @@ class CreateApartmentServiceTable extends Migration
     public function up()
     {
         Schema::create('apartment_service', function (Blueprint $table) {
-            // apartment foreign key
-            $table->unsignedBigInteger('apartment_id');
-            $table->foreign('apartment_id')->references('id')->on('apartments');
-
-            // services foreign key
-            $table->unsignedBigInteger('service_id');
-            $table->foreign('service_id')->references('id')->on('services');
+            $table->id();
+            $table->foreignId('apartment_id')->constrainded();
+            $table->foreignId('service_id')->constrainded();
         });
     }
 
