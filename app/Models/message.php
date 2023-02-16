@@ -14,7 +14,7 @@ class message extends Model
         'surname'
     ];
 
-    /* public function messages(){
+    public function messages(){
         return $this->belongsToMany('App\Models\apartment');
-    } */
+    }
 }
