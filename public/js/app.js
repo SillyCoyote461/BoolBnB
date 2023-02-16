@@ -1947,7 +1947,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'IndexVue'
+  name: "IndexVue"
 });
 
 /***/ }),
@@ -2026,16 +2026,26 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", [_c("div", {
-    staticClass: "container backgroundImg d-flex flex-column"
+    staticClass: "backgroundImg d-flex flex-column"
   }, [_c("div", {
     staticClass: "d-flex align-items-center justify-content-center flex-grow-1"
-  }, [_c("div", {
-    staticClass: "text-center"
-  }, [_vm._v("Div centrato")])]), _vm._v(" "), _c("div", {
+  }, [_c("div", {}, [_c("form", {
+    staticClass: "form-inline d-flex"
+  }, [_c("input", {
+    staticClass: "form-control mr-sm-2",
+    attrs: {
+      type: "search",
+      placeholder: "Search",
+      "aria-label": "Search"
+    }
+  }), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-outline-success my-2 my-sm-0",
+    attrs: {
+      type: "submit"
+    }
+  }, [_vm._v("\n            Search\n          ")])])])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex justify-content-center"
-  }, [_c("div", {
-    staticClass: "text-center"
-  }, [_vm._v("Div in basso")])])])]);
+  }, [_c("div", {}, [_vm._v("Filtri")])])])]);
 }];
 render._withStripped = true;
 
@@ -6420,7 +6430,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".background[data-v-475f6d5e] {\n  background-color: #6646E2;\n}\n.background .logo[data-v-475f6d5e] {\n  width: 50px;\n}", ""]);
+exports.push([module.i, ".background[data-v-475f6d5e] {\n  background-color: #6646E2;\n  padding: 1rem;\n  box-shadow: -1px -9px 20px 12px rgb(2, 1, 1);\n}\n.background .logo[data-v-475f6d5e] {\n  width: 50px;\n}", ""]);
 
 // exports
 
@@ -6439,7 +6449,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".backgroundImg[data-v-3abdf09e] {\n  border: 1px solid #FF0000;\n  width: 100%;\n  height: 300px;\n}", ""]);
+exports.push([module.i, ".backgroundImg[data-v-3abdf09e] {\n  border-bottom: 5px solid black;\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover;\n  width: 100%;\n  height: 57rem;\n}", ""]);
 
 // exports
 
@@ -50756,8 +50766,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Elia\OneDrive\Desktop\Esercizi-boolean\BoolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Elia\OneDrive\Desktop\Esercizi-boolean\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Marco D\Desktop\Dev\Boolean\FinalProj\BoolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Marco D\Desktop\Dev\Boolean\FinalProj\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
