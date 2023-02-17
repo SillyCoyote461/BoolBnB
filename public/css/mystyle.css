@@ -1,0 +1,8 @@
+
+
+.purple-bg {
+    background-color: #6f42c1;
+    box-shadow: -10px -5px 20px 6px rgb(2 1 1);
+    position: sticky !important;
+    top: 0;
+}

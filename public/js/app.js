@@ -50860,8 +50860,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\mggab\OneDrive\Desktop\boolean-esercizi\es-laravel\BoolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\mggab\OneDrive\Desktop\boolean-esercizi\es-laravel\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Marco D\Desktop\Dev\Boolean\FinalProj\BoolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Marco D\Desktop\Dev\Boolean\FinalProj\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
