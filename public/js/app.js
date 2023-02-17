@@ -2054,7 +2054,7 @@ var staticRenderFns = [function () {
   }, [_c("div", {}, [_vm._v("Filtri")])])]), _vm._v(" "), _c("section", [_c("div", {
     staticClass: "containerCustom py-5"
   }, [_c("div", {
-    staticClass: "border-bottom border-3 p-3 overflow-x-auto"
+    staticClass: "border-bottom border-3 p-3 overflow-x-auto grid gap-3"
   }, [_c("h1", [_vm._v("In Primo Piano")]), _vm._v(" "), _c("div", [_c("div", {
     staticClass: "card",
     staticStyle: {
@@ -2070,7 +2070,24 @@ var staticRenderFns = [function () {
     staticClass: "card-body"
   }, [_c("p", {
     staticClass: "card-text"
-  }, [_vm._v("\n                Some quick example text to build on the card title and make up\n                the bulk of the card's content.\n              ")])])])])]), _vm._v(" "), _c("div")])])]);
+  }, [_vm._v("\n                Some quick example text to build on the card title and make up\n                the bulk of the card's content.\n              ")])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "p-3 border-3 d-flex flex-wrap grid gap-3"
+  }, [_c("div", {
+    staticClass: "card",
+    staticStyle: {
+      width: "18rem"
+    }
+  }, [_c("img", {
+    staticClass: "card-img-top",
+    attrs: {
+      src: "",
+      alt: "..."
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "card-body"
+  }, [_c("p", {
+    staticClass: "card-text"
+  }, [_vm._v("\n              Some quick example text to build on the card title and make up\n              the bulk of the card's content.\n            ")])])])])])])]);
 }];
 render._withStripped = true;
 
