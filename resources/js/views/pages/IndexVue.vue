@@ -37,7 +37,7 @@ export default {
 <style lang="scss" scoped>
 .backgroundImg {
   border-bottom: 5px solid black;
- // background-image: url('../../../../public/images/jumbo.jpg');
+  background-image: url('../../../../public/img/jumbo.jpg');
   background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
