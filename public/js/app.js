@@ -2045,11 +2045,13 @@ var staticRenderFns = [function () {
       "aria-label": "Search"
     }
   }), _vm._v(" "), _c("button", {
-    staticClass: "btn btn-outline-success my-2 my-sm-0",
+    staticClass: "btn btn-outline-light border-3 purple my-2 my-sm-0",
     attrs: {
       type: "submit"
     }
-  }, [_vm._v("\n            Search\n          ")])])])]), _vm._v(" "), _c("div", {
+  }, [_c("i", {
+    staticClass: "fa-solid fa-magnifying-glass"
+  })])])])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex justify-content-center"
   }, [_c("div", {}, [_vm._v("Filtri")])])]), _vm._v(" "), _c("section", [_c("div", {
     staticClass: "containerCustom py-5"
@@ -2080,7 +2082,7 @@ var staticRenderFns = [function () {
   }, [_c("img", {
     staticClass: "card-img-top",
     attrs: {
-      src: "",
+      src: __webpack_require__(/*! ../../../../public/img/jumbo.jpg */ "./public/img/jumbo.jpg"),
       alt: "..."
     }
   }), _vm._v(" "), _c("div", {
@@ -6492,7 +6494,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".backgroundImg[data-v-3abdf09e] {\n  border-bottom: 5px solid black;\n  background-image: url(" + escape(__webpack_require__(/*! ../../../../public/img/jumbo.jpg */ "./public/img/jumbo.jpg")) + ");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover;\n  width: 100%;\n  height: 57rem;\n}\n.containerCustom[data-v-3abdf09e] {\n  margin: auto;\n  width: 80%;\n}", ""]);
+exports.push([module.i, ".backgroundImg[data-v-3abdf09e] {\n  border-bottom: 5px solid black;\n  background-image: url(" + escape(__webpack_require__(/*! ../../../../public/img/jumbo.jpg */ "./public/img/jumbo.jpg")) + ");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover;\n  width: 100%;\n  height: 57rem;\n}\n.containerCustom[data-v-3abdf09e] {\n  margin: auto;\n  width: 80%;\n}\n.purple[data-v-3abdf09e] {\n  color: var(--bs-purple);\n  border-color: var(--bs-purple);\n}", ""]);
 
 // exports
 

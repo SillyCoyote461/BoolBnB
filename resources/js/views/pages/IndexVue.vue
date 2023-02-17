@@ -12,8 +12,8 @@
               placeholder="Search"
               aria-label="Search"
             />
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-              Search
+            <button class="btn btn-outline-light border-3 purple my-2 my-sm-0" type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
             </button>
           </form>
         </div>
@@ -27,6 +27,7 @@
 
     <section>
       <div class="containerCustom py-5">
+
         <!-- SPONSORED -->
 
         <div class="border-bottom border-3 p-3 overflow-x-auto grid gap-3">
@@ -48,8 +49,8 @@
 
         <div class="p-3 border-3 d-flex flex-wrap grid gap-3">
 
-          <div class="card" style="width: 18rem">
-            <img src="" class="card-img-top" alt="..." />
+          <div class="card " style="width: 18rem">
+            <img src="../../../../public/img/jumbo.jpg" class="card-img-top " alt="..." />
             <div class="card-body">
               <p class="card-text">
                 Some quick example text to build on the card title and make up
@@ -87,4 +88,10 @@ export default {
   margin: auto;
   width: 80%;
 }
+
+.purple {
+    color: var(--bs-purple);
+    border-color: var(--bs-purple);
+}
+
 </style>
