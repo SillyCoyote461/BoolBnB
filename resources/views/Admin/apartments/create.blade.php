@@ -43,9 +43,9 @@
             <label class="form-check-label" for="flexSwitchCheckDefault">Visibilitá</label>
         </div>
         {{-- description --}}
-        <div>
-            <label class="form-label" for="">Descrizione</label>
-            <input class="form-control" type="text" name="description">
+        <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+            <label for="floatingTextarea">Descrizione</label>
         </div>
         {{-- lat --}}
         <div>
@@ -75,7 +75,7 @@
             <input type="file" name="cover" class="form-control-file">
         </div>
         {{-- submit --}}
-        <button class="btn btn-success">Crea post</button>
+        <button class="btn btn-success">Crea inserzione</button>
     </form>
 </div>
 

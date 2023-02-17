@@ -81,9 +81,9 @@ class ApartmentController extends Controller
      * @param  \App\Models\apartment  $apartment
      * @return \Illuminate\Http\Response
      */
-    public function show(apartment $apartment)
+    public function show(apartment $apartment_id)
     {
-        //
+
     }
 
     /**
@@ -92,9 +92,12 @@ class ApartmentController extends Controller
      * @param  \App\Models\apartment  $apartment
      * @return \Illuminate\Http\Response
      */
-    public function edit(apartment $apartment)
+    public function edit(apartment $apartment_id)
     {
-        //
+        $apartment = Apartment::findOrFail($apartment_id);
+        $services = Service::all();
+
+        return view('admin.apartments.edit', compact('apartment', 'services'));
     }
 
     /**
