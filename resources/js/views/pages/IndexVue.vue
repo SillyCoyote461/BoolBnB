@@ -33,7 +33,8 @@
         <div class="border-bottom border-3 p-3 overflow-x-auto grid gap-3">
           <h1>In Primo Piano</h1>
           <div>
-            <div class="card" style="width: 18rem">
+
+            <div v-for="" class="card" style="width: 18rem">
               <img src="" class="card-img-top" alt="..." />
               <div class="card-body">
                 <p class="card-text">
@@ -42,6 +43,7 @@
                 </p>
               </div>
             </div>
+
           </div>
         </div>
 
