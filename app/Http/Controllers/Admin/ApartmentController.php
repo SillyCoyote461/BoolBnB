@@ -57,7 +57,7 @@ class ApartmentController extends Controller
         $new_apartment->lon = $data['lon']; */
         $new_apartment->save();
 
-        return redirect()->route('apartments.index', ['id' => $new_record->id]);
+        return redirect()->route('apartments.index', ['id' => $new_apartment->id]);
     }
 
     /**
