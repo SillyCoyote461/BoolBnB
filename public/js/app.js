@@ -1977,7 +1977,13 @@ var staticRenderFns = [function () {
     staticClass: "container"
   }, [_c("div", {
     staticClass: "d-flex justify-content-between"
-  }, [_c("h1", [_vm._v("Login")])])])])]);
+  }, [_c("img", {
+    staticClass: "logo",
+    attrs: {
+      src: __webpack_require__(/*! ../../../public/img/logo.webp */ "./public/img/logo.webp"),
+      alt: ""
+    }
+  }), _vm._v(" "), _c("h1", [_vm._v("Login")])])])])]);
 }];
 render._withStripped = true;
 
@@ -2045,7 +2051,26 @@ var staticRenderFns = [function () {
     }
   }, [_vm._v("\n            Search\n          ")])])])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex justify-content-center"
-  }, [_c("div", {}, [_vm._v("Filtri")])])])]);
+  }, [_c("div", {}, [_vm._v("Filtri")])])]), _vm._v(" "), _c("section", [_c("div", {
+    staticClass: "containerCustom py-5"
+  }, [_c("div", {
+    staticClass: "border-bottom border-3 p-3 overflow-x-auto"
+  }, [_c("h1", [_vm._v("In Primo Piano")]), _vm._v(" "), _c("div", [_c("div", {
+    staticClass: "card",
+    staticStyle: {
+      width: "18rem"
+    }
+  }, [_c("img", {
+    staticClass: "card-img-top",
+    attrs: {
+      src: "",
+      alt: "..."
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "card-body"
+  }, [_c("p", {
+    staticClass: "card-text"
+  }, [_vm._v("\n                Some quick example text to build on the card title and make up\n                the bulk of the card's content.\n              ")])])])])]), _vm._v(" "), _c("div")])])]);
 }];
 render._withStripped = true;
 
@@ -6450,7 +6475,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".backgroundImg[data-v-3abdf09e] {\n  border-bottom: 5px solid black;\n  background-image: url(" + escape(__webpack_require__(/*! ../../../../public/img/jumbo.jpg */ "./public/img/jumbo.jpg")) + ");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover;\n  width: 100%;\n  height: 57rem;\n}", ""]);
+exports.push([module.i, ".backgroundImg[data-v-3abdf09e] {\n  border-bottom: 5px solid black;\n  background-image: url(" + escape(__webpack_require__(/*! ../../../../public/img/jumbo.jpg */ "./public/img/jumbo.jpg")) + ");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover;\n  width: 100%;\n  height: 57rem;\n}\n.containerCustom[data-v-3abdf09e] {\n  margin: auto;\n  width: 80%;\n}", ""]);
 
 // exports
 
@@ -50464,6 +50489,17 @@ module.exports = function(module) {
 /***/ (function(module, exports) {
 
 module.exports = "/images/jumbo.jpg?bf8c98415071e8d6e795324931f0fe5f";
+
+/***/ }),
+
+/***/ "./public/img/logo.webp":
+/*!******************************!*\
+  !*** ./public/img/logo.webp ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/logo.webp?62fccfd670deb38ec874f8c77c28e550";
 
 /***/ }),
 
