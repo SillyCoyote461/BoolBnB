@@ -1,6 +1,6 @@
 <template>
     <div>
-        <HeaderVue/>
+        <!---<HeaderVue/>-->
         <IndexVue/>
     </div>
 </template>
