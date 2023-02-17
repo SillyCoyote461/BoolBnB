@@ -3,7 +3,7 @@
 
 
 <div class="container my-5">
-    <h1>Aggiungi inserzione</h1>
+    <h1>Crea inserzione</h1>
 
     <form class="container my-4" action="{{ route('admin.apartments.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -48,12 +48,12 @@
                 <input class="form-control" type="text" id="address" name="address">
             </div>
             {{-- lat --}}
-            <div class="col-1">
+            <div class="col-2">
                 <label class="form-label" for="lat">Latitudine</label>
                 <input class="form-control" type="number" id="lat" name="lat">
             </div>
             {{-- lon --}}
-            <div class="col-1">
+            <div class="col-2">
                 <label class="form-label" for="lon">Longitudine</label>
                 <input class="form-control" type="number" id="lon" name="lon">
             </div>
@@ -84,7 +84,7 @@
         </div>
 
         {{-- submit --}}
-        <button class="btn btn-success">Aggiorna inserzione</button>
+        <button class="btn btn-success">Aggiungi inserzione</button>
     </form>
 </div>
 

@@ -47,12 +47,12 @@
                 <input class="form-control" type="text" name="address" value="{{$apartment->address}}">
             </div>
             {{-- lat --}}
-            <div class="col-1">
+            <div class="col-2">
                 <label class="form-label" for="">Latitudine</label>
                 <input class="form-control" type="text" name="lat" value="{{$apartment->lat}}">
             </div>
             {{-- lon --}}
-            <div class="col-1">
+            <div class="col-2">
                 <label class="form-label" for="">Longitudine</label>
                 <input class="form-control" type="text" name="lon" value="{{$apartment->lon}}">
             </div>
