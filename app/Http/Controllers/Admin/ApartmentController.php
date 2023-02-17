@@ -10,7 +10,8 @@ use App\Models\view;
 use App\Models\sponsor;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+// storage
+use Illuminate\Support\Facades\Storage;
 class ApartmentController extends Controller
 {
     /**
@@ -44,7 +45,7 @@ class ApartmentController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        dd($data);
+
 
         $new_apartment = new Apartment();
         $new_apartment->name = $data['name'];
@@ -58,9 +59,20 @@ class ApartmentController extends Controller
         $new_apartment->cover = $data['cover'];
         $new_apartment->lat = $data['lat'];
         $new_apartment->lon = $data['lon'];
+
+        if(array_key_exists('cover', $data)){
+            $cover_url= Storage::put('apartment_cover', $data['cover']);
+            $data['cover'] = $cover_url;
+        }
+
+        // dd($new_apartment, $data);
         $new_apartment->save();
 
-        return redirect()->route('apartments.index', ['id' => $new_apartment->id]);
+        if(array_key_exists('services', $data)){
+            $new_apartment->services()->sync($data['services']);
+        }
+
+        return redirect()->route('admin.apartments.index');
     }
 
     /**
