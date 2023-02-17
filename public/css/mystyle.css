@@ -6,3 +6,41 @@
     position: sticky !important;
     top: 0;
 }
+
+.infobox-info {
+
+    height: 200px;
+    width: 200px;
+    background-color: #6f42c1;
+    border-radius: 50px;
+    align-self: center;
+    text-align: center;
+
+}
+
+.infobox-img {
+
+    height: 200px;
+    width: 200px;
+    background-color: #6f42c1;
+    border-radius: 50px;
+    align-self: center;
+    text-align: center;
+
+}
+
+.separator {
+    height: 250px;
+    width: 5px;
+    background-color: lightgray;
+}
+
+
+.btn-newapartment {
+    background-color: #6f42c1 !important;
+    color: white !important;
+}
+
+.logo{
+    width: 50px;
+}

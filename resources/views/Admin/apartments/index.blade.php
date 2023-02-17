@@ -3,22 +3,26 @@
 @section('content')
     <div class="container">
 
-        <h1>DASHBOARD</h1>
+        <h1 class="py-3">{{ Auth::user()->name }}'s Dashboard</h1>
 
         <section>
-            <div class="d-flex justify-content-evenly w-100">
-                <div>
+            <div class="d-flex justify-content-evenly w-100 py-3">
+                <div class="infobox-img">
                     img
                 </div>
 
-                <div>
+                <div class="separator">
+
+                </div>
+
+                <div class="infobox-info">
                     informazioni
                 </div>
             </div>
 
             <div>
-                <a href="{{ route('admin.apartments.create') }}">
-                    Crea un nuovo post
+                <a class="btn btn-newapartment" href="{{ route('admin.apartments.create') }}">
+                    Inserisci nuovo appartamento
                     <i class="fa-solid fa-plus"></i>
                 </a>
             </div>
