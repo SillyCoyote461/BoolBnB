@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\image;
 use App\Models\apartment;
+use App\Models\message;
+use App\Models\service;
+use App\Models\view;
+use App\Models\sponsor;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class ApartmentController extends Controller
@@ -25,7 +30,7 @@ class ApartmentController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.apartments.create');
     }
 
     /**
@@ -36,7 +41,23 @@ class ApartmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $new_apartment = new Apartment();
+        $new_apartment->name = $data['name'];
+        $new_apartment->rooms = $data['rooms'];
+        /* $new_apartment->beds = $data['beds'];
+        $new_apartment->baths = $data['baths'];
+        $new_apartment->meters = $data['meters'];
+        $new_apartment->address = $data['address'];
+        $new_apartment->visibility = $data['visibility'];
+        $new_apartment->description = $data['description'];
+        $new_apartment->cover = $data['cover'];
+        $new_apartment->lat = $data['lat'];
+        $new_apartment->lon = $data['lon']; */
+        $new_apartment->save();
+
+        return redirect()->route('apartments.index', ['id' => $new_record->id]);
     }
 
     /**

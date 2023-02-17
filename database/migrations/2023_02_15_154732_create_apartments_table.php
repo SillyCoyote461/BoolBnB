@@ -16,12 +16,12 @@ class CreateApartmentsTable extends Migration
         Schema::create('apartments', function (Blueprint $table) {
             $table->id();
             $table->char('name');
-            $table->tinyInteger('rooms')->nullable();
-            $table->tinyInteger('beds');
-            $table->tinyInteger('baths')->nullable();
+            $table->char('rooms')->nullable();
+            $table->char('beds');
+            $table->char('baths')->nullable();
             $table->smallInteger('meters');
             $table->char('address');
-            $table->boolean('visibility');
+            $table->char('visibility');
             $table->text('description')->nullable();
             $table->string('cover');
             $table->decimal('lat', 18, 15);
