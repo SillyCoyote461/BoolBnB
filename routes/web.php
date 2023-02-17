@@ -21,9 +21,13 @@ Route::middleware('auth')
     ->name('admin.')
     ->group(function () {
         Route::get('/','HomeController@index')->name('index');
-        Route::resource('/posts', PostsController::class);
+        /* Route::resource('/posts', PostsController::class); */
+        Route::resource('/apartments', ApartmentController::class);
     });
 
 Route::get('{any?}', function (){
     return view('guest.home');
 })->where("any",".*");
+
+/* Route::resource('Apartment', ApartmentController::class);
+ */
