@@ -7,91 +7,74 @@
 
     <form class="container" action="{{ route('admin.apartments.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
+        {{-- name --}}
         <div>
             <label class="form-label" for="">Nome</label>
             <input class="form-control" type="text" name="name">
         </div>
-
+        {{-- rooms --}}
         <div>
-            <label class="form-label" for="">rooms</label>
-            <input class="form-control" type="text" name="rooms">
+            <label class="form-label" for="">Stanze</label>
+            <input class="form-control" type="number" name="rooms">
         </div>
-
-        {{-- <div>
-            <label class="form-label" for="">beds</label>
-            <input class="form-control" type="text" name="beds">
+        {{-- beds --}}
+         <div>
+            <label class="form-label" for="">Posti letto</label>
+            <input class="form-control" type="number" name="beds">
         </div>
-
+        {{-- baths --}}
         <div>
-            <label class="form-label" for="">baths</label>
-            <input class="form-control" type="text" name="baths">
+            <label class="form-label" for="">Bagni</label>
+            <input class="form-control" type="number" name="baths">
         </div>
-
+        {{-- meters --}}
         <div>
-            <label class="form-label" for="">meters</label>
-            <input class="form-control" type="text" name="meters">
+            <label class="form-label" for="">Metri quadri</label>
+            <input class="form-control" type="number" name="meters">
         </div>
-
+        {{-- address --}}
         <div>
-            <label class="form-label" for="">address</label>
+            <label class="form-label" for="">Indirizzo</label>
             <input class="form-control" type="text" name="address">
         </div>
-
-        <div>
-            <label class="form-label" for="">visibility</label>
-            <input class="form-control" type="text" name="visibility">
+        {{-- visibility --}}
+        <div class="form-check form-switch">
+            <input name="visibility" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Visibilitá</label>
         </div>
-
+        {{-- description --}}
         <div>
-            <label class="form-label" for="">description</label>
+            <label class="form-label" for="">Descrizione</label>
             <input class="form-control" type="text" name="description">
         </div>
-
+        {{-- lat --}}
         <div>
-            <label class="form-label" for="">cover</label>
-            <input class="form-control" type="text" name="cover">
-        </div>
-
-        <div>
-            <label class="form-label" for="">lat</label>
+            <label class="form-label" for="">Latitudine</label>
             <input class="form-control" type="text" name="lat">
         </div>
-
+        {{-- lon --}}
         <div>
-            <label class="form-label" for="">lon</label>
+            <label class="form-label" for="">Longitudine</label>
             <input class="form-control" type="text" name="lon">
-        </div> --}}
+        </div>
+        {{-- services --}}
+        <div class="my-3">
+            <label for="">Servizi</label>
 
-
-        {{-- <div class="my-3">
-            <label for="">Socials</label>
-            <select name="category_id" id="">
-                <option value="">Seleziona il tuo social preferito</option>
-                @foreach ($categories as $category)
-                    <option value="{{ $category->id }}">
-                        {{ $category->title }}
-                    </option>
-                @endforeach
-            </select>
-        </div> --}}
-
-        {{-- <div class="my-3">
-            <label for="">Tipo di cibo</label>
-
-            @foreach ($tags as $tag)
+            @foreach ($services as $service)
                 <label for="">
-                    <input type="checkbox" name="tags[]" value="{{ $tag->id }}">
-                    {{ $tag->name }}
+                    <input type="checkbox" name="services[]" value="{{ $service->id }}">
+                    {{ $service->name }}
                 </label>
             @endforeach
 
-        </div> --}}
-
-        {{-- <div class="my-3">
+        </div>
+        {{-- cover --}}
+        <div class="my-3">
             <label for="">Aggiungi Cover</label>
-            <input type="file" name="image" class="form-control-file">
-        </div> --}}
-
+            <input type="file" name="cover" class="form-control-file">
+        </div>
+        {{-- submit --}}
         <button class="btn btn-success">Crea post</button>
     </form>
 </div>

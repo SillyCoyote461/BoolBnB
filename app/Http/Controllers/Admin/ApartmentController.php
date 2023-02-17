@@ -30,7 +30,9 @@ class ApartmentController extends Controller
      */
     public function create()
     {
-        return view('Admin.apartments.create');
+
+        $services = Service::all();
+        return view('Admin.apartments.create', compact('services'));
     }
 
     /**
@@ -42,11 +44,12 @@ class ApartmentController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        dd($data);
 
         $new_apartment = new Apartment();
         $new_apartment->name = $data['name'];
         $new_apartment->rooms = $data['rooms'];
-        /* $new_apartment->beds = $data['beds'];
+        $new_apartment->beds = $data['beds'];
         $new_apartment->baths = $data['baths'];
         $new_apartment->meters = $data['meters'];
         $new_apartment->address = $data['address'];
@@ -54,7 +57,7 @@ class ApartmentController extends Controller
         $new_apartment->description = $data['description'];
         $new_apartment->cover = $data['cover'];
         $new_apartment->lat = $data['lat'];
-        $new_apartment->lon = $data['lon']; */
+        $new_apartment->lon = $data['lon'];
         $new_apartment->save();
 
         return redirect()->route('apartments.index', ['id' => $new_apartment->id]);
