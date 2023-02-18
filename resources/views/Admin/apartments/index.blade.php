@@ -31,23 +31,33 @@
             </div>
         </section>
         {{-- apartments--}}
-        <section class="container d-flex row mt-4">
+        <section class="container d-flex row mt-4 mx-auto">
             {{-- title --}}
             <h3 class="col-12">Le mie inserzioni</h3>
 
             <div class="container mt-2">
                 {{-- loop --}}
-                @foreach ($my_apartments as $item)
+                @foreach ($apartments as $item)
+                {{-- card --}}
                 <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
+                    {{-- cover --}}
+                    <img src="{{asset("storage/apartment_cover/$item->cover")}}" class="card-img-top" alt="...">
+                    {{-- title description --}}
                     <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <h5 class="card-title">{{$item->name}}</h5>
+                      <p class="card-text">{{$item->description}}</p>
                     </div>
+                    {{-- price beds --}}
                     <ul class="list-group list-group-flush">
-                      <li class="list-group-item">An item</li>
-                      <li class="list-group-item">A second item</li>
-                      <li class="list-group-item">A third item</li>
+                      <li class="list-group-item">Prezzo per notte: {{$item->price}}</li>
+                      <li class="list-group-item">Posti letto: {{$item->beds}}</li>
+                      {{-- services loop --}}
+                      <li class="list-group-item">
+                        Servizi:
+                        @foreach ( $item->services as $item)
+                            <a href="">#{{$item['name']}}</a>
+                        @endforeach
+                      </li>
                     </ul>
                     <div class="card-body">
                       <a href="#" class="card-link">Card link</a>

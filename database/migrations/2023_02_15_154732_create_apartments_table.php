@@ -20,8 +20,9 @@ class CreateApartmentsTable extends Migration
             $table->char('beds');
             $table->char('baths')->nullable();
             $table->smallInteger('meters');
+            $table->smallInteger('price');
             $table->char('address');
-            $table->char('visibility');
+            $table->char('visibility')->nullable();
             $table->text('description')->nullable();
             $table->string('cover');
             $table->decimal('lat', 18, 15);

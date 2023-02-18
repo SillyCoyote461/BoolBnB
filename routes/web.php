@@ -20,7 +20,7 @@ Route::middleware('auth')
     ->prefix('admin')
     ->name('admin.')
     ->group(function () {
-        Route::get('/','HomeController@index')->name('index');
+        Route::get('/','ApartmentController@index')->name('index');
         /* Route::resource('/posts', PostsController::class); */
         Route::resource('/apartments', ApartmentController::class);
     });

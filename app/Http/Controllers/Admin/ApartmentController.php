@@ -23,8 +23,10 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        $my_apartments = Apartment::where('user_id', '=', auth()->id())->get();
-        return view('admin.apartments.index', compact('my_apartments'));
+        $apartments = Apartment::where('user_id', '=', auth()->id())->get();
+
+
+        return view('admin.apartments.index', compact('apartments'));
     }
 
     /**
@@ -47,30 +49,47 @@ class ApartmentController extends Controller
      */
     public function store(Request $request)
     {
-
         $data = $request->all();
 
+        // new model
         $new_apartment = new Apartment();
+
+        // apartment strings
         $new_apartment->name = $data['name'];
+        $new_apartment->description = $data['description'];
+
+        // numerical data
         $new_apartment->rooms = $data['rooms'];
         $new_apartment->beds = $data['beds'];
         $new_apartment->baths = $data['baths'];
         $new_apartment->meters = $data['meters'];
-        $new_apartment->address = $data['address'];
-        $new_apartment->visibility = $data['visibility'];
-        $new_apartment->description = $data['description'];
-        $new_apartment->cover = $data['cover'];
-        $new_apartment->lat = $data['lat'];
-        $new_apartment->lon = $data['lon'];
-        $new_apartment->user_id = Auth::id();
+        $new_apartment->price = $data['price'];
 
-        if(array_key_exists('cover', $data)){
-            $cover_url= Storage::put('apartment_cover', $data['cover']);
-            $data['cover'] = $cover_url;
+        // visibility conditions
+        if($data['visibility'] == null) {
+            $new_apartment->visibility = false;
+        }
+        else{
+            $new_apartment->visibility = true;
         }
 
+        // address map info
+        $new_apartment->address = $data['address'];
+        $new_apartment->lat = $data['lat'];
+        $new_apartment->lon = $data['lon'];
+
+        // get user id
+        $new_apartment->user_id = Auth::id();
+
+        // cover storage
+        $new_apartment->cover = $data['cover'];
+        $cover_url= Storage::put('apartment_cover', $data['cover']);
+        $data['cover'] = $cover_url;
+
+        // save record
         $new_apartment->save();
 
+        // service sync
         if(array_key_exists('services', $data)){
             $new_apartment->services()->sync($data['services']);
         }
