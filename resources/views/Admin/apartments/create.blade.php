@@ -14,7 +14,7 @@
         </div>
         {{-- description --}}
         <div class="form-floating my-3">
-            <textarea class="form-control" id="description"></textarea>
+            <textarea class="form-control" id="description" name="description"></textarea>
             <label for="description">Descrizione</label>
         </div>
         {{-- section apartment --}}

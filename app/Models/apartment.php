@@ -24,4 +24,13 @@ class apartment extends Model
     public function services(){
         return $this->belongsToMany('App\Models\service');
     }
+
+    public function sponsors(){
+        return $this->belongsToMany('App\Models\sponsor');
+    }
+
+    public function users(){
+        return $this->belongsTo('App\user');
+    }
+
 }

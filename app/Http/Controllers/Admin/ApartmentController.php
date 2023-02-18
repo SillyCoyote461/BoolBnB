@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\User;
+use Illuminate\Support\Facades\Auth;
 use App\Models\image;
 use App\Models\apartment;
 use App\Models\message;
@@ -21,7 +23,8 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        return view('admin.apartments.index');
+        $my_apartments = Apartment::where('user_id', '=', auth()->id())->get();
+        return view('admin.apartments.index', compact('my_apartments'));
     }
 
     /**
@@ -44,8 +47,8 @@ class ApartmentController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
 
+        $data = $request->all();
 
         $new_apartment = new Apartment();
         $new_apartment->name = $data['name'];
@@ -59,13 +62,13 @@ class ApartmentController extends Controller
         $new_apartment->cover = $data['cover'];
         $new_apartment->lat = $data['lat'];
         $new_apartment->lon = $data['lon'];
+        $new_apartment->user_id = Auth::id();
 
         if(array_key_exists('cover', $data)){
             $cover_url= Storage::put('apartment_cover', $data['cover']);
             $data['cover'] = $cover_url;
         }
 
-        // dd($new_apartment, $data);
         $new_apartment->save();
 
         if(array_key_exists('services', $data)){
