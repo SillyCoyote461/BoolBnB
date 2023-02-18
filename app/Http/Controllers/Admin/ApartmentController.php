@@ -50,7 +50,7 @@ class ApartmentController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
+        // dd($data);
         // new model
         $new_apartment = new Apartment();
 
@@ -66,11 +66,11 @@ class ApartmentController extends Controller
         $new_apartment->price = $data['price'];
 
         // visibility conditions
-        if($data['visibility'] == null) {
-            $new_apartment->visibility = false;
+        if(array_key_exists('visibility', $data)) {
+            $new_apartment->visibility = true;
         }
         else{
-            $new_apartment->visibility = true;
+            $new_apartment->visibility = false;
         }
 
         // address map info
@@ -82,9 +82,9 @@ class ApartmentController extends Controller
         $new_apartment->user_id = Auth::id();
 
         // cover storage
-        $new_apartment->cover = $data['cover'];
         $cover_url= Storage::put('apartment_cover', $data['cover']);
         $data['cover'] = $cover_url;
+        $new_apartment->cover = $data['cover'];
 
         // save record
         $new_apartment->save();
@@ -103,9 +103,11 @@ class ApartmentController extends Controller
      * @param  \App\Models\apartment  $apartment
      * @return \Illuminate\Http\Response
      */
-    public function show(apartment $apartment_id)
+    public function show($id)
     {
-
+        $apartment = Apartment::findOrFail($id);
+        // dd($apartment);
+        return route('admin.apartments.show', compact('apartment'));
     }
 
     /**
@@ -114,9 +116,9 @@ class ApartmentController extends Controller
      * @param  \App\Models\apartment  $apartment
      * @return \Illuminate\Http\Response
      */
-    public function edit(apartment $apartment_id)
+    public function edit($id)
     {
-        $apartment = Apartment::findOrFail($apartment_id);
+        $apartment = Apartment::find($id);
         $services = Service::all();
 
         return view('admin.apartments.edit', compact('apartment', 'services'));
@@ -129,9 +131,22 @@ class ApartmentController extends Controller
      * @param  \App\Models\apartment  $apartment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, apartment $apartment)
+    public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+
+        $apartment = Apartment::findOrFail($id);
+        // delete old cover
+        if(array_key_exists('cover', $data)){
+            // delete old img
+            Storage::delete($apartment->cover);
+            // update new img
+            $cover_url= Storage::put('apartment_cover', $data['cover']);
+            $data['cover'] = $cover_url;
+        }
+
+        $apartment->save();
+        return redirect()->route('admin.apartments.show', $id);
     }
 
     /**
@@ -140,8 +155,15 @@ class ApartmentController extends Controller
      * @param  \App\Models\apartment  $apartment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(apartment $apartment)
+    public function destroy(apartment $id)
     {
-        //
+        $apartment = Apartment::findOrFail($id);
+        // delete cover from storage
+        Storage::delete($apartment->cover);
+        // delete services
+        $apartment->services()->sync();
+        // delete apartment
+        $apartment->delete();
+        return redirect()->route('admin.apartments.index');
     }
 }

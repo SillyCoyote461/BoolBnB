@@ -36,7 +36,7 @@
             </span>
             {{-- price --}}
             <span>
-                <label class="form-label" for="price">Prezzo per notte</label>
+                <label class="form-label" for="price">Prezzo</label>
                 <input value="1" min="1" step="0.01" type="number" id="price" class="form-control" name="price"style="width: 100px;"/>
             </span>
             {{-- meters --}}

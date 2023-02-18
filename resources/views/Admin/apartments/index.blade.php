@@ -41,7 +41,7 @@
                 {{-- card --}}
                 <div class="card" style="width: 18rem;">
                     {{-- cover --}}
-                    <img src="{{asset("storage/apartment_cover/$item->cover")}}" class="card-img-top" alt="...">
+                    <img src="{{asset("storage/$item->cover")}}" class="card-img-top" alt="...">
                     {{-- title description --}}
                     <div class="card-body">
                       <h5 class="card-title">{{$item->name}}</h5>
@@ -52,16 +52,18 @@
                       <li class="list-group-item">Prezzo per notte: {{$item->price}}</li>
                       <li class="list-group-item">Posti letto: {{$item->beds}}</li>
                       {{-- services loop --}}
+                      @if (property_exists('services', $item))
                       <li class="list-group-item">
-                        Servizi:
-                        @foreach ( $item->services as $item)
-                            <a href="">#{{$item['name']}}</a>
-                        @endforeach
-                      </li>
+                          Servizi:
+                          @foreach ( $item->services as $item)
+                          <a href="">#{{$item['name']}}</a>
+                          @endforeach
+                        </li>
+                        @endif
                     </ul>
-                    <div class="card-body">
-                      <a href="#" class="card-link">Card link</a>
-                      <a href="#" class="card-link">Another link</a>
+                    <div class="card-body d-flex justify-content-between">
+                      <a href="{{route('admin.apartments.show', $item->id)}}" class="card-link">Altri dettagli</a>
+                      <a href="{{route('admin.apartments.edit', $item->id)}}" class="card-link">Modifica</a>
                     </div>
                   </div>
                 @endforeach

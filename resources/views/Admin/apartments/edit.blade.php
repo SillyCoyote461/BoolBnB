@@ -33,6 +33,12 @@
                 <label class="form-label" for="baths">Bagni</label>
                 <input value="1" min="1" step="1" type="number" id="baths" class="form-control" name="baths" value="{{$apartment->baths}}" style="width: 100px;"/>
             </span>
+            {{-- price --}}
+            <span>
+                <label class="form-label" for="price">Prezzo</label>
+                <input value="1" min="1" step="0.01" type="number" id="price" class="form-control" name="price" value="{{$apartment->price}}" style="width: 100px;"/>
+            </span>
+
             {{-- meters --}}
             <span>
                 <label class="form-label" for="meters">Metri quadri</label>
@@ -87,3 +93,4 @@
     </form>
 </div>
 
+@endsection
