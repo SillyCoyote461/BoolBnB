@@ -34,6 +34,11 @@
                 <label class="form-label" for="baths">Bagni</label>
                 <input value="1" min="1" step="1" type="number" id="baths" class="form-control" name="baths" style="width: 100px;"/>
             </span>
+            {{-- price --}}
+            <span>
+                <label class="form-label" for="price">Prezzo per notte</label>
+                <input value="1" min="1" step="0.01" type="number" id="price" class="form-control" name="price"style="width: 100px;"/>
+            </span>
             {{-- meters --}}
             <span>
                 <label class="form-label" for="meters">Metri quadri</label>
@@ -50,12 +55,12 @@
             {{-- lat --}}
             <div class="col-2">
                 <label class="form-label" for="lat">Latitudine</label>
-                <input class="form-control" type="number" id="lat" name="lat">
+                <input class="form-control" step="0.001" type="number" id="lat" name="lat">
             </div>
             {{-- lon --}}
             <div class="col-2">
                 <label class="form-label" for="lon">Longitudine</label>
-                <input class="form-control" type="number" id="lon" name="lon">
+                <input class="form-control" step="0.001" type="number" id="lon" name="lon">
             </div>
         </section>
         {{-- services --}}
