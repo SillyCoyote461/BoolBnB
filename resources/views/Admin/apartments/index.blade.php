@@ -35,7 +35,7 @@
             {{-- title --}}
             <h3 class="col-12">Le mie inserzioni</h3>
 
-            <div class="container mt-2">
+            <div class="container mt-5 d-flex flex-wrap justify-content-evenly ">
                 {{-- loop --}}
                 @foreach ($apartments as $item)
                 {{-- card --}}
