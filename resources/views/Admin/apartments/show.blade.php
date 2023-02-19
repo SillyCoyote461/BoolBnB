@@ -20,16 +20,16 @@
                     <span class="fw-bold">Baths:</span> {{$apartment->baths}}
                 </li>
                 <li>
-                    <span class="fw-bold">Meters:</span>
+                    <span class="fw-bold">Meters:</span> {{$apartment->meters}}
                 </li>
                 <li>
-                    <span class="fw-bold">Price:</span>
+                    <span class="fw-bold text-danger">Price:</span> {{$apartment->price}}
                 </li>
                 <li>
-                    <span class="fw-bold">Address</span>
+                    <span class="fw-bold">Address</span> <br> {{$apartment->address}}
                 </li>
                 <li>
-                    <span class="fw-bold">Description:</span>
+                    <span class="fw-bold">Description:</span> <br> {{$apartment->description}}
                 </li>
             </ul>
         </div>
