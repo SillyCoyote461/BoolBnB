@@ -1,5 +1,5 @@
 <?php
-use App\Models\apartment;
+use App\Models\Apartment;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 
@@ -14,7 +14,7 @@ class ApartmentSeeder extends Seeder
     {
         for ($i = 0; $i < 50; $i++) {
             $newPost = new Apartment();
-            $newPost->title = $faker->name();
+            $newPost->name = $faker->name();
             $newPost->rooms = $faker->between(1, 10);
             $newPost->beds = $faker->between(1, 7);
             $newPost->baths = $faker->between(1, 3);
