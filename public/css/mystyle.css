@@ -70,3 +70,35 @@
 ul{
     list-style-type: none;
 }
+
+li{
+    margin-top: 15px;
+    font-size: 17px;
+}
+
+.riga{
+    background-color: #6e42c142;
+    border-radius: 20px;
+}
+
+.left-description{
+    width: 50%;
+    background-color: #6e42c133;
+}
+
+.img-show{
+    width: 100%;
+
+}
+
+.titolo-show{
+    color: #6f42c1;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.title-lista{
+    color: #6f42c1;
+    font-weight: bold;
+    font-size: 20px;
+}

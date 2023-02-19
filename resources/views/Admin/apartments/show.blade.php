@@ -3,33 +3,36 @@
     <div class="container pb-5">
 
         <div>
-            <img src=" {{ asset("storage/$apartment->cover") }} " alt="" class="w-100">
+            <img src=" {{ asset("storage/$apartment->cover") }} " alt="" class="img-show">
         </div>
-        <div>
-            <div class="fs-1 fw-bold mt-3">
+        <div class="left-description p-5 mt-5">
+            <div class="titolo-show">
                 {{ $apartment->name }}
             </div>
             <ul>
                 <li>
-                    <span class="fw-bold fs-4">Rooms:</span> {{ $apartment->rooms }}
+                    <span class="title-lista">Rooms:</span>
+                    <div class="riga ps-3 text-light fw-bold">
+                        {{ $apartment->rooms }}
+                    </div>
                 </li>
                 <li>
-                    <span class="fw-bold fs-4">Beds:</span> {{ $apartment->beds }}
+                    <span class="title-lista">Beds:</span> {{ $apartment->beds }}
                 </li>
                 <li>
-                    <span class="fw-bold fs-4">Baths:</span> {{ $apartment->baths }}
+                    <span class="title-lista">Baths:</span> {{ $apartment->baths }}
                 </li>
                 <li>
-                    <span class="fw-bold fs-4">Meters:</span> {{ $apartment->meters }}
+                    <span class="title-lista">Meters:</span> {{ $apartment->meters }}
                 </li>
                 <li>
-                    <span class="fw-bold  fs-4">Price:</span> <span class="fw-bold text-danger">{{ $apartment->price }}</span>
+                    <span class="title-lista">Price:</span> <span class="fw-bold text-danger">{{ $apartment->price }}</span>
                 </li>
                 <li>
-                    <span class="fw-bold fs-4">Address</span> <br> {{ $apartment->address }}
+                    <span class="title-lista">Address</span> <br> {{ $apartment->address }}
                 </li>
                 <li>
-                    <span class="fw-bold fs-4">Description:</span> <br> {{ $apartment->description }}
+                    <span class="title-lista">Description:</span> <br> {{ $apartment->description }}
                 </li>
             </ul>
 
