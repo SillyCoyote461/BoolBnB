@@ -15,14 +15,14 @@ class CreateApartmentsTable extends Migration
     {
         Schema::create('apartments', function (Blueprint $table) {
             $table->id();
-            $table->char('name');
-            $table->char('rooms')->nullable();
-            $table->char('beds');
-            $table->char('baths')->nullable();
+            $table->string('name');
+            $table->tinyInteger('rooms')->nullable();
+            $table->tinyInteger('beds');
+            $table->tinyInteger('baths')->nullable();
             $table->smallInteger('meters');
             $table->decimal('price', 8, 2);
-            $table->char('address');
-            $table->char('visibility')->nullable();
+            $table->string('address');
+            $table->boolean('visibility')->nullable();
             $table->text('description')->nullable();
             $table->string('cover');
             $table->decimal('lat', 18, 15);

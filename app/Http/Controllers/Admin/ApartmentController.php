@@ -133,7 +133,7 @@ class ApartmentController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
-
+        // dd($data);
         $apartment = Apartment::findOrFail($id);
         // delete old cover
         if(array_key_exists('cover', $data)){
@@ -143,12 +143,18 @@ class ApartmentController extends Controller
             $cover_url= Storage::put('apartment_cover', $data['cover']);
             $data['cover'] = $cover_url;
         }
+
+        if(array_key_exists('visibility', $data)) {
+            $data['visibility'] = true;
+        }
         else{
-            $data['cover'] = $apartment->cover;
+            $data['visibility'] = false;
         }
 
-        $apartment->save();
-        return redirect()->route('admin.apartments.show', $id);
+
+
+        $apartment->update($data);
+        return redirect()->route('admin.apartments.index');
     }
 
     /**

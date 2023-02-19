@@ -4,9 +4,10 @@
 <div class="container my-5">
     <h1>Modifica inserzione</h1>
 
-    <form class="container my-4" action="{{ route('admin.apartments.update', $apartment->id) }}" method="POST" enctype="multipart/form-data">
+    <form class="container my-4" method="POST" action="{{ route('admin.apartments.update', $apartment->id) }}"  enctype="multipart/form-data">
         @csrf
         @method('PUT')
+
         {{-- name --}}
         <div>
             <label class="form-label" for="name">Titolo</label>
@@ -22,28 +23,28 @@
             {{-- rooms --}}
             <span>
                 <label class="form-label" for="rooms">Stanze</label>
-                <input value="1" min="1" step="1" type="number" id="rooms" class="form-control" name="rooms" value="{{$apartment->rooms}}" style="width: 100px;"/>
+                <input min="1" step="1" type="number" id="rooms" class="form-control" name="rooms" value="{{$apartment->rooms}}" style="width: 100px;"/>
             </span>
             {{-- beds --}}
             <span>
                 <label class="form-label" for="beds">Posti letto</label>
-                <input value="1" min="1" step="1" type="number" id="beds" class="form-control" name="beds" value="{{$apartment->beds}}" style="width: 100px;"/>
+                <input min="1" step="1" type="number" id="beds" class="form-control" name="beds" value="{{$apartment->beds}}" style="width: 100px;"/>
             </span>
             {{-- baths --}}
             <span>
                 <label class="form-label" for="baths">Bagni</label>
-                <input value="1" min="1" step="1" type="number" id="baths" class="form-control" name="baths" value="{{$apartment->baths}}" style="width: 100px;"/>
+                <input min="1" step="1" type="number" id="baths" class="form-control" name="baths" value="{{$apartment->baths}}" style="width: 100px;"/>
             </span>
             {{-- price --}}
             <span>
                 <label class="form-label" for="price">Prezzo</label>
-                <input value="1" min="1" step="0.01" type="number" id="price" class="form-control" name="price" value="{{$apartment->price}}" style="width: 100px;"/>
+                <input min="1" step="0.01" type="number" id="price" class="form-control" name="price" value="{{$apartment->price}}" style="width: 100px;"/>
             </span>
 
             {{-- meters --}}
             <span>
                 <label class="form-label" for="meters">Metri quadri</label>
-                <input value="1" min="1" step="1" type="number" id="meters" class="form-control" name="meters" value="{{$apartment->meters}}" style="width: 100px;"/>
+                <input min="1" step="1" type="number" id="meters" class="form-control" name="meters" value="{{$apartment->meters}}" style="width: 100px;"/>
             </span>
         </section>
         {{-- section address --}}
@@ -90,7 +91,7 @@
         </div>
 
         {{-- submit --}}
-        <button class="btn btn-success">Aggiorna inserzione</button>
+        <button type="submit" class="btn btn-success">Aggiorna inserzione</button>
     </form>
 </div>
 
