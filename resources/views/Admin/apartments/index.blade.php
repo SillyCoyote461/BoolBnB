@@ -63,19 +63,19 @@
                         @endif
                     </ul>
                     <div class="card-body d-flex justify-content-between">
-                      <a href="{{route('admin.apartments.show', $item->id)}}" class="card-link"><button class="butt-1"><i class="fa-solid fa-info"></i></button></a>
-                      <a href="{{route('admin.apartments.edit', $item->id)}}" class="card-link"><button class="butt-2"><i class="fa-solid fa-pen-to-square"></i></button></a>
-                      <form method="POST" action="{{route('admin.apartments.destroy', $item->id)}}">
+                        <a href="{{route('admin.apartments.show', $item->id)}}" class="card-link"><button class="butt-1"><i class="fa-solid fa-info"></i></button></a>
+                        <a href="{{route('admin.apartments.edit', $item->id)}}" class="card-link"><button class="butt-2"><i class="fa-solid fa-pen-to-square"></i></button></a>
+                        <form method="POST" action="{{route('admin.apartments.destroy', $item->id)}}">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
+                        </form>
                     </div>
-                    
+
                   </div>
                 @endforeach
                 {{-- loop end--}}
-                
+
             </div>
 
         </section>

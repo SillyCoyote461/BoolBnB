@@ -163,13 +163,18 @@ class ApartmentController extends Controller
      * @param  \App\Models\apartment  $apartment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(apartment $id)
+    public function destroy($id)
     {
         $apartment = Apartment::findOrFail($id);
         // delete cover from storage
+        // dd($apartment);
         Storage::delete($apartment->cover);
         // delete services
-        //$apartment->services()->sync();
+        foreach($apartment->services as $item) {
+            $apartment->services()->detach($item->id);
+        }
+
+        // $apartment->services()->sync();
         // delete apartment
         $apartment->delete();
         return redirect()->route('admin.apartments.index');
