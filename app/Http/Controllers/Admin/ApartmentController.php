@@ -169,7 +169,7 @@ class ApartmentController extends Controller
         // delete cover from storage
         Storage::delete($apartment->cover);
         // delete services
-        $apartment->services()->sync();
+        //$apartment->services()->sync();
         // delete apartment
         $apartment->delete();
         return redirect()->route('admin.apartments.index');

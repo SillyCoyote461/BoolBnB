@@ -11,27 +11,28 @@
             </div>
             <ul>
                 <li>
-                    <span class="fw-bold">Rooms:</span>  {{$apartment->rooms}}
+                    <span class="fw-bold">Rooms:</span> {{ $apartment->rooms }}
                 </li>
                 <li>
-                    <span class="fw-bold">Beds:</span> {{$apartment->beds}}
+                    <span class="fw-bold">Beds:</span> {{ $apartment->beds }}
                 </li>
                 <li>
-                    <span class="fw-bold">Baths:</span> {{$apartment->baths}}
+                    <span class="fw-bold">Baths:</span> {{ $apartment->baths }}
                 </li>
                 <li>
-                    <span class="fw-bold">Meters:</span> {{$apartment->meters}}
+                    <span class="fw-bold">Meters:</span> {{ $apartment->meters }}
                 </li>
                 <li>
-                    <span class="fw-bold text-danger">Price:</span> {{$apartment->price}}
+                    <span class="fw-bold text-danger">Price:</span> {{ $apartment->price }}
                 </li>
                 <li>
-                    <span class="fw-bold">Address</span> <br> {{$apartment->address}}
+                    <span class="fw-bold">Address</span> <br> {{ $apartment->address }}
                 </li>
                 <li>
-                    <span class="fw-bold">Description:</span> <br> {{$apartment->description}}
+                    <span class="fw-bold">Description:</span> <br> {{ $apartment->description }}
                 </li>
             </ul>
+
         </div>
 
 
