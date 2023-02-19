@@ -4,8 +4,9 @@
 <div class="container my-5">
     <h1>Modifica inserzione</h1>
 
-    <form class="container my-4" action="{{ route('admin.apartments.store') }}" method="POST" enctype="multipart/form-data">
+    <form class="container my-4" action="{{ route('admin.apartments.update', $apartment->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
+        @method('PUT')
         {{-- name --}}
         <div>
             <label class="form-label" for="name">Titolo</label>
@@ -13,7 +14,7 @@
         </div>
         {{-- description --}}
         <div class="form-floating my-3">
-            <textarea class="form-control" id="description">{{$apartment->description}}</textarea>
+            <textarea class="form-control" id="description" name="description">{{$apartment->description}}</textarea>
             <label for="description">Descrizione</label>
         </div>
         {{-- section apartment --}}

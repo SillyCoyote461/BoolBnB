@@ -17,12 +17,12 @@ class DatabaseSeeder extends Seeder
 
         $this->call(
             [
-            ApartmentSeeder::class,    
-            ImageSeeder::class,
-            MessageSeeder::class,
+            // ApartmentSeeder::class,
+            // ImageSeeder::class,
+            // MessageSeeder::class,
             ServiceSeeder::class,
             SponsorSeeder::class,
-            ViewSeeder::class,
+            // ViewSeeder::class,
             ]
         );
     }

@@ -120,7 +120,6 @@ class ApartmentController extends Controller
     {
         $apartment = Apartment::find($id);
         $services = Service::all();
-
         return view('admin.apartments.edit', compact('apartment', 'services'));
     }
 
@@ -143,6 +142,9 @@ class ApartmentController extends Controller
             // update new img
             $cover_url= Storage::put('apartment_cover', $data['cover']);
             $data['cover'] = $cover_url;
+        }
+        else{
+            $data['cover'] = $apartment->cover;
         }
 
         $apartment->save();
