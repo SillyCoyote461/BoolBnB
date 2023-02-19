@@ -9,6 +9,7 @@
             <div class="d-flex justify-content-evenly w-100 py-3">
                 {{-- profile image --}}
                 <div class="infobox-img">
+                    {{-- <img src="../../public/img/user.png" alt=""> --}}
                     img
                 </div>
 
@@ -17,7 +18,7 @@
                 </div>
 
                 {{-- info --}}
-                <div class="infobox-info">
+                <div class="infobox-info p-3">
                     informazioni
                 </div>
             </div>
@@ -35,7 +36,7 @@
             {{-- title --}}
             <h3 class="col-12">Le mie inserzioni</h3>
 
-            <div class="container mt-5 d-flex flex-wrap justify-content-evenly ">
+            <div class="container pb-5 mt-5 d-flex flex-wrap justify-content-evenly ">
                 {{-- loop --}}
                 @foreach ($apartments as $item)
                 {{-- card --}}
@@ -62,8 +63,8 @@
                         @endif
                     </ul>
                     <div class="card-body d-flex justify-content-between">
-                      <a href="{{route('admin.apartments.show', $item->id)}}" class="card-link">Altri dettagli</a>
-                      <a href="{{route('admin.apartments.edit', $item->id)}}" class="card-link">Modifica</a>
+                      <a href="{{route('admin.apartments.show', $item->id)}}" class="card-link"><button class="butt-1"><i class="fa-solid fa-info"></i></button></a>
+                      <a href="{{route('admin.apartments.edit', $item->id)}}" class="card-link"><button class="butt-2"><i class="fa-solid fa-pen-to-square"></i></button></a>
                     </div>
                   </div>
                 @endforeach
