@@ -53,7 +53,7 @@
                             <div class="d-flex align-items-center justify-content-evenly mt-3">
                                 <div>
                                     <a href="{{ route('admin.apartments.show', $item->id) }}" class="card-link"><button
-                                            class="butt-1"><i class="fa-solid fa-info"></i></button></a>
+                                            class="butt-2"><i class="fa-solid fa-info"></i></button></a>
                                 </div>
 
                                 <div>
@@ -65,7 +65,7 @@
                                     <form method="POST" action="{{ route('admin.apartments.destroy', $item->id) }}">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger"><i
+                                        <button type="submit" class="butt-2"><i
                                                 class="fa-solid fa-trash"></i></button>
                                     </form>
                                 </div>
