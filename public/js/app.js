@@ -1944,6 +1944,24 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     IndexVue: _views_pages_IndexVue_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     HeaderVue: _components_HeaderVue_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  data: function data() {
+    return {
+      apartments: []
+    };
+  },
+  methods: {
+    getApartments: function getApartments() {
+      var _this = this;
+      axios.get('http://127.0.0.1:8000/api/apartments').then(function (res) {
+        _this.apartments = res.data;
+        console.log(_this.apartments);
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.getApartments();
+    console.log(this.apartments);
   }
 });
 
@@ -1959,21 +1977,13 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "IndexVue"
+  name: "IndexVue",
+  data: function data() {
+    return {};
+  },
+  methods: {},
+  mounted: function mounted() {}
 });
-// data(){
-//     return{
-//         posts: []
-//     }
-// },
-// mounted(){
-
-// },
-// methods : {
-//     getApartment(){
-//         axios.get('http://127.0.0.1:8000/api/apartment')
-//     }
-// }
 
 /***/ }),
 
