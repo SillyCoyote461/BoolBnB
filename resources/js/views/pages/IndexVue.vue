@@ -47,7 +47,7 @@
                                     title and make up the bulk of the card's
                                     content.
                                 </p>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -67,8 +67,8 @@
                                 Some quick example text to build on the card
                                 title and make up the bulk of the card's
                                 content.
-                            </p>   
-                                 
+                            </p>
+
                         </div>
                     </div>
                 </div>
@@ -80,20 +80,20 @@
 <script>
 export default {
     name: "IndexVue",
-};
-// data(){
-//     return{
-//         posts: []
-//     }
-// },
-// mounted(){
 
-// },
-// methods : {
-//     getApartment(){
-//         axios.get('http://127.0.0.1:8000/api/apartment')
-//     }
-// }
+    data(){
+        return{
+        }
+    },
+
+    methods : {
+
+    },
+
+    mounted(){
+    }
+
+};
 </script>
 
 <style lang="scss" scoped>

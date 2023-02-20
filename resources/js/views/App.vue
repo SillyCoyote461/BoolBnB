@@ -16,6 +16,24 @@ export default {
     components: {
         IndexVue,
         HeaderVue
+    },
+    data(){
+        return{
+            apartments: []
+        }
+    },
+    methods: {
+        getApartments(){
+            axios.get('http://127.0.0.1:8000/api/apartments')
+            .then(res=>{
+                this.apartments = res.data;
+                console.log(this.apartments)
+            })
+        }
+    },
+    mounted(){
+        this.getApartments()
+        console.log(this.apartments)
     }
 }
 </script>
