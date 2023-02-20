@@ -9,6 +9,12 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 import App from './views/App';
+import tt from '@tomtom-international/web-sdk-maps';
+
+const map = tt.map({
+    key: '<your maps api key>',
+    container: 'map'
+});
 
 const app = new Vue({
     el: '#root',
