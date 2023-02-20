@@ -12,7 +12,7 @@ import App from './views/App';
 import tt from '@tomtom-international/web-sdk-maps';
 
 const map = tt.map({
-    key: '<your maps api key>',
+    key: 'bCA9waVZD04StnT2jWnglVMqwjHK75ve',
     container: 'map'
 });
 
