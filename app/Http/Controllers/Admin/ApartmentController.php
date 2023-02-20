@@ -105,7 +105,14 @@ class ApartmentController extends Controller
      */
     public function show($id)
     {
-        $apartment = Apartment::findOrFail($id);
+        // apartment class
+        $apartment = Apartment::find($id);
+        // logged user id
+        $auth_id = Auth::user()->id;
+        // authorization
+        if ($auth_id != $apartment->user_id){
+            return abort(403, 'Unauthorized action');
+        }
         // dd($apartment);
         return view('admin.apartments.show', compact('apartment'));
     }
@@ -118,7 +125,15 @@ class ApartmentController extends Controller
      */
     public function edit($id)
     {
+        // apartment class
         $apartment = Apartment::find($id);
+        // logged user id
+        $auth_id = Auth::user()->id;
+        // authorization
+        if ($auth_id != $apartment->user_id){
+            return abort(403, 'Unauthorized action');
+        }
+        // services class
         $services = Service::all();
         return view('admin.apartments.edit', compact('apartment', 'services'));
     }
@@ -165,16 +180,25 @@ class ApartmentController extends Controller
      */
     public function destroy($id)
     {
-        $apartment = Apartment::findOrFail($id);
+        // apartment class
+        $apartment = Apartment::find($id);
+
+        // logged user id
+        $auth_id = Auth::user()->id;
+
+        // authorization
+        if ($auth_id != $apartment->user_id){
+            return abort(403, 'Unauthorized action');
+        }
+
         // delete cover from storage
-        // dd($apartment);
         Storage::delete($apartment->cover);
+
         // delete services
         foreach($apartment->services as $item) {
             $apartment->services()->detach($item->id);
         }
 
-        // $apartment->services()->sync();
         // delete apartment
         $apartment->delete();
         return redirect()->route('admin.apartments.index');
