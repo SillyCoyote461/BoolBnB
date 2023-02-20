@@ -1,7 +1,8 @@
 <template>
     <div>
         <!---<HeaderVue/>-->
-        <IndexVue/>
+        <!-- <IndexVue/> -->
+        <ShowVue />
     </div>
 </template>
 
@@ -9,13 +10,15 @@
 
 
 import IndexVue from '../views/pages/IndexVue.vue'
+import ShowVue from '../views/pages/ShowVue.vue'
 import HeaderVue from '../components/HeaderVue.vue'
 
 export default {
     name: "App",
     components: {
         IndexVue,
-        HeaderVue
+        HeaderVue,
+        ShowVue
     }
 }
 </script>
