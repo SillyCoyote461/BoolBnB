@@ -2124,7 +2124,11 @@ var staticRenderFns = [function () {
     staticClass: "card-body"
   }, [_c("p", {
     staticClass: "card-text"
-  }, [_vm._v("\n                            Some quick example text to build on the card\n                            title and make up the bulk of the card's\n                            content.\n                        ")])])])])])])]);
+  }, [_vm._v("\n                            Some quick example text to build on the card\n                            title and make up the bulk of the card's\n                            content.\n                        ")])])])]), _vm._v(" "), _c("a", {
+    attrs: {
+      href: "/ShowVue"
+    }
+  }, [_vm._v("test")])])])]);
 }];
 render._withStripped = true;
 
@@ -50902,8 +50906,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Elia\OneDrive\Desktop\Esercizi-boolean\BoolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Elia\OneDrive\Desktop\Esercizi-boolean\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Marco D\Desktop\Dev\Boolean\FinalProj\BoolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Marco D\Desktop\Dev\Boolean\FinalProj\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
