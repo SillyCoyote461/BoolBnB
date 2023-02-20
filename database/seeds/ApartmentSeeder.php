@@ -15,8 +15,8 @@ class ApartmentSeeder extends Seeder
         for ($i = 0; $i < 50; $i++) {
             $newPost = new Apartment();
             $newPost->name = $faker->name();
-            $newPost->rooms = $faker->numberBetween(1, 10);
             $newPost->price = $faker->numberBetween(1, 500);
+            $newPost->rooms = $faker->numberBetween(1, 10);    
             $newPost->beds = $faker->numberBetween(1, 7);
             $newPost->baths = $faker->numberBetween(1, 3);
             $newPost->meters = $faker->numberBetween(30, 100);
@@ -24,10 +24,7 @@ class ApartmentSeeder extends Seeder
             $newPost->visibility = $faker->boolean();
             $newPost->description = $faker->words(30, true);
             $newPost->lat = $faker->latitude();
-            $newPost->lon = $faker->number(5);
-
-
-
+            $newPost->lon = $faker->longitude();
             $newPost->save();
         }
     }

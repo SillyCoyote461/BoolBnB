@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class apartment extends Model
 {
+    public $table = 'apartments';
     protected $fillable= [
         'name',
         'price',
