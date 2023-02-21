@@ -2071,7 +2071,7 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", [_vm._m(0), _vm._v(" "), _c("section", [_c("div", {
     staticClass: "containerCustom py-5"
-  }, [_vm._m(1), _vm._v(" "), _c("a", {
+  }, [_c("a", {
     attrs: {
       href: "/ShowVue"
     }
@@ -2134,27 +2134,6 @@ var staticRenderFns = [function () {
   })])])])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex justify-content-center"
   }, [_c("div", {}, [_vm._v("Filtri")])])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "border-bottom border-3 p-3 overflow-x-auto grid gap-3"
-  }, [_c("h1", [_vm._v("In Primo Piano")]), _vm._v(" "), _c("div", [_c("div", {
-    staticClass: "card",
-    staticStyle: {
-      width: "18rem"
-    }
-  }, [_c("img", {
-    staticClass: "card-img-top",
-    attrs: {
-      src: "",
-      alt: "..."
-    }
-  }), _vm._v(" "), _c("div", {
-    staticClass: "card-body"
-  }, [_c("p", {
-    staticClass: "card-text"
-  }, [_vm._v("\n                                Some quick example text to build on the card\n                                title and make up the bulk of the card's\n                                content.\n                            ")])])])])]);
 }];
 render._withStripped = true;
 
