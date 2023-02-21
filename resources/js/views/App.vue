@@ -1,7 +1,7 @@
 <template>
     <div>
         <!---<HeaderVue/>-->
-       <IndexVue/>
+       <IndexVue :propsApartment="apartments"/>
 
     </div>
 </template>
@@ -34,7 +34,6 @@ export default {
     },
     mounted(){
         this.getApartments()
-        console.log(this.apartments)
     }
 }
 </script>

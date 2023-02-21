@@ -47,7 +47,6 @@
                                     title and make up the bulk of the card's
                                     content.
                                 </p>
-
                             </div>
                         </div>
                     </div>
@@ -55,26 +54,42 @@
 
                 <!-- APPARTAMENTI CICLATI -->
 
-                <div class="p-3 border-3 d-flex flex-wrap grid gap-3">
-                    <div class="card" style="width: 18rem">
-                        <img
-                            src="../../../../public/img/jumbo.jpg"
-                            class="card-img-top"
-                            alt="..."
-                        />
-                        <div class="card-body">
-                            <p class="card-text">
-                                Some quick example text to build on the card
-                                title and make up the bulk of the card's
-                                content.
-                            </p>
-
-                        </div>
-                    </div>
-                </div>
+                
 
                 <a href="/ShowVue">test</a>
-
+                <div>
+                    <ul v-for="(element, index) in propsApartment" :key="index">
+                        <li>
+                            <div class="card" style="width: 18rem">
+                                <img :src="`http://image.tmdb.org/t/p/w342/ + {element.cover}`" class="card-img-top" alt="..." />
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ element.name }}</h5>
+                                    <p class="card-text">
+                                        {{ element.description }}
+                                    </p>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">price: {{ element.price }}$</li>
+                                    <li class="list-group-item">
+                                        rooms: {{ element.rooms }}
+                                    </li>
+                                    <li class="list-group-item">
+                                        beds: {{ element.beds }}
+                                    </li>
+                                    <li class="list-group-item">
+                                        baths: {{ element.baths }}
+                                    </li>
+                                </ul>
+                                <!-- <div class="card-body">
+                                    <a href="#" class="card-link">beds: {{ element.baths }}</a>
+                                    <a href="#" class="card-link"
+                                        >wewe</a
+                                    >
+                                </div> -->
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </section>
     </div>
@@ -83,19 +98,16 @@
 <script>
 export default {
     name: "IndexVue",
-
-    data(){
-        return{
-        }
+    props: {
+        propsApartment: Array,
     },
+    // data() {
 
-    methods : {
+    // },
 
-    },
+    // methods: {},
 
-    mounted(){
-    }
-
+    // mounted() {},
 };
 </script>
 

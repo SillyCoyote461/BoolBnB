@@ -1961,7 +1961,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.getApartments();
-    console.log(this.apartments);
   }
 });
 
@@ -1978,11 +1977,16 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "IndexVue",
-  data: function data() {
-    return {};
-  },
-  methods: {},
-  mounted: function mounted() {}
+  props: {
+    propsApartment: Array
+  }
+  // data() {
+
+  // },
+
+  // methods: {},
+
+  // mounted() {},
 });
 
 /***/ }),
@@ -2039,7 +2043,11 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_c("IndexVue")], 1);
+  return _c("div", [_c("IndexVue", {
+    attrs: {
+      propsApartment: _vm.apartments
+    }
+  })], 1);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -2061,12 +2069,49 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _vm._m(0);
+  return _c("div", [_vm._m(0), _vm._v(" "), _c("section", [_c("div", {
+    staticClass: "containerCustom py-5"
+  }, [_vm._m(1), _vm._v(" "), _c("a", {
+    attrs: {
+      href: "/ShowVue"
+    }
+  }, [_vm._v("test")]), _vm._v(" "), _c("div", _vm._l(_vm.propsApartment, function (element, index) {
+    return _c("ul", {
+      key: index
+    }, [_c("li", [_c("div", {
+      staticClass: "card",
+      staticStyle: {
+        width: "18rem"
+      }
+    }, [_c("img", {
+      staticClass: "card-img-top",
+      attrs: {
+        src: "http://image.tmdb.org/t/p/w342/ + {element.cover}",
+        alt: "..."
+      }
+    }), _vm._v(" "), _c("div", {
+      staticClass: "card-body"
+    }, [_c("h5", {
+      staticClass: "card-title"
+    }, [_vm._v(_vm._s(element.name))]), _vm._v(" "), _c("p", {
+      staticClass: "card-text"
+    }, [_vm._v("\n                                    " + _vm._s(element.description) + "\n                                ")])]), _vm._v(" "), _c("ul", {
+      staticClass: "list-group list-group-flush"
+    }, [_c("li", {
+      staticClass: "list-group-item"
+    }, [_vm._v("price: " + _vm._s(element.price) + "$")]), _vm._v(" "), _c("li", {
+      staticClass: "list-group-item"
+    }, [_vm._v("\n                                    rooms: " + _vm._s(element.rooms) + "\n                                ")]), _vm._v(" "), _c("li", {
+      staticClass: "list-group-item"
+    }, [_vm._v("\n                                    beds: " + _vm._s(element.beds) + "\n                                ")]), _vm._v(" "), _c("li", {
+      staticClass: "list-group-item"
+    }, [_vm._v("\n                                    baths: " + _vm._s(element.baths) + "\n                                ")])])])])]);
+  }), 0)])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_c("div", {
+  return _c("div", {
     staticClass: "backgroundImg d-flex flex-column"
   }, [_c("div", {
     staticClass: "d-flex align-items-center justify-content-center flex-grow-1"
@@ -2088,9 +2133,11 @@ var staticRenderFns = [function () {
     staticClass: "fa-solid fa-magnifying-glass"
   })])])])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex justify-content-center"
-  }, [_c("div", {}, [_vm._v("Filtri")])])]), _vm._v(" "), _c("section", [_c("div", {
-    staticClass: "containerCustom py-5"
-  }, [_c("div", {
+  }, [_c("div", {}, [_vm._v("Filtri")])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
     staticClass: "border-bottom border-3 p-3 overflow-x-auto grid gap-3"
   }, [_c("h1", [_vm._v("In Primo Piano")]), _vm._v(" "), _c("div", [_c("div", {
     staticClass: "card",
@@ -2107,28 +2154,7 @@ var staticRenderFns = [function () {
     staticClass: "card-body"
   }, [_c("p", {
     staticClass: "card-text"
-  }, [_vm._v("\n                                Some quick example text to build on the card\n                                title and make up the bulk of the card's\n                                content.\n                            ")])])])])]), _vm._v(" "), _c("div", {
-    staticClass: "p-3 border-3 d-flex flex-wrap grid gap-3"
-  }, [_c("div", {
-    staticClass: "card",
-    staticStyle: {
-      width: "18rem"
-    }
-  }, [_c("img", {
-    staticClass: "card-img-top",
-    attrs: {
-      src: __webpack_require__(/*! ../../../../public/img/jumbo.jpg */ "./public/img/jumbo.jpg"),
-      alt: "..."
-    }
-  }), _vm._v(" "), _c("div", {
-    staticClass: "card-body"
-  }, [_c("p", {
-    staticClass: "card-text"
-  }, [_vm._v("\n                            Some quick example text to build on the card\n                            title and make up the bulk of the card's\n                            content.\n                        ")])])])]), _vm._v(" "), _c("a", {
-    attrs: {
-      href: "/ShowVue"
-    }
-  }, [_vm._v("test")])])])]);
+  }, [_vm._v("\n                                Some quick example text to build on the card\n                                title and make up the bulk of the card's\n                                content.\n                            ")])])])])]);
 }];
 render._withStripped = true;
 
@@ -50906,8 +50932,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Marco D\Desktop\Dev\Boolean\FinalProj\BoolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Marco D\Desktop\Dev\Boolean\FinalProj\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Elia\OneDrive\Desktop\Esercizi-boolean\BoolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Elia\OneDrive\Desktop\Esercizi-boolean\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
