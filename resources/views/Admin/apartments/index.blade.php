@@ -26,8 +26,9 @@
             {{-- add new post --}}
             <div>
                 <a class="btn btn-newapartment" href="{{ route('admin.apartments.create') }}">
-                    Inserisci inserzione
                     <i class="fa-solid fa-plus"></i>
+                    Inserisci Appartamento
+
                 </a>
             </div>
         </section>
@@ -83,7 +84,7 @@
         <section id="vue-component">
             <div id="map" class="container pb-5 mt-5 d-flex flex-wrap justify-content-evenly"></div>
         </section>
-        
+
 
     </div>
 @endsection
@@ -100,6 +101,6 @@
 })
 .catch((error) => {
     console.log(error);
-}); 
+});
 </script>
 @endsection

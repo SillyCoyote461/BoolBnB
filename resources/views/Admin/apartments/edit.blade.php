@@ -91,7 +91,7 @@
         </div>
 
         {{-- submit --}}
-        <button type="submit" class="btn btn-success">Aggiorna inserzione</button>
+        <button type="submit" class="">Modifica</button>
     </form>
 </div>
 
