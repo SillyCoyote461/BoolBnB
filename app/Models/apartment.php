@@ -39,4 +39,8 @@ class apartment extends Model
         return $this->belongsToMany('App\Models\view');
     }
 
+    public function messages(){
+        return $this->belongsToMany('App\Models\message');
+    }
+
 }
