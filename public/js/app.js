@@ -2086,7 +2086,7 @@ var render = function render() {
     }, [_c("img", {
       staticClass: "card-img-top",
       attrs: {
-        src: "http://image.tmdb.org/t/p/w342/ + {element.cover}",
+        src: __webpack_require__("./storage/app/public sync recursive ^\\.\\/.*$")("./".concat(element.cover)),
         alt: "..."
       }
     }), _vm._v(" "), _c("div", {
@@ -50925,6 +50925,62 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./storage/app/public sync recursive ^\\.\\/.*$":
+/*!******************************************!*\
+  !*** ./storage/app/public sync ^\.\/.*$ ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./apartment_cover/msw8N5h9DRaNQm13j0AhcS0R4hRvt2qUEudDFdEc.png": "./storage/app/public/apartment_cover/msw8N5h9DRaNQm13j0AhcS0R4hRvt2qUEudDFdEc.png",
+	"./apartment_cover/tSJBk11Fp7jJSbPswrPU7o4bYNHAhB0QaGQMrY70.png": "./storage/app/public/apartment_cover/tSJBk11Fp7jJSbPswrPU7o4bYNHAhB0QaGQMrY70.png"
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
+}
+function webpackContextResolve(req) {
+	if(!__webpack_require__.o(map, req)) {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return map[req];
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = "./storage/app/public sync recursive ^\\.\\/.*$";
+
+/***/ }),
+
+/***/ "./storage/app/public/apartment_cover/msw8N5h9DRaNQm13j0AhcS0R4hRvt2qUEudDFdEc.png":
+/*!*****************************************************************************************!*\
+  !*** ./storage/app/public/apartment_cover/msw8N5h9DRaNQm13j0AhcS0R4hRvt2qUEudDFdEc.png ***!
+  \*****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/msw8N5h9DRaNQm13j0AhcS0R4hRvt2qUEudDFdEc.png?dafc0ce98a23b7762954e6ce4109a8e4";
+
+/***/ }),
+
+/***/ "./storage/app/public/apartment_cover/tSJBk11Fp7jJSbPswrPU7o4bYNHAhB0QaGQMrY70.png":
+/*!*****************************************************************************************!*\
+  !*** ./storage/app/public/apartment_cover/tSJBk11Fp7jJSbPswrPU7o4bYNHAhB0QaGQMrY70.png ***!
+  \*****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/tSJBk11Fp7jJSbPswrPU7o4bYNHAhB0QaGQMrY70.png?dafc0ce98a23b7762954e6ce4109a8e4";
+
+/***/ }),
+
 /***/ 0:
 /*!*************************************************************!*\
   !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
@@ -50932,8 +50988,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Elia\OneDrive\Desktop\Esercizi-boolean\BoolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Elia\OneDrive\Desktop\Esercizi-boolean\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Lo Snipah\Desktop\Studio\esercizi\php-laravel\BoolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Lo Snipah\Desktop\Studio\esercizi\php-laravel\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

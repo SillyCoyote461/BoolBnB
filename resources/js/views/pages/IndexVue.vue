@@ -54,14 +54,14 @@
 
                 <!-- APPARTAMENTI CICLATI -->
 
-                
+
 
                 <a href="/ShowVue">test</a>
                 <div>
                     <ul v-for="(element, index) in propsApartment" :key="index">
                         <li>
                             <div class="card" style="width: 18rem">
-                                <img :src="`http://image.tmdb.org/t/p/w342/ + {element.cover}`" class="card-img-top" alt="..." />
+                                <img :src="require(`../../../../storage/app/public/${element.cover}`)" class="card-img-top" alt="..." />
                                 <div class="card-body">
                                     <h5 class="card-title">{{ element.name }}</h5>
                                     <p class="card-text">
