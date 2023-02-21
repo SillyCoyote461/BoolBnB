@@ -25,7 +25,6 @@ class ApartmentController extends Controller
     {
         $apartments = Apartment::where('user_id', '=', auth()->id())->get();
 
-
         return view('admin.apartments.index', compact('apartments'));
     }
 
@@ -158,15 +157,13 @@ class ApartmentController extends Controller
             $cover_url= Storage::put('apartment_cover', $data['cover']);
             $data['cover'] = $cover_url;
         }
-
+        // visibility
         if(array_key_exists('visibility', $data)) {
             $data['visibility'] = true;
         }
         else{
             $data['visibility'] = false;
         }
-
-
 
         $apartment->update($data);
         return redirect()->route('admin.apartments.index');

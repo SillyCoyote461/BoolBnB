@@ -35,4 +35,8 @@ class apartment extends Model
         return $this->belongsTo('App\user');
     }
 
+    public function views(){
+        return $this->belongsToMany('App\Models\view');
+    }
+
 }

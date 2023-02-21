@@ -11,6 +11,6 @@ class view extends Model
         'ip_address',
     ];
     public function views(){
-        return $this->belongsToMany('App\Models\apartment');
+        return $this->belongsTo('App\Models\apartment');
     }
 }
