@@ -1,4 +1,6 @@
-
+.navbar{
+    z-index: 99;
+}
 
 .purple-bg {
     background-color: #6f42c1;
