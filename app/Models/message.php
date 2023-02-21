@@ -15,6 +15,6 @@ class message extends Model
     ];
 
     public function messages(){
-        return $this->belongsToMany('App\Models\apartment');
+        return $this->belongsTo('App\Models\apartment');
     }
 }
