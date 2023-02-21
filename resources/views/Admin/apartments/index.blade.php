@@ -80,27 +80,9 @@
 
             </div>
 
-        </section>
-        <section id="vue-component">
-            <div id="map" class="container pb-5 mt-5 d-flex flex-wrap justify-content-evenly"></div>
-        </section>
+       
 
 
     </div>
 @endsection
 
-@section('scripts')
-<script>
-   axios.get('https://api.example.com/data', {
-    params: {
-        key: 'bCA9waVZD04StnT2jWnglVMqwjHK75ve',
-    }
-})
-.then((response) => {
-    console.log(response.data);
-})
-.catch((error) => {
-    console.log(error);
-});
-</script>
-@endsection
