@@ -9,7 +9,7 @@
         @csrf
         {{-- name --}}
         <div>
-            <label class="form-label" for="name">Titolo</label>
+            <label class="form-label" for="name">Titolo *</label>
             <input class="form-control @error('name') is-invalid @enderror" type="text" id="name" name="name"
                  required>
             @error('name')
@@ -20,8 +20,8 @@
 
         {{-- description --}}
         <div class="form-floating my-3">
-            <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" required placeholder="Descrizione"></textarea>
-            <label for="description">Descrizione</label>
+            <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" required ></textarea>
+            <label for="description">Descrizione *</label>
             @error('description')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
@@ -31,7 +31,7 @@
         <section class="container px-0 d-flex gap-5">
             {{-- rooms --}}
             <span>
-                <label class="form-label" for="rooms">Stanze</label>
+                <label class="form-label" for="rooms">Stanze *</label>
                 <input min="1" step="1" type="number" id="rooms"
                     class="form-control @error('rooms') is-invalid @enderror" name="rooms"
                      style="width: 100px;" required>
@@ -41,7 +41,7 @@
             </span>
             {{-- beds --}}
             <span>
-                <label class="form-label" for="beds">Posti letto</label>
+                <label class="form-label" for="beds">Posti letto *</label>
                 <input min="1" step="1" type="number" id="beds"
                     class="form-control @error('beds') is-invalid @enderror" name="beds"
                      style="width: 100px;" required>
@@ -51,7 +51,7 @@
             </span>
             {{-- baths --}}
             <span>
-                <label class="form-label" for="baths">Bagni</label>
+                <label class="form-label" for="baths">Bagni *</label>
                 <input min="1" step="1" type="number" id="baths"
                     class="form-control @error('baths') is-invalid @enderror" name="baths"
                      style="width: 100px;" required>
@@ -61,7 +61,7 @@
             </span>
             {{-- price --}}
             <span>
-                <label class="form-label" for="price">Prezzo</label>
+                <label class="form-label" for="price">Prezzo *</label>
                 <input min="1" step="0.01" type="number" id="price"
                     class="form-control @error('price') is-invalid @enderror" name="price"
                      style="width: 100px;" required>
@@ -73,7 +73,7 @@
 
             {{-- meters --}}
             <span>
-                <label class="form-label" for="meters">Metri quadri</label>
+                <label class="form-label" for="meters">Metri quadri *</label>
                 <input min="1" step="1" type="number" id="meters" class="form-control" name="meters"
                      required />
                 @error('meters')
@@ -123,7 +123,7 @@
 
      {{-- cover --}}
      <div class="my-3 ">
-        <label for="cover" class="form-label">Aggiungi Cover</label>
+        <label for="cover" class="form-label">Aggiungi Cover*</label>
         <input class="form-control" type="file" id="cover" name="cover" required>
         @error('cover')
         <div class="alert alert-danger">{{ $message }}</div>
@@ -133,7 +133,7 @@
         {{-- visibility --}}
         <div class="form-check form-switch mb-5">
             <input name="visibility" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-            <label class="form-check-label" for="flexSwitchCheckDefault">VisibilitÃ¡</label>
+            <label class="form-check-label" for="flexSwitchCheckDefault">Visibilità</label>
         </div>
 
         {{-- submit --}}
