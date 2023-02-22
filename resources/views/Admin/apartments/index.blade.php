@@ -62,6 +62,11 @@
                                             class="butt-2"><i class="fa-solid fa-pen-to-square"></i></button></a>
                                 </div>
 
+                                <div>
+                                    <button type="button" class="butt-2" data-toggle="modal" data-target="#confirmDeleteModal">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
 
                                 <!-- Modale di conferma -->
                                 <div class="modal" id="confirmDeleteModal" tabindex="-1" role="dialog">
