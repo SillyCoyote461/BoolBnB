@@ -47,7 +47,7 @@
                         </div>
                         <div class="card-info">
                             <p class="text-title">{{ $item->name }} </p>
-                            <p class="text-body">Posti letto: {{$item->beds}}</p>
+                            <p class="text-body">Posti letto: {{ $item->beds }}</p>
                         </div>
                         <div class="card-footer">
                             <span class="text-title bold-violet">&euro;{{ $item->price }}</span>
@@ -62,14 +62,45 @@
                                             class="butt-2"><i class="fa-solid fa-pen-to-square"></i></button></a>
                                 </div>
 
-                                <div>
-                                    <form method="POST" action="{{ route('admin.apartments.destroy', $item->id) }}">
+
+                                {{-- <form method="POST" action="{{ route('admin.apartments.destroy', $item->id) }}">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="butt-2"><i
                                                 class="fa-solid fa-trash"></i></button>
-                                    </form>
+                                    </form> --}}
+                                <button type="button" class="butt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5 text-danger" id="exampleModalLabel">Eliminare
+                                                </h1>
+                                            </div>
+                                            <div class="modal-body">
+                                                Sei sicuro di voler eliminare <span
+                                                    class="fw-bold">{{ $item->name }}</span> ?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="butt-1" data-bs-dismiss="modal">Close</button>
+                                                {{-- <button type="button" class="butt-1">Save changes</button> --}}
+                                                <form method="POST"
+                                                    action="{{ route('admin.apartments.destroy', $item->id) }}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="butt-1">Elimina</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+
+
 
                             </div>
 
@@ -80,9 +111,8 @@
 
             </div>
 
-       
+
 
 
     </div>
 @endsection
-
