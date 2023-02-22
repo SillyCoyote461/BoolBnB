@@ -98,8 +98,8 @@
                                         </div>
                                     </div>
                                 </div> --}}
-                                <div class="dropdown">
-                                    <button class="butt-2 dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                {{-- <div class="dropdown">
+                                    <button class="butt-1 dropdown-toggle" type="button" data-bs-toggle="dropdown"
                                         aria-expanded="false">
                                         <i class="fa-solid fa-trash"></i>
                                     </button>
@@ -115,7 +115,7 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </div>
+                                </div> --}}
 
 
 
