@@ -50912,8 +50912,12 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./apartment_cover/msw8N5h9DRaNQm13j0AhcS0R4hRvt2qUEudDFdEc.png": "./storage/app/public/apartment_cover/msw8N5h9DRaNQm13j0AhcS0R4hRvt2qUEudDFdEc.png",
-	"./apartment_cover/tSJBk11Fp7jJSbPswrPU7o4bYNHAhB0QaGQMrY70.png": "./storage/app/public/apartment_cover/tSJBk11Fp7jJSbPswrPU7o4bYNHAhB0QaGQMrY70.png"
+	"./apartment_cover/3FBT2aKPeFEM3zRZzudXPK8k3o1bp82bpbfQtKoy.png": "./storage/app/public/apartment_cover/3FBT2aKPeFEM3zRZzudXPK8k3o1bp82bpbfQtKoy.png",
+	"./apartment_cover/JRvLSjhszsXQh1Yys3aEz5Kq9qRYnjHKEwvG5Adv.png": "./storage/app/public/apartment_cover/JRvLSjhszsXQh1Yys3aEz5Kq9qRYnjHKEwvG5Adv.png",
+	"./apartment_cover/PCRGW8RXkxFFuEyzIdqeg0Tomk5a4UWd1RjNCy7r.png": "./storage/app/public/apartment_cover/PCRGW8RXkxFFuEyzIdqeg0Tomk5a4UWd1RjNCy7r.png",
+	"./apartment_cover/frZYAnArsf31vDCCnCP4OMBrVNjEg6kFH8crCFbc.png": "./storage/app/public/apartment_cover/frZYAnArsf31vDCCnCP4OMBrVNjEg6kFH8crCFbc.png",
+	"./apartment_cover/u4teBN1wV0vAVh56InkqtstzsjNvuEXbgAA9aREf.png": "./storage/app/public/apartment_cover/u4teBN1wV0vAVh56InkqtstzsjNvuEXbgAA9aREf.png",
+	"./apartment_cover/yFKTywPitxmroaQmKcnw7BP19pywJbJIBlwBlxoq.png": "./storage/app/public/apartment_cover/yFKTywPitxmroaQmKcnw7BP19pywJbJIBlwBlxoq.png"
 };
 
 
@@ -50938,25 +50942,69 @@ webpackContext.id = "./storage/app/public sync recursive ^\\.\\/.*$";
 
 /***/ }),
 
-/***/ "./storage/app/public/apartment_cover/msw8N5h9DRaNQm13j0AhcS0R4hRvt2qUEudDFdEc.png":
+/***/ "./storage/app/public/apartment_cover/3FBT2aKPeFEM3zRZzudXPK8k3o1bp82bpbfQtKoy.png":
 /*!*****************************************************************************************!*\
-  !*** ./storage/app/public/apartment_cover/msw8N5h9DRaNQm13j0AhcS0R4hRvt2qUEudDFdEc.png ***!
+  !*** ./storage/app/public/apartment_cover/3FBT2aKPeFEM3zRZzudXPK8k3o1bp82bpbfQtKoy.png ***!
   \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/msw8N5h9DRaNQm13j0AhcS0R4hRvt2qUEudDFdEc.png?dafc0ce98a23b7762954e6ce4109a8e4";
+module.exports = "/images/3FBT2aKPeFEM3zRZzudXPK8k3o1bp82bpbfQtKoy.png?26363f02d4c2f598eeb4801f396cba1b";
 
 /***/ }),
 
-/***/ "./storage/app/public/apartment_cover/tSJBk11Fp7jJSbPswrPU7o4bYNHAhB0QaGQMrY70.png":
+/***/ "./storage/app/public/apartment_cover/JRvLSjhszsXQh1Yys3aEz5Kq9qRYnjHKEwvG5Adv.png":
 /*!*****************************************************************************************!*\
-  !*** ./storage/app/public/apartment_cover/tSJBk11Fp7jJSbPswrPU7o4bYNHAhB0QaGQMrY70.png ***!
+  !*** ./storage/app/public/apartment_cover/JRvLSjhszsXQh1Yys3aEz5Kq9qRYnjHKEwvG5Adv.png ***!
   \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/tSJBk11Fp7jJSbPswrPU7o4bYNHAhB0QaGQMrY70.png?dafc0ce98a23b7762954e6ce4109a8e4";
+module.exports = "/images/JRvLSjhszsXQh1Yys3aEz5Kq9qRYnjHKEwvG5Adv.png?26363f02d4c2f598eeb4801f396cba1b";
+
+/***/ }),
+
+/***/ "./storage/app/public/apartment_cover/PCRGW8RXkxFFuEyzIdqeg0Tomk5a4UWd1RjNCy7r.png":
+/*!*****************************************************************************************!*\
+  !*** ./storage/app/public/apartment_cover/PCRGW8RXkxFFuEyzIdqeg0Tomk5a4UWd1RjNCy7r.png ***!
+  \*****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/PCRGW8RXkxFFuEyzIdqeg0Tomk5a4UWd1RjNCy7r.png?26363f02d4c2f598eeb4801f396cba1b";
+
+/***/ }),
+
+/***/ "./storage/app/public/apartment_cover/frZYAnArsf31vDCCnCP4OMBrVNjEg6kFH8crCFbc.png":
+/*!*****************************************************************************************!*\
+  !*** ./storage/app/public/apartment_cover/frZYAnArsf31vDCCnCP4OMBrVNjEg6kFH8crCFbc.png ***!
+  \*****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/frZYAnArsf31vDCCnCP4OMBrVNjEg6kFH8crCFbc.png?26363f02d4c2f598eeb4801f396cba1b";
+
+/***/ }),
+
+/***/ "./storage/app/public/apartment_cover/u4teBN1wV0vAVh56InkqtstzsjNvuEXbgAA9aREf.png":
+/*!*****************************************************************************************!*\
+  !*** ./storage/app/public/apartment_cover/u4teBN1wV0vAVh56InkqtstzsjNvuEXbgAA9aREf.png ***!
+  \*****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/u4teBN1wV0vAVh56InkqtstzsjNvuEXbgAA9aREf.png?26363f02d4c2f598eeb4801f396cba1b";
+
+/***/ }),
+
+/***/ "./storage/app/public/apartment_cover/yFKTywPitxmroaQmKcnw7BP19pywJbJIBlwBlxoq.png":
+/*!*****************************************************************************************!*\
+  !*** ./storage/app/public/apartment_cover/yFKTywPitxmroaQmKcnw7BP19pywJbJIBlwBlxoq.png ***!
+  \*****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/yFKTywPitxmroaQmKcnw7BP19pywJbJIBlwBlxoq.png?26363f02d4c2f598eeb4801f396cba1b";
 
 /***/ }),
 
@@ -50967,8 +51015,8 @@ module.exports = "/images/tSJBk11Fp7jJSbPswrPU7o4bYNHAhB0QaGQMrY70.png?dafc0ce98
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Lo Snipah\Desktop\Studio\esercizi\php-laravel\BoolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Lo Snipah\Desktop\Studio\esercizi\php-laravel\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Elia\OneDrive\Desktop\Esercizi-boolean\BoolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Elia\OneDrive\Desktop\Esercizi-boolean\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
