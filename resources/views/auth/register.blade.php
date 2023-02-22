@@ -25,7 +25,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('Surname') }} *</label>
 
                             <div class="col-md-6">
@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="birthdate" class="col-md-4 col-form-label text-md-right">{{ __('date of birth') }} *</label>
+                            <label for="birthdate" class="col-md-4 col-form-label text-md-right">{{ __('Date of Birth') }} *</label>
                         
                             <div class="col-md-6">
                                 <input id="birthdate" type="date" class="form-control @error('birthdate') is-invalid @enderror" name="birthdate" value="{{ old('birthdate') }}" required autocomplete="birthdate">
@@ -51,7 +51,7 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div>                        
+                        </div>                         --}}
 
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
