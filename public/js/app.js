@@ -2075,37 +2075,36 @@ var render = function render() {
     attrs: {
       href: "/ShowVue"
     }
-  }, [_vm._v("test")]), _vm._v(" "), _c("div", _vm._l(_vm.propsApartment, function (element, index) {
+  }, [_vm._v("test")]), _vm._v(" "), _c("div", {
+    staticClass: "d-flex"
+  }, _vm._l(_vm.propsApartment, function (element, index) {
     return _c("ul", {
       key: index
     }, [_c("li", [_c("div", {
-      staticClass: "card",
-      staticStyle: {
-        width: "18rem"
-      }
+      staticClass: "card"
+    }, [_c("div", {
+      staticClass: "card-img"
     }, [_c("img", {
       staticClass: "card-img-top",
       attrs: {
         src: __webpack_require__("./storage/app/public sync recursive ^\\.\\/.*$")("./".concat(element.cover)),
         alt: "..."
       }
-    }), _vm._v(" "), _c("div", {
-      staticClass: "card-body"
-    }, [_c("h5", {
-      staticClass: "card-title"
-    }, [_vm._v(_vm._s(element.name))]), _vm._v(" "), _c("p", {
-      staticClass: "card-text"
-    }, [_vm._v("\n                                    " + _vm._s(element.description) + "\n                                ")])]), _vm._v(" "), _c("ul", {
-      staticClass: "list-group list-group-flush"
-    }, [_c("li", {
-      staticClass: "list-group-item"
-    }, [_vm._v("price: " + _vm._s(element.price) + "$")]), _vm._v(" "), _c("li", {
-      staticClass: "list-group-item"
-    }, [_vm._v("\n                                    rooms: " + _vm._s(element.rooms) + "\n                                ")]), _vm._v(" "), _c("li", {
-      staticClass: "list-group-item"
-    }, [_vm._v("\n                                    beds: " + _vm._s(element.beds) + "\n                                ")]), _vm._v(" "), _c("li", {
-      staticClass: "list-group-item"
-    }, [_vm._v("\n                                    baths: " + _vm._s(element.baths) + "\n                                ")])])])])]);
+    })]), _vm._v(" "), _c("div", {
+      staticClass: "card-info"
+    }, [_c("p", {
+      staticClass: "text-title"
+    }, [_vm._v(_vm._s(element.name) + " ")]), _vm._v(" "), _c("p", {
+      staticClass: "text-body"
+    }, [_vm._v("Posti letto: " + _vm._s(element.beds))]), _vm._v(" "), _c("p", {
+      staticClass: "text-body"
+    }, [_vm._v("rooms: " + _vm._s(element.rooms))]), _vm._v(" "), _c("p", {
+      staticClass: "text-body"
+    }, [_vm._v("baths: " + _vm._s(element.baths))])]), _vm._v(" "), _c("div", {
+      staticClass: "card-footer"
+    }, [_c("span", {
+      staticClass: "text-title bold-violet"
+    }, [_vm._v(_vm._s(element.price) + "€")])])])])]);
   }), 0)])])]);
 };
 var staticRenderFns = [function () {
