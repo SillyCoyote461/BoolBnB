@@ -37,19 +37,16 @@
 
 
                 <a href="/ShowVue">test</a>
-                <div>
+                <div class="d-flex">
                     <ul v-for="(element, index) in propsApartment" :key="index">
                         <li>
-                            <div class="card" style="width: 18rem">
+                            <!-- <div class="card" style="width: 18rem">
                                 <img :src="require(`../../../../storage/app/public/${element.cover}`)" class="card-img-top" alt="..." />
                                 <div class="card-body">
                                     <h5 class="card-title">{{ element.name }}</h5>
-                                    <p class="card-text">
-                                        {{ element.description }}
-                                    </p>
                                 </div>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">price: {{ element.price }}$</li>
+                                    <li class="list-group-item">price: {{ element.price }}&euro;</li>
                                     <li class="list-group-item">
                                         rooms: {{ element.rooms }}
                                     </li>
@@ -60,12 +57,21 @@
                                         baths: {{ element.baths }}
                                     </li>
                                 </ul>
-                                <!-- <div class="card-body">
-                                    <a href="#" class="card-link">beds: {{ element.baths }}</a>
-                                    <a href="#" class="card-link"
-                                        >wewe</a
-                                    >
-                                </div> -->
+
+                            </div> -->
+                            <div class="card">
+                                <div class="card-img">
+                                    <img :src="require(`../../../../storage/app/public/${element.cover}`)" class="card-img-top" alt="..." />
+                                </div>
+                                <div class="card-info">
+                                    <p class="text-title">{{ element.name }} </p>
+                                    <p class="text-body">Posti letto: {{ element.beds }}</p>
+                                    <p class="text-body">rooms: {{ element.rooms }}</p>
+                                    <p class="text-body">baths: {{ element.baths }}</p>
+                                </div>
+                                <div class="card-footer">
+                                    <span class="text-title bold-violet">{{ element.price }}&euro;</span>
+                                </div>
                             </div>
                         </li>
                     </ul>

@@ -2075,37 +2075,36 @@ var render = function render() {
     attrs: {
       href: "/ShowVue"
     }
-  }, [_vm._v("test")]), _vm._v(" "), _c("div", _vm._l(_vm.propsApartment, function (element, index) {
+  }, [_vm._v("test")]), _vm._v(" "), _c("div", {
+    staticClass: "d-flex"
+  }, _vm._l(_vm.propsApartment, function (element, index) {
     return _c("ul", {
       key: index
     }, [_c("li", [_c("div", {
-      staticClass: "card",
-      staticStyle: {
-        width: "18rem"
-      }
+      staticClass: "card"
+    }, [_c("div", {
+      staticClass: "card-img"
     }, [_c("img", {
       staticClass: "card-img-top",
       attrs: {
         src: __webpack_require__("./storage/app/public sync recursive ^\\.\\/.*$")("./".concat(element.cover)),
         alt: "..."
       }
-    }), _vm._v(" "), _c("div", {
-      staticClass: "card-body"
-    }, [_c("h5", {
-      staticClass: "card-title"
-    }, [_vm._v(_vm._s(element.name))]), _vm._v(" "), _c("p", {
-      staticClass: "card-text"
-    }, [_vm._v("\n                                    " + _vm._s(element.description) + "\n                                ")])]), _vm._v(" "), _c("ul", {
-      staticClass: "list-group list-group-flush"
-    }, [_c("li", {
-      staticClass: "list-group-item"
-    }, [_vm._v("price: " + _vm._s(element.price) + "$")]), _vm._v(" "), _c("li", {
-      staticClass: "list-group-item"
-    }, [_vm._v("\n                                    rooms: " + _vm._s(element.rooms) + "\n                                ")]), _vm._v(" "), _c("li", {
-      staticClass: "list-group-item"
-    }, [_vm._v("\n                                    beds: " + _vm._s(element.beds) + "\n                                ")]), _vm._v(" "), _c("li", {
-      staticClass: "list-group-item"
-    }, [_vm._v("\n                                    baths: " + _vm._s(element.baths) + "\n                                ")])])])])]);
+    })]), _vm._v(" "), _c("div", {
+      staticClass: "card-info"
+    }, [_c("p", {
+      staticClass: "text-title"
+    }, [_vm._v(_vm._s(element.name) + " ")]), _vm._v(" "), _c("p", {
+      staticClass: "text-body"
+    }, [_vm._v("Posti letto: " + _vm._s(element.beds))]), _vm._v(" "), _c("p", {
+      staticClass: "text-body"
+    }, [_vm._v("rooms: " + _vm._s(element.rooms))]), _vm._v(" "), _c("p", {
+      staticClass: "text-body"
+    }, [_vm._v("baths: " + _vm._s(element.baths))])]), _vm._v(" "), _c("div", {
+      staticClass: "card-footer"
+    }, [_c("span", {
+      staticClass: "text-title bold-violet"
+    }, [_vm._v(_vm._s(element.price) + "€")])])])])]);
   }), 0)])])]);
 };
 var staticRenderFns = [function () {
@@ -50912,8 +50911,10 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./apartment_cover/msw8N5h9DRaNQm13j0AhcS0R4hRvt2qUEudDFdEc.png": "./storage/app/public/apartment_cover/msw8N5h9DRaNQm13j0AhcS0R4hRvt2qUEudDFdEc.png",
-	"./apartment_cover/tSJBk11Fp7jJSbPswrPU7o4bYNHAhB0QaGQMrY70.png": "./storage/app/public/apartment_cover/tSJBk11Fp7jJSbPswrPU7o4bYNHAhB0QaGQMrY70.png"
+	"./apartment_cover/6UyaqN7XIjltw43Ukn85snqxHYb83HxzqCEYv78b.jpg": "./storage/app/public/apartment_cover/6UyaqN7XIjltw43Ukn85snqxHYb83HxzqCEYv78b.jpg",
+	"./apartment_cover/CMpZUaa0occd8LaUKy2AWsxBEbeS2wjtxGXRsg2d.jpg": "./storage/app/public/apartment_cover/CMpZUaa0occd8LaUKy2AWsxBEbeS2wjtxGXRsg2d.jpg",
+	"./apartment_cover/Zvs9Y8mpt3qmNQh4Qa0noLDThTzZFi3LtY1b79lK.jpg": "./storage/app/public/apartment_cover/Zvs9Y8mpt3qmNQh4Qa0noLDThTzZFi3LtY1b79lK.jpg",
+	"./apartment_cover/pV06mGVHp5DnR5ghaUdOhM1uazEpPSbLqJ8CcDS3.jpg": "./storage/app/public/apartment_cover/pV06mGVHp5DnR5ghaUdOhM1uazEpPSbLqJ8CcDS3.jpg"
 };
 
 
@@ -50938,25 +50939,47 @@ webpackContext.id = "./storage/app/public sync recursive ^\\.\\/.*$";
 
 /***/ }),
 
-/***/ "./storage/app/public/apartment_cover/msw8N5h9DRaNQm13j0AhcS0R4hRvt2qUEudDFdEc.png":
+/***/ "./storage/app/public/apartment_cover/6UyaqN7XIjltw43Ukn85snqxHYb83HxzqCEYv78b.jpg":
 /*!*****************************************************************************************!*\
-  !*** ./storage/app/public/apartment_cover/msw8N5h9DRaNQm13j0AhcS0R4hRvt2qUEudDFdEc.png ***!
+  !*** ./storage/app/public/apartment_cover/6UyaqN7XIjltw43Ukn85snqxHYb83HxzqCEYv78b.jpg ***!
   \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/msw8N5h9DRaNQm13j0AhcS0R4hRvt2qUEudDFdEc.png?dafc0ce98a23b7762954e6ce4109a8e4";
+module.exports = "/images/6UyaqN7XIjltw43Ukn85snqxHYb83HxzqCEYv78b.jpg?8556adfbc4970dc4a1b0ddaa7bd6bbd3";
 
 /***/ }),
 
-/***/ "./storage/app/public/apartment_cover/tSJBk11Fp7jJSbPswrPU7o4bYNHAhB0QaGQMrY70.png":
+/***/ "./storage/app/public/apartment_cover/CMpZUaa0occd8LaUKy2AWsxBEbeS2wjtxGXRsg2d.jpg":
 /*!*****************************************************************************************!*\
-  !*** ./storage/app/public/apartment_cover/tSJBk11Fp7jJSbPswrPU7o4bYNHAhB0QaGQMrY70.png ***!
+  !*** ./storage/app/public/apartment_cover/CMpZUaa0occd8LaUKy2AWsxBEbeS2wjtxGXRsg2d.jpg ***!
   \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/tSJBk11Fp7jJSbPswrPU7o4bYNHAhB0QaGQMrY70.png?dafc0ce98a23b7762954e6ce4109a8e4";
+module.exports = "/images/CMpZUaa0occd8LaUKy2AWsxBEbeS2wjtxGXRsg2d.jpg?8556adfbc4970dc4a1b0ddaa7bd6bbd3";
+
+/***/ }),
+
+/***/ "./storage/app/public/apartment_cover/Zvs9Y8mpt3qmNQh4Qa0noLDThTzZFi3LtY1b79lK.jpg":
+/*!*****************************************************************************************!*\
+  !*** ./storage/app/public/apartment_cover/Zvs9Y8mpt3qmNQh4Qa0noLDThTzZFi3LtY1b79lK.jpg ***!
+  \*****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Zvs9Y8mpt3qmNQh4Qa0noLDThTzZFi3LtY1b79lK.jpg?8556adfbc4970dc4a1b0ddaa7bd6bbd3";
+
+/***/ }),
+
+/***/ "./storage/app/public/apartment_cover/pV06mGVHp5DnR5ghaUdOhM1uazEpPSbLqJ8CcDS3.jpg":
+/*!*****************************************************************************************!*\
+  !*** ./storage/app/public/apartment_cover/pV06mGVHp5DnR5ghaUdOhM1uazEpPSbLqJ8CcDS3.jpg ***!
+  \*****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/pV06mGVHp5DnR5ghaUdOhM1uazEpPSbLqJ8CcDS3.jpg?11547616fcebf8b8cc1ef7a650dbe680";
 
 /***/ }),
 
@@ -50967,8 +50990,8 @@ module.exports = "/images/tSJBk11Fp7jJSbPswrPU7o4bYNHAhB0QaGQMrY70.png?dafc0ce98
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Lo Snipah\Desktop\Studio\esercizi\php-laravel\BoolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Lo Snipah\Desktop\Studio\esercizi\php-laravel\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\luigi\Desktop\cartella repository\BoolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\luigi\Desktop\cartella repository\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
