@@ -50913,8 +50913,19 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
+<<<<<<< HEAD
 	"./apartment_cover/Zvs9Y8mpt3qmNQh4Qa0noLDThTzZFi3LtY1b79lK.jpg": "./storage/app/public/apartment_cover/Zvs9Y8mpt3qmNQh4Qa0noLDThTzZFi3LtY1b79lK.jpg",
 	"./apartment_cover/pV06mGVHp5DnR5ghaUdOhM1uazEpPSbLqJ8CcDS3.jpg": "./storage/app/public/apartment_cover/pV06mGVHp5DnR5ghaUdOhM1uazEpPSbLqJ8CcDS3.jpg"
+=======
+	"./apartment_cover/1CZylZ5yDTuQd2RRFtpfVPJtLHl7iEP5rVF2eQ9B.jpg": "./storage/app/public/apartment_cover/1CZylZ5yDTuQd2RRFtpfVPJtLHl7iEP5rVF2eQ9B.jpg",
+	"./apartment_cover/94F3nC87M1V9x5JAwGuYVS6R4ZsSiZnTavxH5qsz.jpg": "./storage/app/public/apartment_cover/94F3nC87M1V9x5JAwGuYVS6R4ZsSiZnTavxH5qsz.jpg",
+	"./apartment_cover/ARgJMbXDQwVvgasP2BIDi8MOHLkOADy1DATNpuZg.jpg": "./storage/app/public/apartment_cover/ARgJMbXDQwVvgasP2BIDi8MOHLkOADy1DATNpuZg.jpg",
+	"./apartment_cover/UUFgpfYn99ly1U5Uy92Xmru8JHn5JA9iUom1OiS4.zip": "./storage/app/public/apartment_cover/UUFgpfYn99ly1U5Uy92Xmru8JHn5JA9iUom1OiS4.zip",
+	"./apartment_cover/moB32tcGezl81GrCVgKf7yd673J12PJVhY8LHH4x.jpg": "./storage/app/public/apartment_cover/moB32tcGezl81GrCVgKf7yd673J12PJVhY8LHH4x.jpg",
+	"./apartment_cover/rq0qTr4A4JcYB1QAKhYa6IHhRx6sJcI7gNvZYU4b.jpg": "./storage/app/public/apartment_cover/rq0qTr4A4JcYB1QAKhYa6IHhRx6sJcI7gNvZYU4b.jpg",
+	"./apartment_cover/tjOkwl1QcYOHfVDoCDd5Di8igO27eM9jA3rwACNg.png": "./storage/app/public/apartment_cover/tjOkwl1QcYOHfVDoCDd5Di8igO27eM9jA3rwACNg.png",
+	"./apartment_cover/wM5Qswmu6mdqS8uCBrBaJTYAn3etfs1m5QK19Oy7.jpg": "./storage/app/public/apartment_cover/wM5Qswmu6mdqS8uCBrBaJTYAn3etfs1m5QK19Oy7.jpg"
+>>>>>>> bc970e9ce7042013217d43f540f61538ea0e41f2
 };
 
 
@@ -50939,25 +50950,99 @@ webpackContext.id = "./storage/app/public sync recursive ^\\.\\/.*$";
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "./storage/app/public/apartment_cover/Zvs9Y8mpt3qmNQh4Qa0noLDThTzZFi3LtY1b79lK.jpg":
+=======
+/***/ "./storage/app/public/apartment_cover/1CZylZ5yDTuQd2RRFtpfVPJtLHl7iEP5rVF2eQ9B.jpg":
 /*!*****************************************************************************************!*\
-  !*** ./storage/app/public/apartment_cover/Zvs9Y8mpt3qmNQh4Qa0noLDThTzZFi3LtY1b79lK.jpg ***!
+  !*** ./storage/app/public/apartment_cover/1CZylZ5yDTuQd2RRFtpfVPJtLHl7iEP5rVF2eQ9B.jpg ***!
   \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Zvs9Y8mpt3qmNQh4Qa0noLDThTzZFi3LtY1b79lK.jpg?8556adfbc4970dc4a1b0ddaa7bd6bbd3";
+module.exports = "/images/1CZylZ5yDTuQd2RRFtpfVPJtLHl7iEP5rVF2eQ9B.jpg?77904c8b8e856dc2e46be3b625ea5134";
 
 /***/ }),
 
-/***/ "./storage/app/public/apartment_cover/pV06mGVHp5DnR5ghaUdOhM1uazEpPSbLqJ8CcDS3.jpg":
+/***/ "./storage/app/public/apartment_cover/94F3nC87M1V9x5JAwGuYVS6R4ZsSiZnTavxH5qsz.jpg":
+>>>>>>> bc970e9ce7042013217d43f540f61538ea0e41f2
 /*!*****************************************************************************************!*\
-  !*** ./storage/app/public/apartment_cover/pV06mGVHp5DnR5ghaUdOhM1uazEpPSbLqJ8CcDS3.jpg ***!
+  !*** ./storage/app/public/apartment_cover/94F3nC87M1V9x5JAwGuYVS6R4ZsSiZnTavxH5qsz.jpg ***!
   \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/pV06mGVHp5DnR5ghaUdOhM1uazEpPSbLqJ8CcDS3.jpg?11547616fcebf8b8cc1ef7a650dbe680";
+module.exports = "/images/94F3nC87M1V9x5JAwGuYVS6R4ZsSiZnTavxH5qsz.jpg?77904c8b8e856dc2e46be3b625ea5134";
+
+/***/ }),
+
+<<<<<<< HEAD
+/***/ "./storage/app/public/apartment_cover/pV06mGVHp5DnR5ghaUdOhM1uazEpPSbLqJ8CcDS3.jpg":
+=======
+/***/ "./storage/app/public/apartment_cover/ARgJMbXDQwVvgasP2BIDi8MOHLkOADy1DATNpuZg.jpg":
+/*!*****************************************************************************************!*\
+  !*** ./storage/app/public/apartment_cover/ARgJMbXDQwVvgasP2BIDi8MOHLkOADy1DATNpuZg.jpg ***!
+  \*****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/ARgJMbXDQwVvgasP2BIDi8MOHLkOADy1DATNpuZg.jpg?77904c8b8e856dc2e46be3b625ea5134";
+
+/***/ }),
+
+/***/ "./storage/app/public/apartment_cover/UUFgpfYn99ly1U5Uy92Xmru8JHn5JA9iUom1OiS4.zip":
+>>>>>>> bc970e9ce7042013217d43f540f61538ea0e41f2
+/*!*****************************************************************************************!*\
+  !*** ./storage/app/public/apartment_cover/UUFgpfYn99ly1U5Uy92Xmru8JHn5JA9iUom1OiS4.zip ***!
+  \*****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+throw new Error("Module parse failed: Unexpected character '\u0003' (1:2)\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\n(Source code omitted for this binary file)");
+
+/***/ }),
+
+/***/ "./storage/app/public/apartment_cover/moB32tcGezl81GrCVgKf7yd673J12PJVhY8LHH4x.jpg":
+/*!*****************************************************************************************!*\
+  !*** ./storage/app/public/apartment_cover/moB32tcGezl81GrCVgKf7yd673J12PJVhY8LHH4x.jpg ***!
+  \*****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/moB32tcGezl81GrCVgKf7yd673J12PJVhY8LHH4x.jpg?77904c8b8e856dc2e46be3b625ea5134";
+
+/***/ }),
+
+/***/ "./storage/app/public/apartment_cover/rq0qTr4A4JcYB1QAKhYa6IHhRx6sJcI7gNvZYU4b.jpg":
+/*!*****************************************************************************************!*\
+  !*** ./storage/app/public/apartment_cover/rq0qTr4A4JcYB1QAKhYa6IHhRx6sJcI7gNvZYU4b.jpg ***!
+  \*****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/rq0qTr4A4JcYB1QAKhYa6IHhRx6sJcI7gNvZYU4b.jpg?77904c8b8e856dc2e46be3b625ea5134";
+
+/***/ }),
+
+/***/ "./storage/app/public/apartment_cover/tjOkwl1QcYOHfVDoCDd5Di8igO27eM9jA3rwACNg.png":
+/*!*****************************************************************************************!*\
+  !*** ./storage/app/public/apartment_cover/tjOkwl1QcYOHfVDoCDd5Di8igO27eM9jA3rwACNg.png ***!
+  \*****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/tjOkwl1QcYOHfVDoCDd5Di8igO27eM9jA3rwACNg.png?e1acf92eb0efed2356866e829c45179e";
+
+/***/ }),
+
+/***/ "./storage/app/public/apartment_cover/wM5Qswmu6mdqS8uCBrBaJTYAn3etfs1m5QK19Oy7.jpg":
+/*!*****************************************************************************************!*\
+  !*** ./storage/app/public/apartment_cover/wM5Qswmu6mdqS8uCBrBaJTYAn3etfs1m5QK19Oy7.jpg ***!
+  \*****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/wM5Qswmu6mdqS8uCBrBaJTYAn3etfs1m5QK19Oy7.jpg?77904c8b8e856dc2e46be3b625ea5134";
 
 /***/ }),
 
@@ -50968,8 +51053,8 @@ module.exports = "/images/pV06mGVHp5DnR5ghaUdOhM1uazEpPSbLqJ8CcDS3.jpg?11547616f
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\luigi\Desktop\cartella repository\BoolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\luigi\Desktop\cartella repository\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Marco D\Desktop\Dev\Boolean\FinalProj\BoolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Marco D\Desktop\Dev\Boolean\FinalProj\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
