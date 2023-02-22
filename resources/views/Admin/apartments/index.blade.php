@@ -69,7 +69,7 @@
                                         <button type="submit" class="butt-2"><i
                                                 class="fa-solid fa-trash"></i></button>
                                     </form> --}}
-                                <button type="button" class="butt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                {{-- <button type="button" class="butt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     <i class="fa-solid fa-trash"></i>
                                 </button>
 
@@ -88,7 +88,6 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="butt-1" data-bs-dismiss="modal">Close</button>
-                                                {{-- <button type="button" class="butt-1">Save changes</button> --}}
                                                 <form method="POST"
                                                     action="{{ route('admin.apartments.destroy', $item->id) }}">
                                                     @csrf
@@ -98,6 +97,24 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div> --}}
+                                <div class="dropdown">
+                                    <button class="butt-2 dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a class="dropdown-item text-danger" href="#">
+                                                <form method="POST"
+                                                    action="{{ route('admin.apartments.destroy', $item->id) }}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="butt-1">Elimina</button>
+                                                </form>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
 
 
