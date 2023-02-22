@@ -63,6 +63,31 @@
                                 </div>
 
 
+                                <!-- Modale di conferma -->
+                                <div class="modal" id="confirmDeleteModal" tabindex="-1" role="dialog">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Conferma cancellazione</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Sei sicuro di voler cancellare l'appartamento?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
+                                                <form method="POST" action="{{ route('admin.apartments.destroy', $item->id) }}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger">Cancella</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 {{-- <form method="POST" action="{{ route('admin.apartments.destroy', $item->id) }}">
                                         @csrf
                                         @method('DELETE')
