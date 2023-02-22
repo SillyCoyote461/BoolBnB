@@ -23,8 +23,8 @@
                     </form>
                 </div>
             </div>
-            <div class="d-flex justify-content-center">
-                <div class="">Filtri</div>
+            <div class="d-flex align-item-center justify-content-center filtri-section">
+                <div class="text-light">Filtri</div>
             </div>
         </div>
 
@@ -99,13 +99,13 @@ export default {
 
 <style lang="scss" scoped>
 .backgroundImg {
-    border-bottom: 5px solid black;
+    border-bottom: 5px solid #6f42c1;
     background-image: url("../../../../public/img/jumbo.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     width: 100%;
-    height: 57rem;
+    height: 80vh;
 }
 
 .containerCustom {
@@ -116,5 +116,11 @@ export default {
 .purple {
     color: var(--bs-purple);
     border-color: var(--bs-purple);
+}
+
+.filtri-section{
+    width: 100%;
+    height: 60px;
+    background-color: #6f42c1;
 }
 </style>

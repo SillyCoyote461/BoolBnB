@@ -2131,8 +2131,10 @@ var staticRenderFns = [function () {
   }, [_c("i", {
     staticClass: "fa-solid fa-magnifying-glass"
   })])])])]), _vm._v(" "), _c("div", {
-    staticClass: "d-flex justify-content-center"
-  }, [_c("div", {}, [_vm._v("Filtri")])])]);
+    staticClass: "d-flex align-item-center justify-content-center filtri-section"
+  }, [_c("div", {
+    staticClass: "text-light"
+  }, [_vm._v("Filtri")])])]);
 }];
 render._withStripped = true;
 
@@ -6537,7 +6539,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".backgroundImg[data-v-3abdf09e] {\n  border-bottom: 5px solid black;\n  background-image: url(" + escape(__webpack_require__(/*! ../../../../public/img/jumbo.jpg */ "./public/img/jumbo.jpg")) + ");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover;\n  width: 100%;\n  height: 57rem;\n}\n.containerCustom[data-v-3abdf09e] {\n  margin: auto;\n  width: 80%;\n}\n.purple[data-v-3abdf09e] {\n  color: var(--bs-purple);\n  border-color: var(--bs-purple);\n}", ""]);
+exports.push([module.i, ".backgroundImg[data-v-3abdf09e] {\n  border-bottom: 5px solid #6f42c1;\n  background-image: url(" + escape(__webpack_require__(/*! ../../../../public/img/jumbo.jpg */ "./public/img/jumbo.jpg")) + ");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover;\n  width: 100%;\n  height: 80vh;\n}\n.containerCustom[data-v-3abdf09e] {\n  margin: auto;\n  width: 80%;\n}\n.purple[data-v-3abdf09e] {\n  color: var(--bs-purple);\n  border-color: var(--bs-purple);\n}\n.filtri-section[data-v-3abdf09e] {\n  width: 100%;\n  height: 60px;\n  background-color: #6f42c1;\n}", ""]);
 
 // exports
 

@@ -52,12 +52,11 @@
 }
 
 .butt-1{
-    width: 40px;
     height: 40px;
-    background-color: #6f42c1;
-    color: white;
+    /* background-color: #6f42c1; */
+    color: #6f42c1;
     border-radius: 10px;
-    border: 0px;
+    border: 1px solid #6f42c1;
 }
 
 .butt-2{

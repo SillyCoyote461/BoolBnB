@@ -9,58 +9,103 @@
         @csrf
         {{-- name --}}
         <div>
-            <label class="form-label" for="name">Titolo</label>
-            <input class="form-control" id="name" type="text" name="name">
+            <label class="form-label" for="name">Titolo *</label>
+            <input class="form-control @error('name') is-invalid @enderror" type="text" id="name" name="name"
+                 required>
+            @error('name')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
+
+
         {{-- description --}}
         <div class="form-floating my-3">
-            <textarea class="form-control" id="description" name="description"></textarea>
-            <label for="description">Descrizione</label>
+            <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" required ></textarea>
+            <label for="description">Descrizione *</label>
+            @error('description')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
         </div>
+
         {{-- section apartment --}}
         <section class="container px-0 d-flex gap-5">
             {{-- rooms --}}
             <span>
-                <label class="form-label" for="rooms">Stanze</label>
-                <input value="1" min="1" step="1" type="number" id="rooms" class="form-control" name="rooms" style="width: 100px;"/>
+                <label class="form-label" for="rooms">Stanze *</label>
+                <input min="1" step="1" type="number" id="rooms"
+                    class="form-control @error('rooms') is-invalid @enderror" name="rooms"
+                     style="width: 100px;" required>
+                @error('rooms')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </span>
             {{-- beds --}}
             <span>
-                <label class="form-label" for="beds">Posti letto</label>
-                <input value="1" min="1" step="1" type="number" id="beds" class="form-control" name="beds"style="width: 100px;"/>
+                <label class="form-label" for="beds">Posti letto *</label>
+                <input min="1" step="1" type="number" id="beds"
+                    class="form-control @error('beds') is-invalid @enderror" name="beds"
+                     style="width: 100px;" required>
+                @error('beds')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </span>
             {{-- baths --}}
             <span>
-                <label class="form-label" for="baths">Bagni</label>
-                <input value="1" min="1" step="1" type="number" id="baths" class="form-control" name="baths" style="width: 100px;"/>
+                <label class="form-label" for="baths">Bagni *</label>
+                <input min="1" step="1" type="number" id="baths"
+                    class="form-control @error('baths') is-invalid @enderror" name="baths"
+                     style="width: 100px;" required>
+                @error('baths')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </span>
             {{-- price --}}
             <span>
-                <label class="form-label" for="price">Prezzo</label>
-                <input value="1" min="1" step="0.01" type="number" id="price" class="form-control" name="price"style="width: 100px;"/>
+                <label class="form-label" for="price">Prezzo *</label>
+                <input min="1" step="0.01" type="number" id="price"
+                    class="form-control @error('price') is-invalid @enderror" name="price"
+                     style="width: 100px;" required>
+                @error('price')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </span>
+
+
             {{-- meters --}}
             <span>
-                <label class="form-label" for="meters">Metri quadri</label>
-                <input value="1" min="1" step="1" type="number" id="meters" class="form-control" name="meters" style="width: 100px;"/>
+                <label class="form-label" for="meters">Metri quadri *</label>
+                <input min="1" step="1" type="number" id="meters" class="form-control" name="meters"
+                     required />
+                @error('meters')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </span>
         </section>
         {{-- section address --}}
         <section class="container px-0 mt-3 row">
             {{-- address --}}
             <div class="col-5">
-                <label class="form-label" for="address">Indirizzo</label>
-                <input class="form-control" type="text" id="address" name="address">
+                <label class="form-label" for="address">Indirizzo *</label>
+                <input class="form-control" type="text" name="address"  required>
+                @error('address')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
             {{-- lat --}}
             <div class="col-2">
-                <label class="form-label" for="lat">Latitudine</label>
-                <input class="form-control" step="0.001" type="number" id="lat" name="lat">
+                <label class="form-label" for="lat">Latitudine *</label>
+                <input class="form-control" type="text" name="lat"  required>
+                @error('lat')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
             {{-- lon --}}
             <div class="col-2">
-                <label class="form-label" for="lon">Longitudine</label>
-                <input class="form-control" step="0.001" type="number" id="lon" name="lon">
+                <label class="form-label" for="lon">Longitudine *</label>
+                <input class="form-control" type="text" name="lon"  required>
+                @error('lon')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
         </section>
         {{-- services --}}
@@ -76,16 +121,19 @@
 
         </div>
 
-        {{-- cover --}}
-        <div class="my-3 ">
-            <label for="cover" class="form-label">Aggiungi Cover</label>
-            <input class="form-control" type="file" id="cover" name="cover">
-        </div>
+     {{-- cover --}}
+     <div class="my-3 ">
+        <label for="cover" class="form-label">Aggiungi Cover*</label>
+        <input class="form-control" type="file" id="cover" name="cover" required>
+        @error('cover')
+        <div class="alert alert-danger">{{ $message }}</div>
+    @enderror
+    </div>
 
         {{-- visibility --}}
         <div class="form-check form-switch mb-5">
             <input name="visibility" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-            <label class="form-check-label" for="flexSwitchCheckDefault">Visibilitá</label>
+            <label class="form-check-label" for="flexSwitchCheckDefault">Visibilità</label>
         </div>
 
         {{-- submit --}}

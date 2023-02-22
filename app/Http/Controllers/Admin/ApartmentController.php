@@ -12,6 +12,7 @@ use App\Models\view;
 use App\Models\sponsor;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
 // storage
 use Illuminate\Support\Facades\Storage;
 class ApartmentController extends Controller
@@ -51,6 +52,24 @@ class ApartmentController extends Controller
         $data = $request->all();
         // dd($data);
         // new model
+
+        $request->validate([
+            'name' => 'required|max:255',
+            'description' => 'required',
+            'rooms' => 'required|integer|min:1',
+            'baths' => 'required|integer|min:1',
+            'beds' => 'required|integer|min:1',
+            'price' => 'required|numeric|min:0',
+            'meters' => 'required|integer|min:1',
+            'address' => 'required',
+            'lat' => 'required|numeric',
+            'lon' => 'required|numeric',
+            'services' => 'array',
+            'services.*' => 'integer|exists:services,id',
+            'cover' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+
         $new_apartment = new Apartment();
 
         // apartment strings
@@ -200,4 +219,6 @@ class ApartmentController extends Controller
         $apartment->delete();
         return redirect()->route('admin.apartments.index');
     }
+
+
 }
