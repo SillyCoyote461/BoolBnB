@@ -31,37 +31,40 @@
 
     <!-- APPARTAMENTI FILTRATI -->
 
-    <div >
-      <ul class="container d-flex flex-wrap grid gap-3" v-if="filteredApartments.length">
+    <div>
+      <ul
+        class="container d-flex flex-wrap grid gap-3"
+        v-if="filteredApartments.length"
+      >
         <li v-for="(apartment, index) in filteredApartments" :key="index">
           <div class="card">
-            <div class="card-img">
-              <img
-                :src="
-                  require(`../../../../storage/app/public/${apartment.cover}`)
-                "
-                class="card-img-top"
-                alt="..."
-              />
-            </div>
-            <div class="card-info">
-              <p class="text-title">{{ apartment.name }}</p>
-              <p class="text-body">Posti letto: {{ apartment.beds }}</p>
-              <p class="text-body">rooms: {{ apartment.rooms }}</p>
-              <p class="text-body">baths: {{ apartment.baths }}</p>
-            </div>
-            <div class="card-footer">
-              <span class="text-title bold-violet"
-                >{{ apartment.price }}&euro;</span
-              >
-            </div>
+            <a :href="'/apartment/' + apartment.id">
+              <div class="card-img">
+                <img
+                  :src="
+                    require(`../../../../storage/app/public/${apartment.cover}`)
+                  "
+                  class="card-img-top"
+                  alt="..."
+                />
+              </div>
+              <div class="card-info">
+                <p class="text-title">{{ apartment.name }}</p>
+                <p class="text-body">Posti letto: {{ apartment.beds }}</p>
+                <p class="text-body">rooms: {{ apartment.rooms }}</p>
+                <p class="text-body">baths: {{ apartment.baths }}</p>
+              </div>
+              <div class="card-footer">
+                <span class="text-title bold-violet"
+                  >{{ apartment.price }}&euro;</span
+                >
+              </div>
+            </a>
           </div>
         </li>
       </ul>
-          <p v-else>Non ho trovato nulla</p>
+      <p v-else>Non ho trovato nulla</p>
     </div>
-
-
 
     <!-- SPONSORED / APPARTAMENTI CICLATI -->
 
@@ -100,7 +103,6 @@
         </div>
       </div>
     </section>
-
   </div>
 </template>
 
