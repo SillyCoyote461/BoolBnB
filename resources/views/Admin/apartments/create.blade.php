@@ -92,21 +92,21 @@
                 @enderror
             </div>
             {{-- lat --}}
-            <div class="col-2">
+            {{-- <div class="col-2">
                 <label class="form-label" for="lat">Latitudine *</label>
                 <input class="form-control" type="text" name="lat"  required>
                 @error('lat')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
-            {{-- lon --}}
+
             <div class="col-2">
                 <label class="form-label" for="lon">Longitudine *</label>
                 <input class="form-control" type="text" name="lon"  required>
                 @error('lon')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
-            </div>
+            </div> --}}
         </section>
         {{-- services --}}
         <div class="mt-4">
