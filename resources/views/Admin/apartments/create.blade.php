@@ -100,7 +100,7 @@
                 @error('lat')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
-            </div>
+            </div> 
 
             <div class="col-2">
                 <label class="form-label" for="lon">Longitudine *</label>
