@@ -18,8 +18,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
 Route::namespace('Api')
 ->prefix('/apartments')
 ->group(function(){
-    Route::get('/', 'ApartmentController@index');
+   Route::get( '/', 'ApartmentApi@index');
+   Route::get( '/{id}', 'ApartmentApi@show');
 });
+
+

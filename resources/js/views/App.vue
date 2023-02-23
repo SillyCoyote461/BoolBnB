@@ -30,7 +30,6 @@ export default {
             axios.get('http://127.0.0.1:8000/api/apartments')
             .then(res=>{
                 this.apartments = res.data;
-                console.log(this.apartments)
             })
         }
     },

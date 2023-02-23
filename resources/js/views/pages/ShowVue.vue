@@ -19,7 +19,7 @@
         <div class="description-box p-5">
             <!-- <h1>{{apartment.name}}</h1> -->
 
-            <ul v-for="apartment in apartments" :key="apartment.id">
+            <ul>
                 <li>
                     {{ apartment.name }}
                     <!-- <li v-for="info in elem.posts">
@@ -34,33 +34,44 @@
     </div>
 </template>
 
+<!-- non ciclare nulla, l'array che ho portato fino alla show é un singolo elemento,
+
+invece di fare <ul v-for="....">
+usa direttamente {{apartment.name}} ecc..
+
+
+-->
+
 <script>
 export default {
     name: "ShowVue",
     data() {
     return {
-      apartment: null,
+      apartment: null ,
+
     };
   },
   mounted() {
-      this.getApartment();
+       this.getApartment();
     },
     methods: {
-      getApartment() {
 
-        axios
-          .get("http://localhost:8000/api/apartment/" + this.$route.params.id)
-          .then((res) => {
 
-            console.log(res.data);
-            this.apartment = res.data;
+        getApartment() {
+            axios
+            .get(`http://127.0.0.1:8000/api/apartments/${this.$route.params.id}`)
+            .then((res) => {
 
-          })
-          .catch((err) => {
-            console.log(err);
-          })
+                this.apartment = res.data;
+                console.log(res.data);
 
-      },
+
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+
+        },
     },
 };
 
