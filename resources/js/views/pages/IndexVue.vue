@@ -68,9 +68,9 @@
 
     <!-- SPONSORED / APPARTAMENTI CICLATI -->
 
-    <section>
+    <!-- <section>
       <div class="containerCustom py-5">
-        <!-- APPARTAMENTI CICLATI -->
+
 
         <a href="/ShowVue">test</a>
         <div class="d-flex flex-wrap">
@@ -102,7 +102,7 @@
           </ul>
         </div>
       </div>
-    </section>
+    </section> -->
   </div>
 </template>
 

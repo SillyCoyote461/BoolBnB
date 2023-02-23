@@ -116,7 +116,7 @@ li{
    }
 
    .card-img {
-    background-color: #ffcaa6;
+    background-color: #6f42c1;
     width: 100%;
     border-radius: .5rem;
     transition: .3s ease;
@@ -225,3 +225,21 @@ li{
     background: #3a0ca3;
     transition: background 0s;
    }
+
+   .form-label{
+    /* border-radius: 0px !important;
+    border: 1px solid #6f42c1 !important; */
+    color: #6f42c1;
+    font-weight: bold;
+   }
+
+   .form-control{
+    background-color: #6e42c109 !important;
+    border-radius: 20px !important;
+    padding: 8px !important;
+    border: 2px solid #6f42c1 !important;
+    color: #560bad !important;
+    font-weight: bold !important;
+   }
+
+

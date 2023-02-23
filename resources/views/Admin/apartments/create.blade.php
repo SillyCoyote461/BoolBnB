@@ -7,7 +7,7 @@
 
     <form class="container my-4" action="{{ route('admin.apartments.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        
+
         <div>
             <label class="form-label" for="name">Titolo *</label>
             <input class="form-control @error('name') is-invalid @enderror" type="text" id="name" name="name"
@@ -18,7 +18,7 @@
         </div>
 
 
-        
+
         <div class="form-floating my-3">
             <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" required ></textarea>
             <label for="description">Descrizione *</label>
@@ -27,9 +27,9 @@
             @enderror
         </div>
 
-        
+
         <section class="container px-0 d-flex gap-5">
-            
+
             <span>
                 <label class="form-label" for="rooms">Stanze *</label>
                 <input min="1" step="1" type="number" id="rooms"
@@ -39,7 +39,7 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </span>
-            
+
             <span>
                 <label class="form-label" for="beds">Posti letto *</label>
                 <input min="1" step="1" type="number" id="beds"
@@ -49,7 +49,7 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </span>
-            
+
             <span>
                 <label class="form-label" for="baths">Bagni *</label>
                 <input min="1" step="1" type="number" id="baths"
@@ -59,7 +59,7 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </span>
-            
+
             <span>
                 <label class="form-label" for="price">Prezzo *</label>
                 <input min="1" step="0.01" type="number" id="price"
@@ -71,7 +71,7 @@
             </span>
 
 
-            
+
             <span>
                 <label class="form-label" for="meters">Metri quadri *</label>
                 <input min="1" step="1" type="number" id="meters" class="form-control" name="meters"
@@ -81,9 +81,9 @@
                 @enderror
             </span>
         </section>
-        
+
         <section class="container px-0 mt-3 row">
-            
+
             <div class="col-5">
                 <label class="form-label" for="address">Indirizzo *</label>
                 <input class="form-control" type="text" name="address"  required>
@@ -91,7 +91,7 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
-            
+
 
             <div class="col-2">
                 <label class="form-label" for="lat">Latitudine *</label>
@@ -99,7 +99,7 @@
                 @error('lat')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
-            </div> 
+            </div>
 
             <div class="col-2">
                 <label class="form-label" for="lon">Longitudine *</label>
@@ -109,7 +109,7 @@
                 @enderror
             </div>
         </section>
-        
+
         <div class="mt-4">
             <label>Servizi: </label>
 
@@ -122,7 +122,7 @@
 
         </div>
 
-     
+
      <div class="my-3 ">
         <label for="cover" class="form-label">Aggiungi Cover*</label>
         <input class="form-control" type="file" id="cover" name="cover" required>
@@ -131,13 +131,13 @@
     @enderror
     </div>
 
-        
+
         <div class="form-check form-switch mb-5">
             <input name="visibility" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
             <label class="form-check-label" for="flexSwitchCheckDefault">Visibilità</label>
         </div>
 
-       
+
         <button class="" type="submit">Crea</button>
     </form>
 </div>
@@ -152,8 +152,10 @@
     <link rel="stylesheet" type="text/css" href="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.23.0/maps/maps.css" />
     <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.23.0/maps/maps-web.min.js"></script>
 
-    <!-- Styles -->
+    <!-- Styles css/app.css -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('css/mystyle.css') }}" rel="stylesheet">
 
     {{-- Search --}}
     <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.12/SearchBox-web.js"></script>
@@ -182,38 +184,37 @@
 </head>
 
 <body style="">
-    
+
     {{-- BOdy --}}
-    <div class="container-fluid w-75 m-auto right-section mt-5 py-5">
+    <div class="container-fluid w-75 m-auto right-section py-2">
 
         <h1 class="text-center p-4">Add Apartment</h1>
 
 
     </div>
 
-    
-        
-
-
-
     <div class="d-flex justify-content-center h-50">
-      <div id="map" style="width: 100%; height: 100%;"></div>
+        <div id="map" style="width: 100%; height: 100%;"></div>
     </div>
 
-
-
-
-
-
-   
-
-    <form class="d-flex flex-column w-75 m-auto" method="POST" action="{{ route('admin.apartments.store') }}"
+    <form class="d-flex flex-column w-25 m-auto" method="POST" action="{{ route('admin.apartments.store') }}"
         enctype="multipart/form-data">
 
         @csrf
 
+        {{-- INPUT LAT LONG HIDDEN --}}
+        <div class="d-flex justify-content-center ">
+            <input name="lat" type="text" id="lat"> </input>
+            <input name="lon" type="text" id="long"> </input>
+        </div>
+
+
         {{-- NAME --}}
-        <div class="mb-4">
+        <a href="{{ route('admin.apartments.index') }}">
+            <div class="btn btn-danger fw-bold mt-5 mb-4"><i class="fa-solid fa-left-long"></i> Dashboard</div>
+        </a>
+
+        <div class="mb-4 ">
             <label class="form-label">Name</label>
             <input name="name" type="text" class="form-control ">
             @error('name')
@@ -283,7 +284,7 @@
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div> --}}
-        
+
 
         {{-- ADDRESS --}}
         <div class="mb-4">
@@ -305,7 +306,8 @@
 
         {{-- AVAILABLE --}}
         <div class="mb-4">
-            <label class="form-label form-check-label" for="">Availability</label>
+            <label class="form-label form-check-label" for="">Availability <i
+                    class="fa-solid fa-caret-down"></i></label>
             <select name="services." class="form-control">
                 <option value=1>Available</option>
                 <option value=0>Not Available</option>
@@ -317,21 +319,31 @@
             @foreach ($services as $service)
                 <div class="cat action">
                     <label>
-                        <input type="checkbox" name="services[]"
-                            value="{{ $service->id }}"><span>{{ $service->name }}</span>
+                        <input type="checkbox" name="services[]" value="{{ $service->id }}"><span
+                            class="ps-2 form-label">{{ $service->name }}</span>
                     </label>
                 </div>
             @endforeach
         </div>
 
         {{-- INPUT LAT LONG HIDDEN --}}
-        <input  name="lat" type="text" id="lat"> </input>
-        <input  name="lon" type="text" id="long"> </input>
+        {{-- <input  name="lat" type="text" id="lat"> </input>
+        <input  name="lon" type="text" id="long"> </input> --}}
 
-        {{-- INVIO --}}
-        <div>
-            <button type="submit" class="btn btn-primary">Add apartment</button>
+        {{-- INVIO d-flex align-item-center justify-content-evenly--}}
+        <div class="mt-5 mb-5 ">
+            <div>
+                <button type="submit" class="">Crea Nuovo</button>
+            </div>
+
+            {{-- <div>
+                <a href="{{ route('admin.apartments.index') }}">
+                    <div class="btn btn-danger ">Annulla</div>
+                </a>
+            </div> --}}
+
         </div>
+
 
     </form>
     <script>
