@@ -38,7 +38,7 @@
       >
         <li v-for="(apartment, index) in filteredApartments" :key="index">
           <div class="card">
-            <a :href="'/apartment/' + apartment.id">
+           <router-link :to="`/apartment/${apartment.id}`">
               <div class="card-img">
                 <img
                   :src="
@@ -59,7 +59,7 @@
                   >{{ apartment.price }}&euro;</span
                 >
               </div>
-            </a>
+            </router-link>
           </div>
         </li>
       </ul>
@@ -68,41 +68,7 @@
 
     <!-- SPONSORED / APPARTAMENTI CICLATI -->
 
-    <section>
-      <div class="containerCustom py-5">
-        <!-- APPARTAMENTI CICLATI -->
 
-        <a href="/ShowVue">test</a>
-        <div class="d-flex flex-wrap">
-          <ul v-for="(element, index) in propsApartment" :key="index">
-            <li>
-              <div class="card">
-                <div class="card-img">
-                  <img
-                    :src="
-                      require(`../../../../storage/app/public/${element.cover}`)
-                    "
-                    class="card-img-top"
-                    alt="..."
-                  />
-                </div>
-                <div class="card-info">
-                  <p class="text-title">{{ element.name }}</p>
-                  <p class="text-body">Posti letto: {{ element.beds }}</p>
-                  <p class="text-body">rooms: {{ element.rooms }}</p>
-                  <p class="text-body">baths: {{ element.baths }}</p>
-                </div>
-                <div class="card-footer">
-                  <span class="text-title bold-violet"
-                    >{{ element.price }}&euro;</span
-                  >
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
   </div>
 </template>
 

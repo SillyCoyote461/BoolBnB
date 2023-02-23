@@ -9,7 +9,7 @@
             </div>
 
             <div class="infobox-infoshow p-5">
-                <h1>{{apartment.name}} </h1>
+                <h1>titolo </h1>
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde nam hic cum? Impedit eius ad quis tempore! Nesciunt omnis mollitia dolorum officia enim ea id dignissimos corporis placeat fugit.
                 </p>
@@ -17,7 +17,16 @@
         </div>
 
         <div class="description-box p-5">
-            <h1>Titolo</h1>
+            <!-- <h1>{{apartment.name}}</h1> -->
+
+            <ul v-for="apartment in apartments" :key="apartment.id">
+                <li>
+                    {{ apartment.name }}
+                    <!-- <li v-for="info in elem.posts">
+                        {{ posts.title }}
+                    </li> -->
+                </li>
+            </ul>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste culpa dolorum illo, sed delectus, voluptatem aliquid tempore illum eius hic quae inventore sapiente facere quos sunt molestias exercitationem esse! Eaque!</p>
         </div>
 
@@ -27,24 +36,32 @@
 
 <script>
 export default {
-    name: "IndexVue",
+    name: "ShowVue",
     data() {
     return {
       apartment: null,
     };
   },
   mounted() {
-    // Recupera l'id del prodotto dalla URL
-    const id = this.$route.params.id;
-    // Recupera le informazioni del prodotto dal backend
-    axios.get(`/api/apartment/${id}`)
-      .then(response => {
-        this.apartment = response.data;
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  },
+      this.getApartment();
+    },
+    methods: {
+      getApartment() {
+
+        axios
+          .get("http://localhost:8000/api/apartment/" + this.$route.params.id)
+          .then((res) => {
+
+            console.log(res.data);
+            this.apartment = res.data;
+
+          })
+          .catch((err) => {
+            console.log(err);
+          })
+
+      },
+    },
 };
 
 </script>

@@ -1,7 +1,9 @@
 <template>
     <div>
         <!---<HeaderVue/>-->
-       <IndexVue :propsApartment="apartments"/>
+       <!-- <IndexVue /> -->
+
+       <router-view :propsApartment="apartments"></router-view>
 
     </div>
 </template>
