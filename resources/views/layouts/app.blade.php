@@ -28,6 +28,11 @@
 
     {{-- bootstrap --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    {{-- sweetAlert --}}
+    {{-- <link rel="stylesheet" href="{{ asset('css/sweetalert2.min.css') }}"> --}}
+
+    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
 </head>
 <body>
     <div id="app">
@@ -90,6 +95,28 @@
         </main>
     </div>
 
+   {{--  <script>
+        $(document).ready(function() {
+            $('form#delete-form').submit(function(e) {
+                e.preventDefault();
+                Swal.fire({
+                    title:  'Sei sicuro di voler eliminare?',
+                    text: "Questa operazione non può essere annullata!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Sì, elimina!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        this.submit();
+                    }
+                })
+            });
+        });
+    </script> --}}
+    {{-- <script src="{{ asset('js/sweetalert2.all.min.js') }}"></script>
+    <script src="/path/to/jquery.js"></script> --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 </html>

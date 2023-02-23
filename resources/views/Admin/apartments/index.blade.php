@@ -63,35 +63,64 @@
                                 </div>
 
                                 <div>
-                                    <button type="button" class="butt-2" data-toggle="modal" data-target="#confirmDeleteModal">
-                                        <i class="fa-solid fa-trash"></i>
-                                    </button>
+                                    <button type="button" class="" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        cancella
+                                      </button>
+
+                                      <!-- Modal -->
+                                      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+
+                                            </div>
+                                            <div class="modal-body">
+                                              sei sicuro di voler cancellaere <span class="fw-bold">{{$item->name}}</span> ?
+                                            </div>
+                                            <div class="modal-footer">
+                                              <button type="button" class="" data-bs-dismiss="modal">Close</button>
+                                              <form method="POST" id="delete-form" action="{{ route('admin.apartments.destroy', $item->id) }}">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="">Cancella</button>
+                                                </form>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
                                 </div>
 
+                                {{-- <div>
+                                    <form method="POST" id="delete-form" action="{{ route('admin.apartments.destroy', $item->id) }}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="">Cancella</button>
+                                    </form>
+
+                                </div> --}}
+
                                 <!-- Modale di conferma -->
-                                <div class="modal" id="confirmDeleteModal" tabindex="-1" role="dialog">
+                                {{-- <div class="modal" id="confirmDeleteModal" tabindex="-1" role="dialog">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title">Conferma cancellazione</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
+                                                <h5 class="modal-title text-danger">Conferma cancellazione</h5>
                                             </div>
                                             <div class="modal-body">
-                                                Sei sicuro di voler cancellare l'appartamento?{{$item->name}}
+                                                Sei sicuro di voler cancellare l'appartamento <span class="fw-bold">{{$item->name}}</span>?
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
+                                                <button type="button" class="" data-dismiss="modal">Annulla</button>
                                                 <form method="POST" action="{{ route('admin.apartments.destroy', $item->id) }}">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger">Cancella</button>
+                                                    <button type="submit" class="">Cancella</button>
                                                 </form>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
 
                             </div>
 
