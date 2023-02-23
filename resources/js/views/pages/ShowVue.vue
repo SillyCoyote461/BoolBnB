@@ -9,7 +9,7 @@
             </div>
 
             <div class="infobox-infoshow p-5">
-                <h1>Titolo </h1>
+                <h1>{{apartment.name}} </h1>
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde nam hic cum? Impedit eius ad quis tempore! Nesciunt omnis mollitia dolorum officia enim ea id dignissimos corporis placeat fugit.
                 </p>
@@ -28,6 +28,23 @@
 <script>
 export default {
     name: "IndexVue",
+    data() {
+    return {
+      apartment: null,
+    };
+  },
+  mounted() {
+    // Recupera l'id del prodotto dalla URL
+    const id = this.$route.params.id;
+    // Recupera le informazioni del prodotto dal backend
+    axios.get(`/api/apartment/${id}`)
+      .then(response => {
+        this.apartment = response.data;
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  },
 };
 
 </script>
