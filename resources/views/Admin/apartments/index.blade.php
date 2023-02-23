@@ -83,10 +83,10 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
-                                                <form method="POST" action="{{ route('admin.apartments.destroy', $item['id']) }}">
+                                                <form method="POST" action="{{ route('admin.apartments.destroy', $item->id) }}">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" onclick="return confirm('sei sicuro?') class="btn btn-danger">Cancella</button>
+                                                    <button type="submit" class="btn btn-danger">Cancella</button>
                                                 </form>
                                             </div>
                                         </div>
