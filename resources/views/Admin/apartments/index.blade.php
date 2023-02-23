@@ -40,6 +40,7 @@
             <div class="container pb-5 mt-5 d-flex flex-wrap justify-content-evenly">
                 {{-- loop --}}
                 @foreach ($apartments as $item)
+
                     {{-- card --}}
                     <div class="card">
                         <div class="card-img">
@@ -63,12 +64,12 @@
                                 </div>
 
                                 <div>
-                                    <button type="button" class="" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <button type="button" class="" data-bs-toggle="modal" data-bs-target="#{{$item->name}}">
                                         cancella
                                       </button>
 
                                       <!-- Modal -->
-                                      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                      <div class="modal fade" id="{{$item->name}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                           <div class="modal-content">
                                             <div class="modal-header">
