@@ -92,9 +92,11 @@
                 @enderror
             </div>
             {{-- lat --}}
-            {{-- <div class="col-2">
+            {{-- id="floatingInputDisabled" --}}
+
+            <div class="col-2">
                 <label class="form-label" for="lat">Latitudine *</label>
-                <input class="form-control" type="text" name="lat"  required>
+                <input class="form-control " type="text" name="lat" required>
                 @error('lat')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
@@ -102,11 +104,11 @@
 
             <div class="col-2">
                 <label class="form-label" for="lon">Longitudine *</label>
-                <input class="form-control" type="text" name="lon"  required>
+                <input class="form-control disabled" type="text" name="lon"  required>
                 @error('lon')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
-            </div> --}}
+            </div>
         </section>
         {{-- services --}}
         <div class="mt-4">
@@ -137,7 +139,7 @@
         </div>
 
         {{-- submit --}}
-        <button class="btn btn-success">Aggiungi inserzione</button>
+        <button class="" type="submit">Crea</button>
     </form>
 </div>
 
