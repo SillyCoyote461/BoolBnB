@@ -79,7 +79,7 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                Sei sicuro di voler cancellare l'appartamento?
+                                                Sei sicuro di voler cancellare l'appartamento?{{$item->name}}
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
