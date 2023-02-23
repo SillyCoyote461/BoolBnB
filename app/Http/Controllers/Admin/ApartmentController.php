@@ -196,29 +196,31 @@ class ApartmentController extends Controller
      */
     public function destroy($id)
     {
-        // apartment class
-        $apartment = Apartment::find($id);
-
-        // logged user id
-        $auth_id = Auth::user()->id;
-
-        // authorization
-        if ($auth_id != $apartment->user_id){
-            return abort(403, 'Unauthorized action');
-        }
-
-        // delete cover from storage
-        Storage::delete($apartment->cover);
-
-        // delete services
-        foreach($apartment->services as $item) {
-            $apartment->services()->detach($item->id);
-        }
-
-        // delete apartment
-        $apartment->delete();
+        $data = Apartment::findOrFail($id);
+        $data->services()->sync([]);
+        $data->delete();
         return redirect()->route('admin.apartments.index');
+        // apartment class
+        // $apartment = Apartment::find($id);
+
+        // // logged user id
+        // $auth_id = Auth::user()->id;
+
+        // // authorization
+        // if ($auth_id != $apartment->user_id){
+        //     return abort(403, 'Unauthorized action');
+        // }
+
+        // // delete cover from storage
+        // Storage::delete($apartment->cover);
+
+        // // delete services
+        // foreach($apartment->services as $item) {
+        //     $apartment->services()->detach($item->id);
+        // }
+
+        // // delete apartment
+        // $apartment->delete();
+        // return redirect()->route('admin.apartments.index');
     }
-
-
 }
