@@ -64,12 +64,12 @@
                                 </div>
 
                                 <div>
-                                    <button type="button" class="" data-bs-toggle="modal" data-bs-target="#{{$item->name}}">
+                                    <button type="button" class="" data-bs-toggle="modal" data-bs-target="#{{$item->id}}">
                                         cancella
                                       </button>
 
                                       <!-- Modal -->
-                                      <div class="modal fade" id="{{$item->name}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                      <div class="modal fade" id="{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                           <div class="modal-content">
                                             <div class="modal-header">
