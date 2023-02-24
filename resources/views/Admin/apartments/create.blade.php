@@ -329,9 +329,13 @@
                     </label>
                 </div>
             @endforeach
+
+            <div  class="text-danger fw-bold fs-5" id="avviso">
+
+            </div>
         </div>
 
-
+{{-- class=" text-danger fw-bold fs-3" --}}
         {{-- <div class="mt-4">
             <label>Servizi: </label>
             @php
@@ -370,7 +374,7 @@
         {{-- INVIO d-flex align-item-center justify-content-evenly --}}
         <div class="mt-5 mb-5 ">
             <div>
-                <button type="submit" class="">Crea Nuovo</button>
+                <button type="submit" class="" onclick="return validateForm()">Crea Nuovo</button>
             </div>
 
             {{-- <div>
@@ -383,6 +387,32 @@
 
 
     </form>
+
+    <script>
+        function validateForm() {
+          var checkboxes = document.getElementsByName("services[]");
+          var checked = false;
+          for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) {
+              checked = true;
+              break;
+            }
+          }
+          if (!checked) {
+            /* alert("Seleziona almeno un servizio."); */
+            document.getElementById("avviso").innerHTML= "*Seleziona almeno un servizio!*"
+            /* const avviso = getElementById("avviso");
+            avviso.classList.remove("d-none"); */
+                /* `@error('services')
+                 <div class="alert alert-danger">{{ $message }}</div>
+                @enderror` */
+            return false;
+          }
+        }
+        </script>
+
+
+
     <script>
         var ITALIA = [12.49427, 41.89056]
         var map = tt.map({
