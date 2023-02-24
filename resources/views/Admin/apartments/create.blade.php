@@ -320,7 +320,7 @@
         </div>
 
         {{-- SERVICES --}}
-        {{-- <div>
+        <div>
             @foreach ($services as $service)
                 <div class="cat action">
                     <label>
@@ -329,7 +329,7 @@
                     </label>
                 </div>
             @endforeach
-        </div> --}}
+        </div>
 
 
         {{-- <div class="mt-4">
