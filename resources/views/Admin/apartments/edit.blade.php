@@ -23,7 +23,7 @@
             <div class="form-floating my-3">
 
                 <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" required>{{ old('description', $apartment->description) }}</textarea>
-                <label for="description">Descrizione *</label>
+                <label for="description">*</label>
                 @error('description')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -117,7 +117,7 @@
                 @foreach ($services as $service)
                     <label class="mx-2" for="service{{ $service->id }}">
                         <input type="checkbox" id="service{{ $service->id }}" name="services[]"
-                            value="{{ $service->id }}" {{ $apartment->services->contains($service) ? 'checked' : '' }}>
+                            value="{{ $service->id }}" {{ $apartment->services->contains($service) ? 'checked' : '' }} >
                         {{ $service->name }}
                     </label>
                 @endforeach

@@ -64,7 +64,7 @@ class ApartmentController extends Controller
             'address' => 'required',
             'lat' => 'required|numeric',
             'lon' => 'required|numeric',
-            'services' => 'array',
+            'services' => 'required|array|min:1', //DOVREBBE FUNZIONARE
             'services.*' => 'integer|exists:services,id',
             'cover' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);

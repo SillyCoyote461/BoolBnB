@@ -203,9 +203,14 @@
         @csrf
 
         {{-- INPUT LAT LONG HIDDEN --}}
-        <div class="d-flex justify-content-center ">
-            <input name="lat" type="text" id="lat"> </input>
-            <input name="lon" type="text" id="long"> </input>
+        <div class="d-flex  justify-content-center ">
+            <input class="form-control" name="lat" type="text" id="lat" required> </input>
+
+            <input class="form-control" name="lon" type="text" id="long" required> </input>
+
+            @error('lat')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
 
 
@@ -215,8 +220,8 @@
         </a>
 
         <div class="mb-4 ">
-            <label class="form-label">Name</label>
-            <input name="name" type="text" class="form-control ">
+            <label class="form-label">Name *</label>
+            <input name="name" type="text" class="form-control " required>
             @error('name')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
@@ -224,8 +229,8 @@
 
         {{-- DESCRIPTION --}}
         <div class="mb-4">
-            <label class="form-label">Description</label>
-            <textarea name="description" class="form-control"></textarea>
+            <label class="form-label">Description *</label>
+            <textarea name="description" class="form-control" required></textarea>
             @error('description')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
@@ -233,8 +238,8 @@
 
         {{-- IMMAGINE --}}
         <div class="mb-4">
-            <label class="form-label form-check-label" for="">Image</label>
-            <input type="file" name="cover" class="form-control-file">
+            <label class="form-label form-check-label" for="">Image *</label>
+            <input type="file" name="cover" class="form-control-file" required>
             @error('cover_image')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
@@ -242,8 +247,8 @@
 
         {{-- ROOMS --}}
         <div class="mb-4">
-            <label class="form-label form-check-label" for="">Rooms</label>
-            <input type="number" min="1" max="50" class="form-control" name="rooms">
+            <label class="form-label form-check-label" for="">Rooms *</label>
+            <input type="number" min="1" max="50" class="form-control" name="rooms" required>
             @error('rooms')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
@@ -251,8 +256,8 @@
 
         {{-- BEDS --}}
         <div class="mb-4">
-            <label class="form-label form-check-label" for="">Beds</label>
-            <input type="number" min="1" max="50" class="form-control" name="beds">
+            <label class="form-label form-check-label" for="">Beds *</label>
+            <input type="number" min="1" max="50" class="form-control" name="beds" required>
             @error('beds')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
@@ -260,8 +265,8 @@
 
         {{-- BATHROOM --}}
         <div class="mb-4">
-            <label class="form-label form-check-label" for="">Bathrooms</label>
-            <input type="number" min="1" max="50" class="form-control" name="baths">
+            <label class="form-label form-check-label" for="">Bathrooms *</label>
+            <input type="number" min="1" max="50" class="form-control" name="baths" required>
             @error('bathrooms')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
@@ -269,8 +274,8 @@
 
         {{-- MQ --}}
         <div class="mb-4">
-            <label class="form-label form-check-label" for="">Mq</label>
-            <input type="number" min="1" max="1000" class="form-control" name="meters">
+            <label class="form-label form-check-label" for="">Mq *</label>
+            <input type="number" min="1" max="1000" class="form-control" name="meters" required>
             @error('mq')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
@@ -288,8 +293,8 @@
 
         {{-- ADDRESS --}}
         <div class="mb-4">
-            <label class="form-label form-check-label" for="">Address</label>
-            <input type="text" class="form-control" name="address">
+            <label class="form-label form-check-label" for="">Address *</label>
+            <input type="text" class="form-control" name="address" required>
             @error('address')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
@@ -297,8 +302,8 @@
 
         {{-- PRICE --}}
         <div class="mb-4">
-            <label class="form-label form-check-label" for="">Price</label>
-            <input type="number" min="1" class="form-control" name="price">
+            <label class="form-label form-check-label" for="">Price *</label>
+            <input type="number" min="1" class="form-control" name="price" required>
             @error('price')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
@@ -315,7 +320,7 @@
         </div>
 
         {{-- SERVICES --}}
-        <div>
+        {{-- <div>
             @foreach ($services as $service)
                 <div class="cat action">
                     <label>
@@ -324,13 +329,45 @@
                     </label>
                 </div>
             @endforeach
-        </div>
+        </div> --}}
+
+
+        {{-- <div class="mt-4">
+            <label>Servizi: </label>
+            @php
+                $isRequired = false;
+            @endphp
+            @foreach ($services as $service)
+                <label class="mx-2" for="service{{ $service->id }}">
+                    <input type="checkbox" id="service{{ $service->id }}" name="services[]" value="{{ $service->id }}"
+                    onclick="@php $isRequired = true; @endphp"
+                    >
+                    {{ $service->name }}
+                </label>
+            @endforeach
+            <script>
+                const checkboxes = document.getElementsByName('services[]');
+                const checkRequired = () => {
+                    let isChecked = false;
+                    for (let i = 0; i < checkboxes.length; i++) {
+                        if (checkboxes[i].checked) {
+                            isChecked = true;
+                            break;
+                        }
+                    }
+                    if (!isChecked) {
+                        checkboxes[Math.floor(Math.random() * checkboxes.length)].checked = true;
+                    }
+                };
+                document.getElementById('form-id').addEventListener('submit', checkRequired);
+            </script>
+        </div>                  NON FUNZIONA UN 8==D DI NIENTE         --}}
 
         {{-- INPUT LAT LONG HIDDEN --}}
         {{-- <input  name="lat" type="text" id="lat"> </input>
         <input  name="lon" type="text" id="long"> </input> --}}
 
-        {{-- INVIO d-flex align-item-center justify-content-evenly--}}
+        {{-- INVIO d-flex align-item-center justify-content-evenly --}}
         <div class="mt-5 mb-5 ">
             <div>
                 <button type="submit" class="">Crea Nuovo</button>

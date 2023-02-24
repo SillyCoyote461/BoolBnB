@@ -25,8 +25,8 @@ class CreateApartmentsTable extends Migration
             $table->boolean('visibility')->nullable();
             $table->text('description')->nullable();
             $table->string('cover');
-            $table->decimal('lat')->default(45.5);
-            $table->decimal('lon')->default(45.5);
+            $table->decimal('lat');
+            $table->decimal('lon');
             $table->timestamps();
         });
     }
