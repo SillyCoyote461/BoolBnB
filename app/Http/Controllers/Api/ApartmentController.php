@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\apartment;
+
 class ApartmentController extends Controller
 {
     /**
@@ -12,11 +13,54 @@ class ApartmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $apartments = Apartment::all();
+        $query = Apartment::query();
+
+        // Applica i filtri se sono stati forniti nella richiesta
+        if ($request->has('name')) {
+            $query->where('name', 'like', '%' . $request->input('name') . '%');
+        }
+
+        if ($request->has('price')) {
+            $query->where('price', '<=', $request->input('price'));
+        }
+
+        if ($request->has('rooms')) {
+            $query->where('rooms', $request->input('rooms'));
+        }
+
+        if ($request->has('baths')) {
+            $query->where('baths', $request->input('baths'));
+        }
+
+        if ($request->has('beds')) {
+            $query->where('beds', $request->input('beds'));
+        }
+
+        if ($request->has('meters')) {
+            $query->where('meters', '<=', $request->input('meters'));
+        }
+
+        if ($request->has('address')) {
+            $query->where('address', 'like', '%' . $request->input('address') . '%');
+        }
+
+        if ($request->has('services')) {
+            $services = $request->input('services');
+            foreach ($services as $service) {
+                $query->whereHas('services', function ($q) use ($service) {
+                    $q->where('name', $service);
+                });
+            }
+        }
+
+        // Esegui la query e restituisci i risultati come JSON
+        $apartments = $query->get();
+
         return response()->json($apartments);
     }
+
 
     /**
      * Store a newly created resource in storage.
