@@ -226,42 +226,43 @@ class ApartmentController extends Controller
 
 
 
-    public function search(Request $request)
-    {
-        $apartments = Apartment::query();
+    // public function search(Request $request)
+    // {
+    //     $apartments = Apartment::query();
 
-        if ($request->has('name')) {
-            $apartments->where('name', 'like', '%'.$request->input('name').'%');
-        }
+    //     if ($request->has('name')) {
+    //         $apartments->where('name', 'like', '%'.$request->input('name').'%');
+    //     }
 
-        if ($request->has('rooms')) {
-            $apartments->where('rooms', '>=', $request->input('rooms'));
-        }
+    //     if ($request->has('rooms')) {
+    //         $apartments->where('rooms', '>=', $request->input('rooms'));
+    //     }
 
-        if ($request->has('baths')) {
-            $apartments->where('baths','>=', $request->input('baths'));
-        }
+    //     if ($request->has('baths')) {
+    //         $apartments->where('baths','>=', $request->input('baths'));
+    //     }
 
-        if ($request->has('beds')) {
-            $apartments->where('beds','>=', $request->input('beds'));
-        }
+    //     if ($request->has('beds')) {
+    //         $apartments->where('beds','>=', $request->input('beds'));
+    //     }
 
 
-        if ($request->has('address')) {
-            $apartments->where('address', 'like', '%'.$request->input('address').'%');
-        }
+    //     if ($request->has('address')) {
+    //         $apartments->where('address', 'like', '%'.$request->input('address').'%');
+    //     }
 
-        if ($request->has('services')) {
-            $services = $request->input('services');
-            foreach ($services as $service) {
-                $apartments->whereHas('services', function ($query) use ($service) {
-                    $query->where('name', $service);
-                });
-            }
-        }
+    //     if ($request->has('services')) {
+    //         $services = $request->input('services');
+    //         foreach ($services as $service) {
+    //             $apartments->whereHas('services', function ($query) use ($service) {
+    //                 $query->where('name', $service);
+    //             });
+    //         }
+    //     }
 
-        $result = $apartments->get();
+    //     $result = $apartments->get();
 
-        return response()->json($result);
-    }
+    //     return response()->json($result);
+    // }
+
 }
