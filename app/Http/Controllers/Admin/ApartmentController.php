@@ -234,25 +234,18 @@ class ApartmentController extends Controller
             $apartments->where('name', 'like', '%'.$request->input('name').'%');
         }
 
-        if ($request->has('price')) {
-            $apartments->where('price', '<=', $request->input('price'));
-        }
-
         if ($request->has('rooms')) {
-            $apartments->where('rooms', $request->input('rooms'));
+            $apartments->where('rooms', '>=', $request->input('rooms'));
         }
 
         if ($request->has('baths')) {
-            $apartments->where('baths', $request->input('baths'));
+            $apartments->where('baths','>=', $request->input('baths'));
         }
 
         if ($request->has('beds')) {
-            $apartments->where('beds', $request->input('beds'));
+            $apartments->where('beds','>=', $request->input('beds'));
         }
 
-        if ($request->has('meters')) {
-            $apartments->where('meters', '<=', $request->input('meters'));
-        }
 
         if ($request->has('address')) {
             $apartments->where('address', 'like', '%'.$request->input('address').'%');

@@ -3,40 +3,22 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Service;
 use Illuminate\Http\Request;
-use App\Models\apartment;
 
-class ApartmentController extends Controller
+class ServicesController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
     {
-        $query = Apartment::query();
+        $query = service::query();
 
         // Applica i filtri se sono stati forniti nella richiesta
-        if ($request->has('name')) {
-            $query->where('name', 'like', '%' . $request->input('name') . '%');
-        }
-
-        if ($request->has('rooms')) {
-            $query->where('rooms', '>=', $request->input('rooms'));
-        }
-
-        if ($request->has('baths')) {
-            $query->where('baths','>=', $request->input('baths'));
-        }
-
-        if ($request->has('beds')) {
-            $query->where('beds','>=', $request->input('beds'));
-        }
-
-        if ($request->has('address')) {
-            $query->where('address', 'like', '%' . $request->input('address') . '%');
-        }
 
         if ($request->has('services')) {
             $services = $request->input('services');
@@ -48,16 +30,15 @@ class ApartmentController extends Controller
         }
 
         // Esegui la query e restituisci i risultati come JSON
-        $apartments = $query->get();
+        $services = $query->get();
 
-        return response()->json($apartments);
+        return response()->json($services);
     }
-
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -68,7 +49,7 @@ class ApartmentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -79,8 +60,8 @@ class ApartmentController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -91,7 +72,7 @@ class ApartmentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

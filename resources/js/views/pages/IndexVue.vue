@@ -57,22 +57,13 @@
           <div class="offcanvas-body">
             <div>
               <form @submit.prevent="searchApartments">
+                <!-- <form action="{{ route('apartments.index') }}" method="GET"> -->
                 <div class="form-group">
                   <label for="nome">Nome</label>
                   <input
                     type="text"
                     name="name"
                     v-model="filters.name"
-                    class="form-control"
-                  />
-                </div>
-
-                <div class="form-group">
-                  <label for="prezzo">Prezzo massimo</label>
-                  <input
-                    type="number"
-                    name="price"
-                    v-model="filters.price"
                     class="form-control"
                   />
                 </div>
@@ -108,16 +99,6 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="meters">Metri quadrati massimi</label>
-                  <input
-                    type="number"
-                    name="meters"
-                    v-model="filters.meters"
-                    class="form-control"
-                  />
-                </div>
-
-                <div class="form-group">
                   <label for="address">Indirizzo</label>
                   <input
                     type="text"
@@ -129,20 +110,15 @@
 
                 <div class="form-group">
                   <label for="services">Servizi</label>
-                  <select
-                    name="services"
-                    v-model="filters.services"
-                    class="form-control"
-                    multiple
-                  >
-                    <option
-                      v-for="service in allServices"
-                      :key="service.id"
+                  <div v-for="service in allServices" :key="service.id">
+                    <input
+                      type="checkbox"
+                      :id="service.name"
                       :value="service.name"
-                    >
-                      {{ service.name }}
-                    </option>
-                  </select>
+                      v-model="filters.services"
+                    />
+                    <label :for="service.name">{{ service.name }}</label>
+                  </div>
                 </div>
 
                 <div class="form-group">
@@ -154,86 +130,14 @@
         </div>
       </div>
     </div>
-
-    <!-- APPARTAMENTI FILTRATI -->
-
-    <!-- <div>
-      <ul
-        class="container d-flex flex-wrap grid gap-3"
-        v-if="filteredApartments.length"
-      >
-        <li v-for="(apartment, index) in filteredApartments" :key="index">
-          <div class="card">
-            <a :href="'/apartment/' + apartment.id">
-              <div class="card-img">
-                <img
-                  :src="
-                    require(`../../../../storage/app/public/${apartment.cover}`)
-                  "
-                  class="card-img-top"
-                  alt="..."
-                />
-              </div>
-              <div class="card-info">
-                <p class="text-title">{{ apartment.name }}</p>
-                <p class="text-body">Posti letto: {{ apartment.beds }}</p>
-                <p class="text-body">rooms: {{ apartment.rooms }}</p>
-                <p class="text-body">baths: {{ apartment.baths }}</p>
-              </div>
-              <div class="card-footer">
-                <span class="text-title bold-violet"
-                  >{{ apartment.price }}&euro;</span
-                >
-              </div>
-            </a>
-          </div>
-        </li>
-      </ul>
-      <p v-else>Non ho trovato nulla</p>
-    </div> -->
-
-    <!-- SPONSORED / APPARTAMENTI CICLATI -->
-
-    <!-- <section>
-      <div class="containerCustom py-5">
-
-
-        <a href="/ShowVue">test</a>
-        <div class="d-flex flex-wrap">
-          <ul v-for="(element, index) in propsApartment" :key="index">
-            <li>
-              <div class="card">
-                <div class="card-img">
-                  <img
-                    :src="
-                      require(`../../../../storage/app/public/${element.cover}`)
-                    "
-                    class="card-img-top"
-                    alt="..."
-                  />
-                </div>
-                <div class="card-info">
-                  <p class="text-title">{{ element.name }}</p>
-                  <p class="text-body">Posti letto: {{ element.beds }}</p>
-                  <p class="text-body">rooms: {{ element.rooms }}</p>
-                  <p class="text-body">baths: {{ element.baths }}</p>
-                </div>
-                <div class="card-footer">
-                  <span class="text-title bold-violet"
-                    >{{ element.price }}&euro;</span
-                  >
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section> -->
   </div>
 </template>
 
 
 <script>
+import axios from 'axios';
+
+
 export default {
   name: "IndexVue",
   props: {
@@ -242,51 +146,50 @@ export default {
   data() {
     return {
       search: "",
-    //   apartments: [],
+      //   apartments: [],
       filters: {
-        nome: '',
+        name: "",
         prezzo: null,
         stanze: null,
         baths: null,
-        letti: null,
+        beds: null,
         meters: null,
-        address: '',
+        address: "",
         services: [],
       },
       allServices: [],
     };
   },
-    //   computed: {
-    //     filteredApartments() {
-    //       return this.propsApartment.filter((apartment) => {
-    //         return apartment.name.toLowerCase().includes(this.search.toLowerCase());
-    //       });
-    //     },
-    //   },
+
   created() {
     // Recupera tutti i servizi disponibili
-    axios.get('/api/services')
-      .then(response => {
+    axios
+      .get("/api/ServicesController")
+      .then((response) => {
         this.allServices = response.data;
+        console.log(this.allServices)
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
       });
   },
   methods: {
     searchApartments() {
       // Invia la richiesta API al server
-      axios.get('http://127.0.0.1:8000/api/apartments', { params: this.filters })
-      .then(res=>{
-                this.apartments = res.data;
-                console.log(this.apartments)
-            })
-        .catch(error => {
+      axios
+        .get("http://127.0.0.1:8000/api/ApartmentController", {
+          params: this.filters,
+        })
+        .then((res) => {
+          this.apartments = res.data;
+          console.log(this.apartments);
+        })
+        .catch((error) => {
           console.log(error);
         });
-
-        }
-}}
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
