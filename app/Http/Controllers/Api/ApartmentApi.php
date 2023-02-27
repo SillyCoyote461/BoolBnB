@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\apartment;
-class ApartmentController extends Controller
+class ApartmentApi extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,6 +16,7 @@ class ApartmentController extends Controller
     {
         $apartments = Apartment::all();
         return response()->json($apartments);
+
     }
 
     /**
@@ -37,7 +38,9 @@ class ApartmentController extends Controller
      */
     public function show($id)
     {
-        //
+        $apartment = Apartment::findOrFail($id);
+        return response()->json($apartment);
+
     }
 
     /**
