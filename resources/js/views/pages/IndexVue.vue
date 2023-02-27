@@ -39,6 +39,7 @@
                 class="card border border-5 borderpurple"
                 style="width: 18rem"
               >
+
                 <img
                   :src="apartment.cover"
                   class="card-img-top"
@@ -80,6 +81,7 @@ export default {
   data() {
     return {
       name: "",
+      cover: "",
       price: null,
       rooms: null,
       baths: null,
@@ -93,6 +95,7 @@ export default {
         .get("http://127.0.0.1:8000/api/apartments", {
           params: {
             name: this.name,
+            cover: this.cover,
             price: this.price,
             rooms: this.rooms,
             baths: this.baths,
@@ -101,6 +104,7 @@ export default {
         })
         .then((response) => {
           this.apartments = response.data;
+          console.log(this.apartment.cover)
         })
         .catch((error) => {
           console.error(error);
