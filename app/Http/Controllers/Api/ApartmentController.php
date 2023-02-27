@@ -22,20 +22,29 @@ class ApartmentController extends Controller
             $query->where('name', 'like', '%' . $request->input('name') . '%');
         }
 
+        // QUERY POSTERS ???
+
+
+        // if ($request->has('poster')) {
+        //     $query->where('poster', 'like', '%' . $request->input('poster') . '%');
+        // }
+
+        // QUERY POSTERS ???
+
         if ($request->has('price')) {
             $query->where('price', '<=', $request->input('price'));
         }
 
         if ($request->has('rooms')) {
-            $query->where('rooms', $request->input('rooms'));
+            $query->where('rooms', '>=',$request->input('rooms'));
         }
 
         if ($request->has('baths')) {
-            $query->where('baths', $request->input('baths'));
+            $query->where('baths', '>=',$request->input('baths'));
         }
 
         if ($request->has('beds')) {
-            $query->where('beds', $request->input('beds'));
+            $query->where('beds', '>=',$request->input('beds'));
         }
 
         if ($request->has('meters')) {
