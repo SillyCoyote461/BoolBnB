@@ -23,7 +23,7 @@
               v-model="beds"
               placeholder="Min number of beds"
             />
-            <button @click="searchApartments">Search</button>
+            <button  @click="searchApartments">Search</button>
 
           </div>
         </div>
@@ -62,7 +62,7 @@
                   </ul>
                   <a
                     :href="'/apartments/' + apartment.id"
-                    class="btn btn-primary"
+                    class="btn btn-primary my-2"
                     >Details</a
                   >
                 </div>
