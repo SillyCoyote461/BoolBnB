@@ -1977,19 +1977,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "IndexVue",
   props: {
-    propsApartment: Array
+    apartments: Array
   },
   data: function data() {
     return {
-      search: "",
-      apartments: []
+      name: "",
+      cover: "",
+      price: null,
+      rooms: null,
+      baths: null,
+      beds: null,
+      filter: []
     };
   },
-  computed: {
-    filteredApartments: function filteredApartments() {
+  methods: {
+    searchApartments: function searchApartments() {
       var _this = this;
-      return this.propsApartment.filter(function (apartment) {
-        return apartment.name.toLowerCase().includes(_this.search.toLowerCase());
+      axios.get("http://127.0.0.1:8000/api/filtered", {
+        params: {
+          name: this.name,
+          cover: this.cover,
+          price: this.price,
+          rooms: this.rooms,
+          baths: this.baths,
+          beds: this.beds
+        }
+      }).then(function (response) {
+        _this.apartments = response.data;
+        console.log(_this.apartments);
+      })["catch"](function (error) {
+        console.error(error);
       });
     }
   }
@@ -2085,7 +2102,7 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", [_c("router-view", {
     attrs: {
-      propsApartment: _vm.apartments
+      apartments: _vm.apartments
     }
   })], 1);
 };
@@ -2113,91 +2130,189 @@ var render = function render() {
     staticClass: "backgroundImg d-flex flex-column"
   }, [_c("div", {
     staticClass: "d-flex align-items-center justify-content-center flex-grow-1"
-  }, [_c("div", {}, [_c("form", {
-    staticClass: "form-inline d-flex",
-    on: {
-      submit: function submit($event) {
-        $event.preventDefault();
-      }
-    }
-  }, [_c("input", {
+  }, [_c("div", {}, [_c("div", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.search,
-      expression: "search"
+      value: _vm.name,
+      expression: "name"
     }],
-    staticClass: "form-control mr-sm-2",
     attrs: {
       type: "text",
-      placeholder: "Search",
-      "aria-label": "Search"
+      placeholder: "Search by name"
     },
     domProps: {
-      value: _vm.search
+      value: _vm.name
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.search = $event.target.value;
+        _vm.name = $event.target.value;
       }
     }
-  }), _vm._v(" "), _vm._m(0)])])]), _vm._v(" "), _vm._m(1)]), _vm._v(" "), _c("div", [_vm.filteredApartments.length ? _c("ul", {
-    staticClass: "container d-flex flex-wrap grid gap-3"
-  }, _vm._l(_vm.filteredApartments, function (apartment, index) {
-    return _c("li", {
-      key: index
-    }, [_c("div", {
-      staticClass: "card"
-    }, [_c("router-link", {
-      attrs: {
-        to: "/apartment/".concat(apartment.id)
+  }), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.price,
+      expression: "price"
+    }],
+    attrs: {
+      type: "number",
+      placeholder: "Max price"
+    },
+    domProps: {
+      value: _vm.price
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.price = $event.target.value;
       }
-    }, [_c("div", {
-      staticClass: "card-img"
+    }
+  }), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.rooms,
+      expression: "rooms"
+    }],
+    attrs: {
+      type: "number",
+      placeholder: "Min number of rooms"
+    },
+    domProps: {
+      value: _vm.rooms
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.rooms = $event.target.value;
+      }
+    }
+  }), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.baths,
+      expression: "baths"
+    }],
+    attrs: {
+      type: "number",
+      placeholder: "Min number of baths"
+    },
+    domProps: {
+      value: _vm.baths
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.baths = $event.target.value;
+      }
+    }
+  }), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.beds,
+      expression: "beds"
+    }],
+    attrs: {
+      type: "number",
+      placeholder: "Min number of beds"
+    },
+    domProps: {
+      value: _vm.beds
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.beds = $event.target.value;
+      }
+    }
+  }), _vm._v(" "), _c("button", {
+    on: {
+      click: _vm.searchApartments
+    }
+  }, [_vm._v("Search")])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "background2"
+  }, [_c("div", {
+    staticClass: "container p-5 d-flex flex-wrap grid gap-3"
+  }, [_c("div", {
+    staticClass: "card-deck"
+  }, _vm._l(_vm.apartments, function (apartment) {
+    return _vm.filter.length == 0 ? _c("div", {
+      key: apartment.id,
+      staticClass: "card border border-5 borderpurple",
+      staticStyle: {
+        width: "18rem"
+      }
     }, [_c("img", {
       staticClass: "card-img-top",
       attrs: {
         src: __webpack_require__("./storage/app/public sync recursive ^\\.\\/.*$")("./".concat(apartment.cover)),
-        alt: "..."
+        alt: apartment.name
       }
-    })]), _vm._v(" "), _c("div", {
-      staticClass: "card-info"
-    }, [_c("p", {
-      staticClass: "text-title"
+    }), _vm._v(" "), _c("div", {
+      staticClass: "card-body"
+    }, [_c("h5", {
+      staticClass: "card-title"
     }, [_vm._v(_vm._s(apartment.name))]), _vm._v(" "), _c("p", {
-      staticClass: "text-body"
-    }, [_vm._v("Posti letto: " + _vm._s(apartment.beds))]), _vm._v(" "), _c("p", {
-      staticClass: "text-body"
-    }, [_vm._v("rooms: " + _vm._s(apartment.rooms))]), _vm._v(" "), _c("p", {
-      staticClass: "text-body"
-    }, [_vm._v("baths: " + _vm._s(apartment.baths))])]), _vm._v(" "), _c("div", {
-      staticClass: "card-footer"
-    }, [_c("span", {
-      staticClass: "text-title bold-violet"
-    }, [_vm._v(_vm._s(apartment.price) + "€")])])])], 1)]);
-  }), 0) : _c("p", [_vm._v("Non ho trovato nulla")])])]);
+      staticClass: "card-text"
+    }, [_vm._v(_vm._s(apartment.description))]), _vm._v(" "), _c("ul", {
+      staticClass: "list-group list-group-flush"
+    }, [_c("li", {
+      staticClass: "list-group-item"
+    }, [_vm._v("\n                    Prezzo: " + _vm._s(apartment.price) + " €\n                  ")]), _vm._v(" "), _c("li", {
+      staticClass: "list-group-item"
+    }, [_vm._v("\n                    N° Stanze: " + _vm._s(apartment.rooms) + "\n                  ")]), _vm._v(" "), _c("li", {
+      staticClass: "list-group-item"
+    }, [_vm._v("\n                    N° Bagni: " + _vm._s(apartment.baths) + "\n                  ")]), _vm._v(" "), _c("li", {
+      staticClass: "list-group-item"
+    }, [_vm._v("Posti letto: " + _vm._s(apartment.beds))])]), _vm._v(" "), _c("a", {
+      staticClass: "btn btn-primary my-2",
+      attrs: {
+        href: "/apartments/" + apartment.id
+      }
+    }, [_vm._v("Details")])])]) : _vm._l(_vm.filter, function (apartment) {
+      return _c("div", {
+        key: apartment.id,
+        staticClass: "card border border-5 borderpurple",
+        staticStyle: {
+          width: "18rem"
+        }
+      }, [_c("img", {
+        staticClass: "card-img-top",
+        attrs: {
+          src: __webpack_require__("./storage/app/public sync recursive ^\\.\\/.*$")("./".concat(apartment.cover)),
+          alt: apartment.name
+        }
+      }), _vm._v(" "), _c("div", {
+        staticClass: "card-body"
+      }, [_c("h5", {
+        staticClass: "card-title"
+      }, [_vm._v(_vm._s(apartment.name))]), _vm._v(" "), _c("p", {
+        staticClass: "card-text"
+      }, [_vm._v(_vm._s(apartment.description))]), _vm._v(" "), _c("ul", {
+        staticClass: "list-group list-group-flush"
+      }, [_c("li", {
+        staticClass: "list-group-item"
+      }, [_vm._v("\n                    Prezzo: " + _vm._s(apartment.price) + " €\n                  ")]), _vm._v(" "), _c("li", {
+        staticClass: "list-group-item"
+      }, [_vm._v("\n                    N° Stanze: " + _vm._s(apartment.rooms) + "\n                  ")]), _vm._v(" "), _c("li", {
+        staticClass: "list-group-item"
+      }, [_vm._v("\n                    N° Bagni: " + _vm._s(apartment.baths) + "\n                  ")]), _vm._v(" "), _c("li", {
+        staticClass: "list-group-item"
+      }, [_vm._v("Posti letto: " + _vm._s(apartment.beds))])]), _vm._v(" "), _c("a", {
+        staticClass: "btn btn-primary my-2",
+        attrs: {
+          href: "/apartments/" + apartment.id
+        }
+      }, [_vm._v("Details")])])]);
+    });
+  }), 0)])])]);
 };
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("button", {
-    staticClass: "btn btn-outline-light border-3 purple my-2 my-sm-0",
-    attrs: {
-      type: "submit"
-    }
-  }, [_c("i", {
-    staticClass: "fa-solid fa-magnifying-glass"
-  })]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "d-flex align-item-center justify-content-center filtri-section"
-  }, [_c("div", {
-    staticClass: "text-light"
-  }, [_vm._v("Filtri")])]);
-}];
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -54372,13 +54487,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./apartment_cover/GUfzfSUzZUgEqsvfNwtj962jzdNtJMspVhMHag3P.png": "./storage/app/public/apartment_cover/GUfzfSUzZUgEqsvfNwtj962jzdNtJMspVhMHag3P.png",
-	"./apartment_cover/TWDyYTdg9vnqVyUtumVdo8y92v5YJeEgHYf7CuDH.png": "./storage/app/public/apartment_cover/TWDyYTdg9vnqVyUtumVdo8y92v5YJeEgHYf7CuDH.png",
-	"./apartment_cover/Ukg7cmTMNEaxxZ2kloqtvxkSE9DkT48quZUDGhCR.png": "./storage/app/public/apartment_cover/Ukg7cmTMNEaxxZ2kloqtvxkSE9DkT48quZUDGhCR.png",
-	"./apartment_cover/msw8N5h9DRaNQm13j0AhcS0R4hRvt2qUEudDFdEc.png": "./storage/app/public/apartment_cover/msw8N5h9DRaNQm13j0AhcS0R4hRvt2qUEudDFdEc.png",
-	"./apartment_cover/qH8R3A5vcAMDOquu0wf3DuxooAtMrR3KMF11XC1i.png": "./storage/app/public/apartment_cover/qH8R3A5vcAMDOquu0wf3DuxooAtMrR3KMF11XC1i.png",
-	"./apartment_cover/tSJBk11Fp7jJSbPswrPU7o4bYNHAhB0QaGQMrY70.png": "./storage/app/public/apartment_cover/tSJBk11Fp7jJSbPswrPU7o4bYNHAhB0QaGQMrY70.png",
-	"./apartment_cover/ua5NXCE5vgQohy9S12dp1u6ECY1e0uNt68WTbDzy.png": "./storage/app/public/apartment_cover/ua5NXCE5vgQohy9S12dp1u6ECY1e0uNt68WTbDzy.png"
+	"./apartment_cover/Z3xL5VBRyzZa0LjxocbEigrJiaYDGb1VnwtviEPt.png": "./storage/app/public/apartment_cover/Z3xL5VBRyzZa0LjxocbEigrJiaYDGb1VnwtviEPt.png",
+	"./apartment_cover/ashGVgDDsIsLp03lsgpYgjz5Hag6Hp2nbfkCpNpK.png": "./storage/app/public/apartment_cover/ashGVgDDsIsLp03lsgpYgjz5Hag6Hp2nbfkCpNpK.png",
+	"./apartment_cover/iXKt3LZniHOP4mzIWRxIGQtArnVzewDeg1szU4kB.png": "./storage/app/public/apartment_cover/iXKt3LZniHOP4mzIWRxIGQtArnVzewDeg1szU4kB.png"
 };
 
 
@@ -54403,80 +54514,36 @@ webpackContext.id = "./storage/app/public sync recursive ^\\.\\/.*$";
 
 /***/ }),
 
-/***/ "./storage/app/public/apartment_cover/GUfzfSUzZUgEqsvfNwtj962jzdNtJMspVhMHag3P.png":
+/***/ "./storage/app/public/apartment_cover/Z3xL5VBRyzZa0LjxocbEigrJiaYDGb1VnwtviEPt.png":
 /*!*****************************************************************************************!*\
-  !*** ./storage/app/public/apartment_cover/GUfzfSUzZUgEqsvfNwtj962jzdNtJMspVhMHag3P.png ***!
+  !*** ./storage/app/public/apartment_cover/Z3xL5VBRyzZa0LjxocbEigrJiaYDGb1VnwtviEPt.png ***!
   \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/GUfzfSUzZUgEqsvfNwtj962jzdNtJMspVhMHag3P.png?dafc0ce98a23b7762954e6ce4109a8e4";
+module.exports = "/images/Z3xL5VBRyzZa0LjxocbEigrJiaYDGb1VnwtviEPt.png?dafc0ce98a23b7762954e6ce4109a8e4";
 
 /***/ }),
 
-/***/ "./storage/app/public/apartment_cover/TWDyYTdg9vnqVyUtumVdo8y92v5YJeEgHYf7CuDH.png":
+/***/ "./storage/app/public/apartment_cover/ashGVgDDsIsLp03lsgpYgjz5Hag6Hp2nbfkCpNpK.png":
 /*!*****************************************************************************************!*\
-  !*** ./storage/app/public/apartment_cover/TWDyYTdg9vnqVyUtumVdo8y92v5YJeEgHYf7CuDH.png ***!
+  !*** ./storage/app/public/apartment_cover/ashGVgDDsIsLp03lsgpYgjz5Hag6Hp2nbfkCpNpK.png ***!
   \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/TWDyYTdg9vnqVyUtumVdo8y92v5YJeEgHYf7CuDH.png?dafc0ce98a23b7762954e6ce4109a8e4";
+module.exports = "/images/ashGVgDDsIsLp03lsgpYgjz5Hag6Hp2nbfkCpNpK.png?dafc0ce98a23b7762954e6ce4109a8e4";
 
 /***/ }),
 
-/***/ "./storage/app/public/apartment_cover/Ukg7cmTMNEaxxZ2kloqtvxkSE9DkT48quZUDGhCR.png":
+/***/ "./storage/app/public/apartment_cover/iXKt3LZniHOP4mzIWRxIGQtArnVzewDeg1szU4kB.png":
 /*!*****************************************************************************************!*\
-  !*** ./storage/app/public/apartment_cover/Ukg7cmTMNEaxxZ2kloqtvxkSE9DkT48quZUDGhCR.png ***!
+  !*** ./storage/app/public/apartment_cover/iXKt3LZniHOP4mzIWRxIGQtArnVzewDeg1szU4kB.png ***!
   \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Ukg7cmTMNEaxxZ2kloqtvxkSE9DkT48quZUDGhCR.png?dafc0ce98a23b7762954e6ce4109a8e4";
-
-/***/ }),
-
-/***/ "./storage/app/public/apartment_cover/msw8N5h9DRaNQm13j0AhcS0R4hRvt2qUEudDFdEc.png":
-/*!*****************************************************************************************!*\
-  !*** ./storage/app/public/apartment_cover/msw8N5h9DRaNQm13j0AhcS0R4hRvt2qUEudDFdEc.png ***!
-  \*****************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/msw8N5h9DRaNQm13j0AhcS0R4hRvt2qUEudDFdEc.png?dafc0ce98a23b7762954e6ce4109a8e4";
-
-/***/ }),
-
-/***/ "./storage/app/public/apartment_cover/qH8R3A5vcAMDOquu0wf3DuxooAtMrR3KMF11XC1i.png":
-/*!*****************************************************************************************!*\
-  !*** ./storage/app/public/apartment_cover/qH8R3A5vcAMDOquu0wf3DuxooAtMrR3KMF11XC1i.png ***!
-  \*****************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/qH8R3A5vcAMDOquu0wf3DuxooAtMrR3KMF11XC1i.png?dafc0ce98a23b7762954e6ce4109a8e4";
-
-/***/ }),
-
-/***/ "./storage/app/public/apartment_cover/tSJBk11Fp7jJSbPswrPU7o4bYNHAhB0QaGQMrY70.png":
-/*!*****************************************************************************************!*\
-  !*** ./storage/app/public/apartment_cover/tSJBk11Fp7jJSbPswrPU7o4bYNHAhB0QaGQMrY70.png ***!
-  \*****************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/tSJBk11Fp7jJSbPswrPU7o4bYNHAhB0QaGQMrY70.png?dafc0ce98a23b7762954e6ce4109a8e4";
-
-/***/ }),
-
-/***/ "./storage/app/public/apartment_cover/ua5NXCE5vgQohy9S12dp1u6ECY1e0uNt68WTbDzy.png":
-/*!*****************************************************************************************!*\
-  !*** ./storage/app/public/apartment_cover/ua5NXCE5vgQohy9S12dp1u6ECY1e0uNt68WTbDzy.png ***!
-  \*****************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/ua5NXCE5vgQohy9S12dp1u6ECY1e0uNt68WTbDzy.png?dafc0ce98a23b7762954e6ce4109a8e4";
+module.exports = "/images/iXKt3LZniHOP4mzIWRxIGQtArnVzewDeg1szU4kB.png?dafc0ce98a23b7762954e6ce4109a8e4";
 
 /***/ }),
 

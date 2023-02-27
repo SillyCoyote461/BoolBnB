@@ -5,70 +5,111 @@
       <div class="backgroundImg d-flex flex-column">
         <div class="d-flex align-items-center justify-content-center flex-grow-1">
           <div class="">
-            <form class="form-inline d-flex" @submit.prevent>
+            <div>
+              <input type="text" v-model="name" placeholder="Search by name" />
+              <input type="number" v-model="price" placeholder="Max price" />
               <input
-                class="form-control mr-sm-2"
-                type="text"
-                placeholder="Search"
-                aria-label="Search"
-                v-model="search"
+                type="number"
+                v-model="rooms"
+                placeholder="Min number of rooms"
               />
-              <button
-                class="btn btn-outline-light border-3 purple my-2 my-sm-0"
-                type="submit"
-              >
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </button>
-            </form>
+              <input
+                type="number"
+                v-model="baths"
+                placeholder="Min number of baths"
+              />
+              <input
+                type="number"
+                v-model="beds"
+                placeholder="Min number of beds"
+              />
+              <button  @click="searchApartments">Search</button>
+
+            </div>
           </div>
         </div>
-        <div
-          class="d-flex align-item-center justify-content-center filtri-section"
-        >
-          <div class="text-light">Filtri</div>
-        </div>
       </div>
 
-      <!-- APPARTAMENTI FILTRATI -->
+      <div class=" background2">
+          <div class="container p-5 d-flex flex-wrap grid gap-3">
+              <div class="card-deck ">
 
-      <div>
-        <ul
-          class="container d-flex flex-wrap grid gap-3"
-          v-if="filteredApartments.length"
-        >
-          <li v-for="(apartment, index) in filteredApartments" :key="index">
-            <div class="card">
-             <router-link :to="`/apartment/${apartment.id}`">
-                <div class="card-img">
+                <!-- index -->
+                <div
+                    v-if="filter.length == 0"
+                    v-for="apartment in apartments"
+                    :key="apartment.id"
+                    class="card border border-5 borderpurple"
+                    style="width: 18rem">
+
                   <img
-                    :src="
-                      require(`../../../../storage/app/public/${apartment.cover}`)
-                    "
+                    :src="require(`../../../../storage/app/public/${apartment.cover}`)"
                     class="card-img-top"
-                    alt="..."
+                    :alt="apartment.name"/>
+
+                  <div class="card-body">
+                    <h5 class="card-title">{{ apartment.name }}</h5>
+                    <p class="card-text">{{ apartment.description }}</p>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">
+                        Prezzo: {{ apartment.price }} €
+                      </li>
+                      <li class="list-group-item">
+                        N° Stanze: {{ apartment.rooms }}
+                      </li>
+                      <li class="list-group-item">
+                        N° Bagni: {{ apartment.baths }}
+                      </li>
+                      <li class="list-group-item">Posti letto: {{ apartment.beds }}</li>
+                    </ul>
+                    <a
+                      :href="'/apartments/' + apartment.id"
+                      class="btn btn-primary my-2"
+                      >Details</a
+                    >
+                  </div>
+                </div>
+
+
+                <!-- filtrati -->
+                <div
+                    v-else
+                  v-for="apartment in filter"
+                  :key="apartment.id"
+                  class="card border border-5 borderpurple"
+                  style="width: 18rem"
+                >
+
+                  <img
+                    :src="require(`../../../../storage/app/public/${apartment.cover}`)"
+                    class="card-img-top"
+                    :alt="apartment.name"
                   />
+                  <div class="card-body">
+                    <h5 class="card-title">{{ apartment.name }}</h5>
+                    <p class="card-text">{{ apartment.description }}</p>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">
+                        Prezzo: {{ apartment.price }} €
+                      </li>
+                      <li class="list-group-item">
+                        N° Stanze: {{ apartment.rooms }}
+                      </li>
+                      <li class="list-group-item">
+                        N° Bagni: {{ apartment.baths }}
+                      </li>
+                      <li class="list-group-item">Posti letto: {{ apartment.beds }}</li>
+                    </ul>
+                    <a
+                      :href="'/apartments/' + apartment.id"
+                      class="btn btn-primary my-2"
+                      >Details</a
+                    >
+                  </div>
                 </div>
-                <div class="card-info">
-                  <p class="text-title">{{ apartment.name }}</p>
-                  <p class="text-body">Posti letto: {{ apartment.beds }}</p>
-                  <p class="text-body">rooms: {{ apartment.rooms }}</p>
-                  <p class="text-body">baths: {{ apartment.baths }}</p>
-                </div>
-                <div class="card-footer">
-                  <span class="text-title bold-violet"
-                    >{{ apartment.price }}&euro;</span
-                  >
-                </div>
-              </router-link>
-            </div>
-          </li>
-        </ul>
-        <p v-else>Non ho trovato nulla</p>
+              </div>
+          </div>
       </div>
-
-      <!-- SPONSORED / APPARTAMENTI CICLATI -->
-
-
     </div>
   </template>
 
@@ -77,21 +118,41 @@
   export default {
     name: "IndexVue",
     props: {
-      propsApartment: Array,
+      apartments: Array,
     },
     data() {
-      return {
-        search: "",
-        apartments: [],
-      };
+        return {
+            name: "",
+            cover: "",
+            price: null,
+            rooms: null,
+            baths: null,
+            beds: null,
+            filter: [],
+        };
     },
-    computed: {
-      filteredApartments() {
-        return this.propsApartment.filter((apartment) => {
-          return apartment.name.toLowerCase().includes(this.search.toLowerCase());
+    methods: {
+    searchApartments() {
+      axios
+        .get("http://127.0.0.1:8000/api/filtered", {
+          params: {
+            name: this.name,
+            cover: this.cover,
+            price: this.price,
+            rooms: this.rooms,
+            baths: this.baths,
+            beds: this.beds,
+          },
+        })
+        .then((response) => {
+          this.apartments = response.data;
+          console.log(this.apartments)
+        })
+        .catch((error) => {
+          console.error(error);
         });
-      },
     },
+  },
   };
   </script>
 

@@ -3,7 +3,7 @@
         <!---<HeaderVue/>-->
        <!-- <IndexVue /> -->
 
-       <router-view :propsApartment="apartments"></router-view>
+       <router-view :apartments="apartments"></router-view>
 
     </div>
 </template>

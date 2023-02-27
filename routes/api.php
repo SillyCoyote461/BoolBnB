@@ -25,3 +25,11 @@ Route::namespace('Api')
    Route::get( '/', 'ApartmentApi@index');
    Route::get( '/{id}', 'ApartmentApi@show');
 });
+
+// Route::get( '/api/filtered/', 'SearchApi@index');
+
+Route::namespace('Api')
+->prefix('/filtered')
+->group(function(){
+    Route::get( '/', 'SearchApi@index');
+});
