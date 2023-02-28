@@ -147,24 +147,32 @@ export default {
     methods: {
         // filtro
         searchApartments() {
-            if(this.address == ""){
+            // se i parametri di ricerca sono vuoti
+            if(this.address == "" && this.price == "" && this.rooms == "" && this.baths == "" && this.beds ==""){
+                // svuota l'array filtrato
+                this.filter = []
+            }
+            // invece se
+            else{
+                // controlla i parametri e setta su null per evitare problemi
+                if(this.address == ""){
                 this.address = null
-            }
-            if(this.price == ""){
-                this.price = null
-            }
-            if(this.rooms == ""){
-                this.rooms = null
-            }
-            if(this.baths == ""){
-                this.baths = null
-            }
-            if(this.beds == ""){
-                this.beds = null
-            }
-
-            axios
-            // chiamata api al controller del filtro
+                }
+                if(this.price == ""){
+                    this.price = null
+                }
+                if(this.rooms == ""){
+                    this.rooms = null
+                }
+                if(this.baths == ""){
+                    this.baths = null
+                }
+                if(this.beds == ""){
+                    this.beds = null
+                }
+                // procedi con axios
+                axios
+                // chiamata api al controller del filtro
                 .get("http://127.0.0.1:8000/api/filtered", {
                     // parametri da filtrare
                     params: {
@@ -183,6 +191,14 @@ export default {
                 .catch((error) => {
                     console.error(error.response.data);
                 });
+                // se la ricerca non trova nulla
+                if(this.filter.length == 0){
+                    // svuota il filtro
+                        // si puó aggingere una funzione per mandare un pop-up
+                    this.filter = []
+                }
+
+            }
         },
     },
 };
