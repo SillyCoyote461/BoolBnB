@@ -55,6 +55,7 @@ class SearchApi extends Controller
                 });
             }
         }
+        $query->where('visibility', '=', true);
 
         // Esegui la query e restituisci i risultati come JSON
         $apartments = $query->get();

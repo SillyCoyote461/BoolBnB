@@ -52,7 +52,7 @@
                     >
                         <img
                             :src="
-                                require(`../../../../storage/app/public/${apartment.cover}`)
+                                require(`../../../../public/storage/${apartment.cover}`)
                             "
                             class="card-img-top"
                             :alt="apartment.name"
@@ -93,7 +93,7 @@
                     >
                         <img
                             :src="
-                                require(`../../../../storage/app/public/${apartment.cover}`)
+                                require(`../../../../public/storage/${apartment.cover}`)
                             "
                             class="card-img-top"
                             :alt="apartment.name"
@@ -137,18 +137,36 @@ export default {
     data() {
         return {
             address: "",
-            cover: "",
-            price: null,
-            rooms: null,
-            baths: null,
-            beds: null,
+            price: "",
+            rooms: "",
+            baths: "",
+            beds: "",
             filter: [],
         };
     },
     methods: {
+        // filtro
         searchApartments() {
+            if(this.address == ""){
+                this.address = null
+            }
+            if(this.price == ""){
+                this.price = null
+            }
+            if(this.rooms == ""){
+                this.rooms = null
+            }
+            if(this.baths == ""){
+                this.baths = null
+            }
+            if(this.beds == ""){
+                this.beds = null
+            }
+
             axios
+            // chiamata api al controller del filtro
                 .get("http://127.0.0.1:8000/api/filtered", {
+                    // parametri da filtrare
                     params: {
                         address: this.address,
                         cover: this.cover,
@@ -159,13 +177,11 @@ export default {
                     },
                 })
                 .then((response) => {
-                    this.apartments = response.data.filter(
-                        (apartment) => apartment.visibility
-                    );
-                    console.log(this.apartments);
+                    this.filter = response.data
+                    console.log(response.data)
                 })
                 .catch((error) => {
-                    console.error(error);
+                    console.error(error.response.data);
                 });
         },
     },

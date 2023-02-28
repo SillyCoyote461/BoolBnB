@@ -14,7 +14,14 @@ class ApartmentApi extends Controller
      */
     public function index()
     {
-        $apartments = Apartment::all();
+        // $apartments = Apartment::all();
+        // return response()->json($apartments);
+
+
+        $query = Apartment::query();
+        $query->where('visibility', '=', true);
+        $apartments = $query->get();
+
         return response()->json($apartments);
 
     }
