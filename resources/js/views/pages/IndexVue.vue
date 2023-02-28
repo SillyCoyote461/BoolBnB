@@ -11,7 +11,7 @@
                         <input
                             type="text"
                             v-model="address"
-                            placeholder="Search by name"
+                            placeholder="Search by Address"
                         />
                         <input
                             type="number"
