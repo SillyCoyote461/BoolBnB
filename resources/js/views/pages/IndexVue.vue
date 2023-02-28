@@ -10,7 +10,7 @@
                     <div>
                         <input
                             type="text"
-                            v-model="name"
+                            v-model="address"
                             placeholder="Search by name"
                         />
                         <input
@@ -83,11 +83,11 @@
                         </div>
                     </div>
 
-                    <!-- filtrati -->
+                    <!-- filtrati :key="apartment.id"-->
                     <div
                         v-else
                         v-for="apartment in filter"
-                        :key="apartment.id"
+
                         class="card border border-5 borderpurple"
                         style="width: 18rem"
                     >
@@ -118,8 +118,8 @@
                             <a
                                 :href="'/apartments/' + apartment.id"
                                 class="btn btn-primary my-2"
-                                >Details</a
-                            >
+                                >Details</a>
+
                         </div>
                     </div>
                 </div>
@@ -136,7 +136,7 @@ export default {
     },
     data() {
         return {
-            name: "",
+            address: "",
             cover: "",
             price: null,
             rooms: null,
@@ -150,7 +150,7 @@ export default {
             axios
                 .get("http://127.0.0.1:8000/api/filtered", {
                     params: {
-                        name: this.name,
+                        address: this.address,
                         cover: this.cover,
                         price: this.price,
                         rooms: this.rooms,

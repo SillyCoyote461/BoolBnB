@@ -129,8 +129,8 @@
                 <label for="cover" class="form-label">Aggiungi Cover *</label>
                 <input class="form-control" type="file" id="cover" name="cover">
                 @error('cover')
-                <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
 
             {{-- visibility --}}

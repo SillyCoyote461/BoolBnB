@@ -15,8 +15,8 @@ const router = new VueRouter({
             component: IndexVue
         },
         {
-            path: '/apartment/:id',
-            name: 'apartment',
+            path: '/apartments/:id',
+            name: 'apartments',
             component: ShowVue
 
         }
