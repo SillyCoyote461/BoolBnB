@@ -186,18 +186,18 @@
 <body style="">
 
     {{-- BOdy --}}
-    <div class="{{-- container-fluid w-75 m-auto right-section py-2 --}} container  d-flex flex-column align-items-center justify-content-center">
+    <div class="{{-- container-fluid w-75 m-auto right-section py-2 --}} container  mt-3">
 
         <div>
-            <h1 class="text-center p-4">Add Apartment</h1>
+            <h1 class=" p-4">Add Apartment</h1>
         </div>
 
-        <div>
+        <div class="container">
             <a href="{{ route('admin.apartments.index') }}">
-                <div class="btn btn-danger fw-bold mt-5 mb-4"><i class="fa-solid fa-left-long"></i> Dashboard</div>
+                {{-- <div class="btn btn-danger fw-bold mt-5 mb-4"><i class="fa-solid fa-left-long"></i> Dashboard</div> --}}
+                <button>Dashboard</button>
             </a>
         </div>
-
 
 
     </div>
@@ -211,9 +211,9 @@
 
             </div>
             {{-- latitudine --}}
-            <input class="form-control" name="lat" type="text" id="lat" required {{-- hidden --}} readonly="readonly"> </input>
+            <input class="form-control" name="lat" type="text" id="lat"  {{-- hidden --}} readonly="readonly"> </input>
             {{-- longitudine --}}
-            <input class="form-control mt-2" name="lon" type="text" id="long" required {{-- hidden --}} readonly="readonly"> </input>
+            <input class="form-control mt-2" name="lon" type="text" id="long"  {{-- hidden --}} readonly="readonly"> </input>
             <p>
                 *autocompilazione
             </p>
@@ -228,9 +228,9 @@
 
         {{-- INPUT LAT LONG HIDDEN --}}
         <div class="d-flex  justify-content-center ">
-            <input class="form-control" name="lat" type="text" id="lat" required hidden> </input>
+            <input class="form-control" name="lat" type="text" id="lat" hidden> </input>
 
-            <input class="form-control" name="lon" type="text" id="long" required hidden> </input>
+            <input class="form-control" name="lon" type="text" id="long" hidden> </input>
 
             @error('lat')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -399,9 +399,9 @@
         <input  name="lon" type="text" id="long"> </input> --}}
 
         {{-- INVIO d-flex align-item-center justify-content-evenly --}}
-        <div class="mt-5 mb-5 ">
+        <div class="mt-5 mb-5 d-flex ">
             <div>
-                <button type="submit" class="" onclick="return validateForm()">Crea Nuovo</button>
+                <button type="submit" class="me-2" onclick="return validateForm()">Crea Nuovo</button>
             </div>
 
             {{-- <div>
@@ -411,8 +411,6 @@
             </div> --}}
 
         </div>
-
-
     </form>
 
     <script>
