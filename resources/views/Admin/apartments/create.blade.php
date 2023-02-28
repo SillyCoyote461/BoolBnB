@@ -205,20 +205,14 @@
     <div class="d-flex align-items-center justify-content-center h-50">
         <div id="map" style="width: 40%; height: 90%;" class="me-3"></div>
         <div>
+
             <div class="mb-5 fs-1 form-label">
                 <i class="fa-solid fa-hand-point-left"></i>
                 Dove ti trovi?
 
             </div>
-            {{-- latitudine --}}
-            <input class="form-control" name="lat" type="text" id="lat"  {{-- hidden --}} readonly="readonly"> </input>
-            {{-- longitudine --}}
-            <input class="form-control mt-2" name="lon" type="text" id="long"  {{-- hidden --}} readonly="readonly"> </input>
-            <p>
-                *autocompilazione
-            </p>
-        </div>
 
+        </div>
     </div>
 
     <form class="d-flex flex-column w-50 m-auto" method="POST" action="{{ route('admin.apartments.store') }}"
@@ -228,9 +222,10 @@
 
         {{-- INPUT LAT LONG HIDDEN --}}
         <div class="d-flex  justify-content-center ">
-            <input class="form-control" name="lat" type="text" id="lat" hidden> </input>
 
-            <input class="form-control" name="lon" type="text" id="long" hidden> </input>
+            <input class="form-control d-none" name="lat" type="text" id="lat" required > </input>
+
+            <input class="form-control d-none" name="lon" type="text" id="long" required> </input>
 
             @error('lat')
                 <div class="alert alert-danger">{{ $message }}</div>
