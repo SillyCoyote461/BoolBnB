@@ -6,20 +6,26 @@
         <h1 class="py-3">{{ Auth::user()->name }}'s Dashboard</h1>
 
         <section>
-            <div class="d-flex justify-content-evenly w-100 py-3">
+            <div class="d-flex justify-content-center w-100 py-3">
                 {{-- profile image --}}
                 <div class="infobox-img">
-                    {{-- <img src="../../public/img/user.png" alt=""> --}}
-                    img
+
+                    <img src="{{ asset('img/user.png') }}" alt="img user" width="180" height="180" class="user">
                 </div>
 
-                {{-- separator --}}
-                <div class="separator">
-                </div>
+
 
                 {{-- info --}}
-                <div class="infobox-info p-3">
-                    informazioni
+                <div class=" p-3">
+                    <div class="fw-bold fs-2 ">
+                        {{ Auth::user()->name }} {{ Auth::user()->surname }}
+                    </div>
+                    <p class="">
+                        {{ Auth::user()->email }}
+                    </p>
+                    <p class="">
+                        {{ Auth::user()->birthdate }}
+                    </p>
                 </div>
             </div>
 

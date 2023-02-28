@@ -13,8 +13,8 @@
 
     height: 300px;
     width: 400px;
-    background-color: #6e42c16c;
-    border-radius: 50px;
+    background-color: #6e42c17a;
+    /* border-radius: 50px; */
     align-self: center;
 
 
@@ -242,4 +242,6 @@ li{
     font-weight: bold !important;
    }
 
-
+.user{
+    border-radius: 50%;
+}
