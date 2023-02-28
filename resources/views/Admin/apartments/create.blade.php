@@ -202,11 +202,26 @@
 
     </div>
 
-    <div class="d-flex justify-content-center h-50">
-        <div id="map" style="width: 100%; height: 100%;"></div>
+    <div class="d-flex align-items-center justify-content-center h-50">
+        <div id="map" style="width: 40%; height: 90%;" class="me-3"></div>
+        <div>
+            <div class="mb-5 fs-1 form-label">
+                <i class="fa-solid fa-hand-point-left"></i>
+                Dove ti trovi?
+
+            </div>
+            {{-- latitudine --}}
+            <input class="form-control" name="lat" type="text" id="lat" required {{-- hidden --}} readonly="readonly"> </input>
+            {{-- longitudine --}}
+            <input class="form-control mt-2" name="lon" type="text" id="long" required {{-- hidden --}} readonly="readonly"> </input>
+            <p>
+                *autocompilazione
+            </p>
+        </div>
+
     </div>
 
-    <form class="d-flex flex-column w-25 m-auto" method="POST" action="{{ route('admin.apartments.store') }}"
+    <form class="d-flex flex-column w-50 m-auto" method="POST" action="{{ route('admin.apartments.store') }}"
         enctype="multipart/form-data">
 
         @csrf
@@ -298,8 +313,13 @@
         </div> --}}
 
 
-         {{-- ADDRESS  --}}
-         <div class="mb-4">
+        {{-- ADDRESS  --}}
+
+        {{-- <div class="d-flex justify-content-center h-50">
+            <div id="map" style="width: 70%; height: 100%;"></div>
+        </div> --}}
+
+        <div class="mb-4">
             <label class="form-label form-check-label" for="">Address *</label>
             <input type="text" class="form-control" name="address" required readonly="readonly">
             @error('address')
@@ -413,8 +433,8 @@
                 /* `if ( /*___directives_script_0___*/
 
                 return false;
-              }
             }
+        }
     </script>
 
 
