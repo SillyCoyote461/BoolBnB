@@ -213,9 +213,9 @@
 
         {{-- INPUT LAT LONG HIDDEN --}}
         <div class="d-flex  justify-content-center ">
-            <input class="form-control" name="lat" type="text" id="lat" required> </input>
+            <input class="form-control" name="lat" type="text" id="lat" required hidden> </input>
 
-            <input class="form-control" name="lon" type="text" id="long" required> </input>
+            <input class="form-control" name="lon" type="text" id="long" required hidden> </input>
 
             @error('lat')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -298,14 +298,14 @@
         </div> --}}
 
 
-        {{-- ADDRESS --}}
-        {{-- <div class="mb-4">
+         {{-- ADDRESS  --}}
+         <div class="mb-4">
             <label class="form-label form-check-label" for="">Address *</label>
-            <input type="text" class="form-control" name="address" required>
+            <input type="text" class="form-control" name="address" required readonly="readonly">
             @error('address')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
-        </div> --}}
+        </div>
 
         {{-- PRICE --}}
         <div class="mb-4">
