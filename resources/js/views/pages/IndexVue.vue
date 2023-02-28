@@ -8,7 +8,7 @@
             >
                 <div class="">
                     <div>
-                        <input
+                        <!-- <input
                             type="text"
                             v-model="address"
                             placeholder="Search by Address"
@@ -32,8 +32,20 @@
                             type="number"
                             v-model="beds"
                             placeholder="Min number of beds"
-                        />
-                        <button @click="searchApartments">Search</button>
+                        /> -->
+                        <!-- <button @click="searchApartments">Search</button> -->
+
+
+                        <!--  -->
+                        <!-- prova longitudine -->
+                        <!--  -->
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Raggio di ricerca</option>
+                            <option value="20">20km</option>
+                            <option value="50">50km</option>
+                            <option value="100">100km</option>
+                        </select>
+                        <button @click="longitudeTest">Search</button>
                     </div>
                 </div>
             </div>
@@ -142,6 +154,11 @@ export default {
             baths: "",
             beds: "",
             filter: [],
+            // test
+            longitude: ,
+            latitude: 15,
+            // test2
+
         };
     },
     methods: {
@@ -199,6 +216,9 @@ export default {
                 }
 
             }
+        },
+        longitudeTest(){
+
         },
     },
 };

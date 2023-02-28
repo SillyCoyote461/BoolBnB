@@ -308,15 +308,16 @@
         </div> --}}
 
 
-        {{-- ADDRESS  --}}
 
         {{-- <div class="d-flex justify-content-center h-50">
             <div id="map" style="width: 70%; height: 100%;"></div>
         </div> --}}
 
+
+        {{-- ADDRESS  --}}
         <div class="mb-4">
             <label class="form-label form-check-label" for="">Address *</label>
-            <input type="text" class="form-control" name="address" required readonly="readonly">
+            <input type="text" class="form-control" name="address" id="address" required readonly="readonly">
             @error('address')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
@@ -486,6 +487,7 @@
             results.forEach(element => {
                 lat = element.position.lat
                 address = element.address
+                document.getElementById('address').value = address.streetName
             });
 
             console.log(address)
@@ -497,7 +499,6 @@
                 long = element.position.lng
             });
 
-            console.log(long)
             var longitudine = document.getElementById('long');
             longitudine.value = long;
         }
