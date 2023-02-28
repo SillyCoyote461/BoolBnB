@@ -186,9 +186,18 @@
 <body style="">
 
     {{-- BOdy --}}
-    <div class="container-fluid w-75 m-auto right-section py-2">
+    <div class="{{-- container-fluid w-75 m-auto right-section py-2 --}} container  d-flex flex-column align-items-center justify-content-center">
 
-        <h1 class="text-center p-4">Add Apartment</h1>
+        <div>
+            <h1 class="text-center p-4">Add Apartment</h1>
+        </div>
+
+        <div>
+            <a href="{{ route('admin.apartments.index') }}">
+                <div class="btn btn-danger fw-bold mt-5 mb-4"><i class="fa-solid fa-left-long"></i> Dashboard</div>
+            </a>
+        </div>
+
 
 
     </div>
@@ -215,9 +224,7 @@
 
 
         {{-- NAME --}}
-        <a href="{{ route('admin.apartments.index') }}">
-            <div class="btn btn-danger fw-bold mt-5 mb-4"><i class="fa-solid fa-left-long"></i> Dashboard</div>
-        </a>
+
 
         <div class="mb-4 ">
             <label class="form-label">Name *</label>
@@ -292,13 +299,13 @@
 
 
         {{-- ADDRESS --}}
-        <div class="mb-4">
+        {{-- <div class="mb-4">
             <label class="form-label form-check-label" for="">Address *</label>
             <input type="text" class="form-control" name="address" required>
             @error('address')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
-        </div>
+        </div> --}}
 
         {{-- PRICE --}}
         <div class="mb-4">
@@ -330,12 +337,12 @@
                 </div>
             @endforeach
 
-            <div  class="text-danger fw-bold fs-5" id="avviso">
+            <div class="text-danger fw-bold fs-5" id="avviso">
 
             </div>
         </div>
 
-{{-- class=" text-danger fw-bold fs-3" --}}
+        {{-- class=" text-danger fw-bold fs-3" --}}
         {{-- <div class="mt-4">
             <label>Servizi: </label>
             @php
@@ -390,26 +397,25 @@
 
     <script>
         function validateForm() {
-          var checkboxes = document.getElementsByName("services[]");
-          var checked = false;
-          for (var i = 0; i < checkboxes.length; i++) {
-            if (checkboxes[i].checked) {
-              checked = true;
-              break;
+            var checkboxes = document.getElementsByName("services[]");
+            var checked = false;
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    checked = true;
+                    break;
+                }
             }
-          }
-          if (!checked) {
-            /* alert("Seleziona almeno un servizio."); */
-            document.getElementById("avviso").innerHTML= "*Seleziona almeno un servizio!*"
-            /* const avviso = getElementById("avviso");
-            avviso.classList.remove("d-none"); */
-                /* `@error('services')
-                 <div class="alert alert-danger">{{ $message }}</div>
-                @enderror` */
-            return false;
-          }
-        }
-        </script>
+            if (!checked) {
+                /* alert("Seleziona almeno un servizio."); */
+                document.getElementById("avviso").innerHTML = "*Seleziona almeno un servizio!*"
+                /* const avviso = getElementById("avviso");
+                avviso.classList.remove("d-none"); */
+                /* `if ( /*___directives_script_0___*/
+
+                return false;
+              }
+            }
+    </script>
 
 
 
