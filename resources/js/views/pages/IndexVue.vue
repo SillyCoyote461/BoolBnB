@@ -8,7 +8,7 @@
             >
                 <div class="">
                     <div>
-                        <!-- <input
+                        <input
                             type="text"
                             v-model="address"
                             placeholder="Search by Address"
@@ -32,20 +32,20 @@
                             type="number"
                             v-model="beds"
                             placeholder="Min number of beds"
-                        /> -->
-                        <!-- <button @click="searchApartments">Search</button> -->
+                        />
+                        <button @click="searchApartments">Search</button>
 
 
                         <!--  -->
                         <!-- prova longitudine -->
                         <!--  -->
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Raggio di ricerca</option>
-                            <option value="20">20km</option>
-                            <option value="50">50km</option>
-                            <option value="100">100km</option>
-                        </select>
-                        <button @click="longitudeTest">Search</button>
+                        <input
+                            type="number"
+                            v-model="range"
+                            placeholder="Range di ricerca in Km"
+                        />
+
+                        <!-- <button @click="longitudeTest">Search</button> -->
                     </div>
                 </div>
             </div>
@@ -60,15 +60,13 @@
                         v-for="apartment in apartments"
                         :key="apartment.id"
                         class="card border border-5 borderpurple"
-                        style="width: 18rem"
-                    >
+                        style="width: 18rem">
                         <img
                             :src="
                                 require(`../../../../public/storage/${apartment.cover}`)
                             "
                             class="card-img-top"
-                            :alt="apartment.name"
-                        />
+                            :alt="apartment.name"/>
 
                         <div class="card-body">
                             <h5 class="card-title">{{ apartment.name }}</h5>
@@ -87,50 +85,43 @@
                                     Posti letto: {{ apartment.beds }}
                                 </li>
                             </ul>
-                            <a
-                                :href="'/apartments/' + apartment.id"
-                                class="btn btn-primary my-2"
-                                >Details</a
-                            >
+                            <a :href="'/apartments/' + apartment.id"
+                                class="btn btn-primary my-2">Details</a>
                         </div>
                     </div>
-
                     <!-- filtrati :key="apartment.id"-->
                     <div
-                        v-else
-                        v-for="apartment in filter"
-
+                        v-if="filter.length != 0"
+                        v-for="item in filter"
+                        :key="item.id"
                         class="card border border-5 borderpurple"
                         style="width: 18rem"
                     >
-                        <img
-                            :src="
-                                require(`../../../../public/storage/${apartment.cover}`)
-                            "
+                        <img :src="require(`../../../../public/storage/${item.cover}`)"
                             class="card-img-top"
-                            :alt="apartment.name"
-                        />
+                            :alt="item.name"/>
+
                         <div class="card-body">
-                            <h5 class="card-title">{{ apartment.name }}</h5>
-                            <p class="card-text">{{ apartment.description }}</p>
+                            <h5 class="card-title">{{ item.name }}</h5>
+                            <p class="card-text">{{ item.description }}</p>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
-                                    Prezzo: {{ apartment.price }} €
+                                    Prezzo: {{ item.price }} €
                                 </li>
                                 <li class="list-group-item">
-                                    N° Stanze: {{ apartment.rooms }}
+                                    N° Stanze: {{ item.rooms }}
                                 </li>
                                 <li class="list-group-item">
-                                    N° Bagni: {{ apartment.baths }}
+                                    N° Bagni: {{ item.baths }}
                                 </li>
                                 <li class="list-group-item">
-                                    Posti letto: {{ apartment.beds }}
+                                    Posti letto: {{ item.beds }}
                                 </li>
                             </ul>
-                            <a
-                                :href="'/apartments/' + apartment.id"
-                                class="btn btn-primary my-2"
-                                >Details</a>
+                            <a :href="'/apartments/' + item.id"
+                                class="btn btn-primary my-2">
+                                Details
+                            </a>
 
                         </div>
                     </div>
@@ -155,9 +146,17 @@ export default {
             beds: "",
             filter: [],
             // test
-            longitude: ,
-            latitude: 15,
-            // test2
+            range: "",
+            longitude: 16.07,
+            latitude: 38.40,
+            // bool variables
+            adressX: false,
+            priceX: false,
+            roomsX: false,
+            bathsX: false,
+            bedX: false,
+            rangeX: false,
+
 
         };
     },
@@ -165,7 +164,7 @@ export default {
         // filtro
         searchApartments() {
             // se i parametri di ricerca sono vuoti
-            if(this.address == "" && this.price == "" && this.rooms == "" && this.baths == "" && this.beds ==""){
+            if(this.address == ""  && this.price == ""  && this.rooms == ""  && this.baths == ""  && this.beds =="" && this.range == "" ){
                 // svuota l'array filtrato
                 this.filter = []
             }
@@ -173,19 +172,33 @@ export default {
             else{
                 // controlla i parametri e setta su null per evitare problemi
                 if(this.address == ""){
-                this.address = null
+                    this.address = null
+                    this.adressX = true
                 }
+
                 if(this.price == ""){
                     this.price = null
+                    this.priceX = true
                 }
+
                 if(this.rooms == ""){
                     this.rooms = null
+                    this.roomsX = true
                 }
+
                 if(this.baths == ""){
                     this.baths = null
+                    this.bathsX = true
                 }
+
                 if(this.beds == ""){
                     this.beds = null
+                    this.bedsX = true
+                }
+
+                if(this.range == ""){
+                    this.range = null
+                    this.rangeX = true
                 }
                 // procedi con axios
                 axios
@@ -199,6 +212,9 @@ export default {
                         rooms: this.rooms,
                         baths: this.baths,
                         beds: this.beds,
+                        lon: this.longitude,
+                        lat: this.latitude,
+                        range: this.range,
                     },
                 })
                 .then((response) => {
@@ -208,6 +224,8 @@ export default {
                 .catch((error) => {
                     console.error(error.response.data);
                 });
+
+
                 // se la ricerca non trova nulla
                 if(this.filter.length == 0){
                     // svuota il filtro
@@ -215,10 +233,37 @@ export default {
                     this.filter = []
                 }
 
-            }
-        },
-        longitudeTest(){
+                if(this.addressX == true){
+                    this.adressX = false
+                    this.address = ""
+                }
 
+                if(this.priceX == true){
+                    this.priceX = false
+                    this.price = ""
+                }
+
+                if(this.roomsX == true){
+                    this.roomsX = false
+                    this.rooms = ""
+                }
+
+                if(this.bathsX == true){
+                    this.bathsX = false
+                    this.baths = ""
+                }
+
+                if(this.bedsX == true){
+                    this.bedsX = false
+                    this.beds = ""
+                }
+
+                if(this.rangeX == true){
+                    this.rangeX = false
+                    this.range = ""
+                }
+
+            }
         },
     },
 };

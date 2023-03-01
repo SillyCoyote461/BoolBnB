@@ -55,6 +55,36 @@ class SearchApi extends Controller
                 });
             }
         }
+        // range
+            // longitudine
+            // $range_x = 0.012 * $range;
+            // $range_x_max = $request->input('lon') + $range_x;
+            // $range_x_min = $request->input('lon') - $range_x;
+            //     // latitudine
+            // $range_y = 0.009 * $range;
+            // $range_y_max = $request->input('lat') + $range_y;
+            // $range_y_min = $request->input('lat') - $range_y;
+            // lon query
+            // $query->where([
+                //     ['lon', '<=', $range_x_max],
+                //     ['lon', '>=', $range_x_max]
+                // ]);
+                // // lat query
+                // $query->where([
+                    //     ['lat', '<=', $range_y_max],
+                    //     ['lat', '>=', $range_y_max]
+
+                    // ]);
+        if($request->has('range')){
+
+            $range = $request->input('range');
+            $lat = $request->input('lat');
+            $lon = $request->input('lon');
+
+            $query->whereBetween('lat', [$lat - ($range / 111), $lat + ($range / 111)])
+            ->whereBetween('lon', [$lon - ($range / (111 * cos(deg2rad($lat)))), $lon + ($range / (111 * cos(deg2rad($lat))))]);
+        }
+
         $query->where('visibility', '=', true);
 
         // Esegui la query e restituisci i risultati come JSON
