@@ -487,7 +487,7 @@
             results.forEach(element => {
                 lat = element.position.lat
                 address = element.address
-                document.getElementById('address').value = address.streetName
+                document.getElementById('address').value = address.freeformAddress
             });
 
             console.log(address)
