@@ -177,7 +177,7 @@ li{
         color: #6f42c1;
    }
 
-   button {
+   .bottonefigo {
     --color: #560bad;
     font-family: inherit;
     display: inline-block;
@@ -196,7 +196,7 @@ li{
     color: var(--color);
    }
 
-   button:before {
+   .bottonefigo:before {
     content: "";
     position: absolute;
     z-index: -1;
@@ -206,22 +206,22 @@ li{
     border-radius: 50%;
    }
 
-   button:hover {
+   .bottonefigo:hover {
     color: #fff;
    }
 
-   button:before {
+   .bottonefigo:before {
     top: 100%;
     left: 100%;
     transition: all .5s;
    }
 
-   button:hover:before {
+   .bottonefigo:hover:before {
     top: -30px;
     left: -30px;
    }
 
-   button:active:before {
+   .bottonefigo:active:before {
     background: #3a0ca3;
     transition: background 0s;
    }
