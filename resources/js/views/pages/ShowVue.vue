@@ -57,10 +57,12 @@
             </div>
         </div>
 
-        <div class=" d-flex pt-5">
+        <div class=" d-flex pt-5 flex-wrap ">
 
+            <div class="customwidth">
+                <img class="w-100" :src="'/storage/' + apartment.cover" alt="">
+            </div>
 
-            <img class="w-50" :src="'/storage/' + apartment.cover" alt="">
             <div class="d-flex flex-column ms-4">
                 <div class=" fs-1 fw-bold">
                     <h1>{{ apartment.name }}</h1>
@@ -201,6 +203,10 @@ export default {
     transform: scale(0.95);
 }
 
+.customwidth {
+    width: 50%;
+}
+
 @keyframes fly-1 {
     from {
         transform: translateY(0.1em);
@@ -217,5 +223,14 @@ export default {
     margin-top: 25px;
     margin-right: 8px;
 }
+
+@media (max-width: 767.98px) {
+
+    .customwidth {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    }
 
 </style>
