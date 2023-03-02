@@ -298,22 +298,6 @@
             @enderror
         </div>
 
-        {{-- ACCOMODATION --}}
-        {{-- <div class="mb-4">
-            <label class="form-label form-check-label" for="">Accomodation</label>
-            <input type="number" min="1" max="50" class="form-control" name="accomodation">
-            @error('accomodation')
-                <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
-        </div> --}}
-
-
-
-        {{-- <div class="d-flex justify-content-center h-50">
-            <div id="map" style="width: 70%; height: 100%;"></div>
-        </div> --}}
-
-
         {{-- ADDRESS  --}}
         <div class="mb-4">
             <label class="form-label form-check-label" for="">Address *</label>
@@ -334,11 +318,11 @@
 
         {{-- AVAILABLE --}}
         <div class="mb-4">
-            <label class="form-label form-check-label" for="">Availability <i
+            <label class="form-label form-check-label" for="">Visibility <i
                     class="fa-solid fa-caret-down"></i></label>
-            <select name="services." class="form-control">
-                <option value=1>Available</option>
-                <option value=0>Not Available</option>
+            <select name="visibility" class="form-control">
+                <option value=1>Visible</option>
+                <option value=0>Not visible</option>
             </select>
         </div>
 

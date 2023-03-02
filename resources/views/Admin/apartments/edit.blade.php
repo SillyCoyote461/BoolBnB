@@ -93,22 +93,7 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
-                {{-- lat --}}
-                {{-- <div class="col-2">
-                    <label class="form-label" for="lat">Latitudine *</label>
-                    <input class="form-control" type="text" name="lat" value="{{ $apartment->lat }}" required>
-                    @error('lat')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                </div>
 
-                <div class="col-2">
-                    <label class="form-label" for="lon">Longitudine *</label>
-                    <input class="form-control" type="text" name="lon" value="{{ $apartment->lon }}" required>
-                    @error('lon')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                </div> --}}
             </section>
             {{-- services --}}
             <div class="mt-3">
