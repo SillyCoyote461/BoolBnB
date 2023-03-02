@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 use App\Models\message;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use Carbon\Carbon;
 class MessageApi extends Controller
 {
     /**
@@ -32,6 +32,7 @@ class MessageApi extends Controller
         $message->message = $request["text"];
         $message->fk_apartment = $request["fk"];
         $message->view = false;
+        $message->date = Carbon::now()->format('Y-m-d H:i');
 
         $message->save();
         return;

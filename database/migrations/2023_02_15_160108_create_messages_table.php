@@ -20,7 +20,7 @@ class CreateMessagesTable extends Migration
             $table->boolean('view');
             $table->string('name');
             $table->string('surname');
-            $table->timestamps();
+            $table->dateTime('date');
         });
     }
 

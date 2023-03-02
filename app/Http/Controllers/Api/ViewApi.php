@@ -29,7 +29,7 @@ class ViewApi extends Controller
         $new_view = new View();
         $new_view->ip_address = request()->ip();
         $new_view->fk_apartment = $request["fk"];
-        $new_view->date = Carbon::now();
+        $new_view->date = Carbon::now()->format('Y-m-d H:i');
         $new_view->save();
         return ;
     }

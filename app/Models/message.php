@@ -14,6 +14,8 @@ class message extends Model
         'surname'
     ];
 
+    public $timestamps = false;
+
     public function messages(){
         return $this->belongsTo('App\Models\apartment');
     }
