@@ -11,12 +11,13 @@ class message extends Model
         'message',
         'view',
         'name',
-        'surname'
+        'surname',
+
     ];
 
     public $timestamps = false;
 
     public function messages(){
-        return $this->belongsTo('App\Models\apartment');
+        return $this->hasMany('App\Models\apartment');
     }
 }
