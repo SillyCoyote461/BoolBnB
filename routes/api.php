@@ -40,3 +40,10 @@ Route::namespace('Api')
     Route::get( '/', 'MessageApi@store');
 });
 
+
+Route::namespace('Api')
+->prefix('/view')
+->group(function(){
+    Route::get( '/', 'ViewApi@store');
+});
+

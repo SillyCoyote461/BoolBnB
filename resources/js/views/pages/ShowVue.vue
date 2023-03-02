@@ -128,17 +128,20 @@ export default {
     data() {
         return {
             apartment: {},
-            fk: null,
             name: "",
             surname: "",
             email: "",
             text: "",
         }
     },
-    mounted() {
+    created() {
         this.getApartment();
     },
+    beforeUpdate() {
+        this.incrementViewCount();
+    },
     methods: {
+        // prendi dati appartamento
         getApartment() {
             const apartmentId = this.$route.params.id;
             axios.get(`/api/apartments/${apartmentId}`)
@@ -147,18 +150,35 @@ export default {
                 })
                 .catch(error => {
                     console.log(error);
-                })
+                }
+            )
+
         },
 
+        // incrementa view count
+        incrementViewCount(){
+            axios.get(`/api/view`,{
+                params: {
+                    fk: this.apartment.id,
+                }
+            })
+            .then()
+            .catch((error)=>{
+                alert("C'é stato un errore")
+                console.error(error.response.data)
+            })
+
+        },
+
+        // manda messaggio
         sendMessage(){
-            this.fk = this.apartment.id
             axios.get(`/api/message`,{
                 params: {
                     name: this.name,
                     surname: this.surname,
                     email: this.email,
                     text: this.text,
-                    fk: this.fk
+                    fk: this.idKey
                 }
             })
             .then(alert("Il messaggio é stato inviato correttamente"))
@@ -166,7 +186,8 @@ export default {
                 alert("C'é stato un errore")
                 console.error(error.response.data)
             })
-    },  }
+        }
+    }
 }
 </script>
 

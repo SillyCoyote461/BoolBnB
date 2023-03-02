@@ -203,7 +203,6 @@ export default {
                     // parametri da filtrare
                     params: {
                         address: this.address,
-                        cover: this.cover,
                         price: this.price,
                         rooms: this.rooms,
                         baths: this.baths,
