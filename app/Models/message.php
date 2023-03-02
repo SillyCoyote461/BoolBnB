@@ -17,7 +17,7 @@ class message extends Model
 
     public $timestamps = false;
 
-    public function messages(){
-        return $this->hasMany('App\Models\apartment');
+    public function apartment(){
+        return $this->belongsTo('App\Models\apartment');
     }
 }

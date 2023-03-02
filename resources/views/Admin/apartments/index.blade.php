@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+<?php
+dump($apartments)
+?>
     <div class="container mt-5">
 
         <h1 class="py-3">{{ Auth::user()->name }}'s Dashboard</h1>
@@ -69,11 +72,12 @@
                               <h1 class="modal-title fs-5" id="staticBackdropLabel">Messaggi</h1>
                             </div>
                             <div class="modal-body">
-                              @foreach ($messages as $item)
+                              @foreach ($apartments as $apartment)
+                                @foreach($apartment->messages as $item)
 
                                 <div class="messaggio">
                                     <div class="fw-bold">
-                                        {{$item->name}} {{ $item->surname }} 
+                                        {{$item->name}} {{ $item->surname }} é interessato a {{$apartment->name}}
                                     </div>
                                     <div>
                                         {{$item->email}} | {{ $item->date }}
@@ -82,7 +86,7 @@
                                         {{ $item->message }}
                                     </div>
                                 </div>
-
+                                @endforeach
                               @endforeach
                             </div>
                             <div class="modal-footer">

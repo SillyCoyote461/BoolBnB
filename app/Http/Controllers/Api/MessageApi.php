@@ -30,7 +30,7 @@ class MessageApi extends Controller
         $message->surname = $request["surname"];
         $message->email = $request["email"];
         $message->message = $request["text"];
-        $message->fk_apartment = $request["fk"];
+        $message->apartment_id = $request["fk"];
         $message->view = false;
         $message->date = Carbon::now()->format('Y-m-d H:i');
 
