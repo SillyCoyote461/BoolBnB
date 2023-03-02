@@ -146,8 +146,9 @@ export default {
             filter: [],
             // test
             range: "",
-            lat: 0,
-            lng: 0,
+            lat: "",
+            lng: "",
+
             // bool variables
             adressX: false,
             priceX: false,
@@ -160,31 +161,6 @@ export default {
         };
     },
     methods: {
-        // handleResultsFound(event) {
-        //     var results = event.data.results.fuzzySearch.results
-
-        //     if (results.length === 0) {
-        //         searchMarkersManager.clear()
-        //     }
-        //     searchMarkersManager.draw(results)
-        //     fitToViewport(results)
-
-        //     // Lat
-        //     var lat
-        //     var address
-        //     results.forEach(element => {
-        //         lat = element.position.lat
-        //         address = element.address
-        //     });
-        //     this.position.lat = lat
-        //     // Long
-        //     var long
-        //     results.forEach(element => {
-        //         long = element.position.lng
-        //     });
-        //     this.position.lng = long
-
-        // },
         // filtro
         searchApartments() {
             // se i parametri di ricerca sono vuoti
@@ -219,11 +195,18 @@ export default {
                     this.beds = null
                     this.bedsX = true
                 }
-
+                // validazioni range
                 if(this.range == ""){
                     this.range = null
                     this.rangeX = true
                 }
+                else if(this.range < 0){
+                    this.range = this.range * (-1)
+                }
+                else if(this.range > 0 && this.range < 20){
+                    this.range = 20
+                }
+
                 // procedi con axios
                 axios
                 // chiamata api al controller del filtro
@@ -235,14 +218,20 @@ export default {
                         rooms: this.rooms,
                         baths: this.baths,
                         beds: this.beds,
-                        lon: this.longitude,
-                        lat: this.latitude,
+                        lon: this.lng,
+                        lat: this.lat,
                         range: this.range,
                     },
                 })
                 .then((response) => {
                     this.filter = response.data
-                    console.log(response.data)
+
+                    if(this.filter.length == 0){
+                    // svuota il filtro
+                    this.filter = []
+                    alert("non sono stati trovati appartamenti nella zona specificata")
+                }
+
                 })
                 .catch((error) => {
                     console.error(error.response.data);
@@ -250,11 +239,6 @@ export default {
 
 
                 // se la ricerca non trova nulla
-                if(this.filter.length == 0){
-                    // svuota il filtro
-                        // si puó aggingere una funzione per mandare un pop-up
-                    this.filter = []
-                }
 
                 // validazioni pt.2
                 if(this.addressX == true){
@@ -292,6 +276,11 @@ export default {
                 this.services = res.data.services;
             })
         },
+        handleResultSelection(event){
+            this.lat = event.data.result.position.lat
+            this.lng = event.data.result.position.lng
+            return
+        }
     },
     created(){
         this.getApartments();
@@ -299,26 +288,22 @@ export default {
     mounted() {
 
     },
-    updated(){
-                // searchbar
-                const options = {
-        searchOptions: {
+    mounted(){
+        // searchbar
+        const options = {
+            searchOptions: {
                 key: 'bCA9waVZD04StnT2jWnglVMqwjHK75ve',
                 language: 'it-IT'
             },
-        autocompleteOptions: {
-            debounceTime: 200
-        },
-        position: 'topright'
+            autocompleteOptions: {
+                debounceTime: 200
+            },
+            position: 'topright'
         };
         const ttSearchBox = new SearchBox(services, options);
         const searchBoxHTML = ttSearchBox.getSearchBoxHTML();
-        document.getElementById('searchbox').append(searchBoxHTML);
-        ttSearchBox.on("tomtom.searchbox.resultselected", function(data) {
-            let result = Object.values(data.data.result.position)
-            console.log(result)
-            this.lng.push(result[0]);
-        })
+        document.getElementById('searchbox').appendChild(searchBoxHTML);
+        ttSearchBox.on("tomtom.searchbox.resultselected", this.handleResultSelection)
 
     }
 };
