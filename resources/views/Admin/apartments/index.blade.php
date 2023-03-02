@@ -127,7 +127,7 @@
                                 </div>
 
                                 <div>
-                                    <button type="button" class="" data-bs-toggle="modal"
+                                    <button type="button" class="bottonefigo" data-bs-toggle="modal"
                                         data-bs-target="#{{ $item->id }}">
                                         cancella
                                     </button>
@@ -146,13 +146,13 @@
                                                         class="fw-bold">{{ $item->name }}</span> ?
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class=""
+                                                    <button type="button" class="bottonefigo"
                                                         data-bs-dismiss="modal">Close</button>
                                                     <form method="POST" id="delete-form"
                                                         action="{{ route('admin.apartments.destroy', $item->id) }}">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit" class="">Cancella</button>
+                                                        <button type="submit" class="bottonefigo">Cancella</button>
                                                     </form>
                                                 </div>
                                             </div>
