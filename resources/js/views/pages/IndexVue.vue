@@ -21,11 +21,6 @@
                         />
                         <input
                             type="number"
-                            v-model="baths"
-                            placeholder="Min number of baths"
-                        />
-                        <input
-                            type="number"
                             v-model="beds"
                             placeholder="Min number of beds"
                         />
@@ -35,6 +30,9 @@
                         <!--  -->
                         <!-- prova longitudine -->
                         <!--  -->
+                        <div>
+                            <div id="searchbox" ref="searchbox"></div>
+                        </div>
                         <input
                             type="number"
                             v-model="range"
@@ -66,7 +64,7 @@
 
                         <div class="card-body">
                             <h5 class="card-title">{{ apartment.name }}</h5>
-                            <!-- <p class="card-text">{{ apartment.description }}</p> -->
+                            <p class="card-text">{{ apartment.description }}</p>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     Prezzo: {{ apartment.price }} €
@@ -99,7 +97,7 @@
 
                         <div class="card-body">
                             <h5 class="card-title">{{ item.name }}</h5>
-                            <!-- <p class="card-text">{{ item.description }}</p> -->
+                            <p class="card-text">{{ item.description }}</p>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     Prezzo: {{ item.price }} €
@@ -128,10 +126,13 @@
 </template>
 
 <script>
+import { services } from '@tomtom-international/web-sdk-services';
+import SearchBox from '@tomtom-international/web-sdk-plugin-searchbox';
 export default {
     name: "IndexVue",
     data() {
         return {
+
             apartments: [],
             services: [],
             address: "",
@@ -142,8 +143,8 @@ export default {
             filter: [],
             // test
             range: "",
-            longitude: 16.07,
-            latitude: 38.40,
+            lat: 0,
+            lng: 0,
             // bool variables
             adressX: false,
             priceX: false,
@@ -156,6 +157,31 @@ export default {
         };
     },
     methods: {
+        // handleResultsFound(event) {
+        //     var results = event.data.results.fuzzySearch.results
+
+        //     if (results.length === 0) {
+        //         searchMarkersManager.clear()
+        //     }
+        //     searchMarkersManager.draw(results)
+        //     fitToViewport(results)
+
+        //     // Lat
+        //     var lat
+        //     var address
+        //     results.forEach(element => {
+        //         lat = element.position.lat
+        //         address = element.address
+        //     });
+        //     this.position.lat = lat
+        //     // Long
+        //     var long
+        //     results.forEach(element => {
+        //         long = element.position.lng
+        //     });
+        //     this.position.lng = long
+
+        // },
         // filtro
         searchApartments() {
             // se i parametri di ricerca sono vuoti
@@ -262,10 +288,35 @@ export default {
                 this.apartments = res.data.apartments;
                 this.services = res.data.services;
             })
-        }
+        },
     },
     created(){
         this.getApartments();
+    },
+    mounted() {
+
+    },
+    updated(){
+                // searchbar
+                const options = {
+        searchOptions: {
+                key: 'bCA9waVZD04StnT2jWnglVMqwjHK75ve',
+                language: 'it-IT'
+            },
+        autocompleteOptions: {
+            debounceTime: 200
+        },
+        position: 'topright'
+        };
+        const ttSearchBox = new SearchBox(services, options);
+        const searchBoxHTML = ttSearchBox.getSearchBoxHTML();
+        document.getElementById('searchbox').append(searchBoxHTML);
+        ttSearchBox.on("tomtom.searchbox.resultselected", function(data) {
+            let result = Object.values(data.data.result.position)
+            console.log(result)
+            this.lng.push(result[0]);
+        })
+
     }
 };
 </script>

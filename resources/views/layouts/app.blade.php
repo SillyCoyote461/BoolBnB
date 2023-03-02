@@ -3,7 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    {{-- tomtom --}}
+    {{-- <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.60.0/services/services-web.min.js"></script>
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.60.0/services/search-web.min.js"></script>
+    <script>
+        tomtom.setProductInfo('YOUR_PRODUCT_NAME', 'YOUR_PRODUCT_VERSION');
+        tomtom.searchKey('bCA9waVZD04StnT2jWnglVMqwjHK75ve');
+    </script> --}}
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -21,6 +27,7 @@
 
     <link href="{{ asset('css/mystyle.css') }}" rel="stylesheet">
 
+    <link rel="stylesheet" href="{{asset('css/SearchBox.css')}}">
     {{-- Fontawesome --}}
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
