@@ -163,16 +163,32 @@
                 <label class="lebal-email">Email</label>
             </div>
 
+            <div class="group mt-4">
+                {{-- <input required="true" class="main-input" type="text"> --}}
+                <input id="password" type="password"
+                    class="main-input form-control1 @error('password') is-invalid @enderror" name="password" required
+                    autocomplete="new-password">
 
-
-
-            <div class="container-1">
-                <div class="group">
-                    <input required="true" class="main-input" type="text">
-                    <span class="highlight-span"></span>
-                    <label class="lebal-email">password</label>
-                </div>
+                @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+                <span class="highlight-span"></span>
+                <label class="lebal-email">Password</label>
             </div>
+
+            <div class="group mt-4">
+                {{-- <input required="true" class="main-input" type="text"> --}}
+                <input id="password-confirm" type="password" class="main-input form-control1" name="password_confirmation" required autocomplete="new-password">
+                <span class="highlight-span"></span>
+                <label class="lebal-email">Confirm Password</label>
+            </div>
+
+
+
+
+            
             <button class="bottonefigo mt-3">Registrati</button>
         </form>
     </div>

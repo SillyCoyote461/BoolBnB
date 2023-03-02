@@ -2,14 +2,14 @@
 
 @section('content')
 <?php
-dump($apartments)
+/* dump($apartments) */
 ?>
     <div class="container mt-5">
 
         <h1 class="py-3">{{ Auth::user()->name }}'s Dashboard</h1>
 
         <section>
-            <div class="d-flex justify-content-center w-100 py-3">
+            <div class="d-flex justify-content-center w-100 pt-4 bg-body-tertiary mb-4">
                 {{-- profile image --}}
                 <div class="infobox-img">
 
