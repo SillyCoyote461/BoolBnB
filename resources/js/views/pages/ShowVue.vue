@@ -178,7 +178,7 @@ export default {
                     surname: this.surname,
                     email: this.email,
                     text: this.text,
-                    fk: this.idKey
+                    fk: this.apartment.id,
                 }
             })
             .then(alert("Il messaggio é stato inviato correttamente"))
