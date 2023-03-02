@@ -20,26 +20,32 @@
                     <div class="modal-body">
                         <form action="">
                             <div class="d-flex flex-column ">
+                                <!-- name -->
                                 <label>Nome</label>
-                                <input type="text" class="w-100">
+                                <input type="text" class="w-100" v-model="name">
                             </div>
                             <div class="d-flex flex-column ">
+                                <!-- surname -->
                                 <label>Cognome</label>
-                                <input type="text" class="w-100">
+                                <input type="text" class="w-100" v-model="surname">
                             </div>
                             <div class="d-flex flex-column ">
+                                <!-- email -->
                                 <label>Email</label>
-                                <input type="email" class="w-100">
+                                <input type="email" class="w-100" v-model="email">
                             </div>
                             <div class="d-flex flex-column ">
+                                <!-- message -->
                                 <label>Messaggio</label>
-                                <textarea name="" id="" cols="30" rows="10" class="w-100"></textarea>
+                                <textarea name="" id="" cols="30" rows="10" class="w-100" v-model="text"></textarea>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
+                        <!-- btn cancel -->
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                        <button class="send">
+                        <!-- btn send -->
+                        <button class="send" @click="sendMessage">
                             <div class="svg-wrapper-1">
                                 <div class="svg-wrapper">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -122,6 +128,11 @@ export default {
     data() {
         return {
             apartment: {},
+            fk: null,
+            name: "",
+            surname: "",
+            email: "",
+            text: "",
         }
     },
     mounted() {
@@ -138,8 +149,25 @@ export default {
                     console.log(error);
                 })
         },
-    },
-};
+
+        sendMessage(){
+            this.fk = this.apartment.id
+            axios.get(`/api/message`,{
+                params: {
+                    name: this.name,
+                    surname: this.surname,
+                    email: this.email,
+                    text: this.text,
+                    fk: this.fk
+                }
+            })
+            .then(alert("Il messaggio é stato inviato correttamente"))
+            .catch((error)=>{
+                alert("C'é stato un errore")
+                console.error(error.response.data)
+            })
+    },  }
+}
 </script>
 
 <style lang="scss" scoped>

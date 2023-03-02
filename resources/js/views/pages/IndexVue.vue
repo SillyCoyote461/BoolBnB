@@ -8,11 +8,7 @@
             >
                 <div class="">
                     <div>
-                        <input
-                            type="text"
-                            v-model="address"
-                            placeholder="Search by Address"
-                        />
+
                         <input
                             type="number"
                             v-model="price"
@@ -233,31 +229,27 @@ export default {
                     this.filter = []
                 }
 
+                // validazioni pt.2
                 if(this.addressX == true){
                     this.adressX = false
                     this.address = ""
                 }
-
                 if(this.priceX == true){
                     this.priceX = false
                     this.price = ""
                 }
-
                 if(this.roomsX == true){
                     this.roomsX = false
                     this.rooms = ""
                 }
-
                 if(this.bathsX == true){
                     this.bathsX = false
                     this.baths = ""
                 }
-
                 if(this.bedsX == true){
                     this.bedsX = false
                     this.beds = ""
                 }
-
                 if(this.rangeX == true){
                     this.rangeX = false
                     this.range = ""

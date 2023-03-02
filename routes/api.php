@@ -33,3 +33,10 @@ Route::namespace('Api')
 ->group(function(){
     Route::get( '/', 'SearchApi@index');
 });
+
+Route::namespace('Api')
+->prefix('/message')
+->group(function(){
+    Route::get( '/', 'MessageApi@store');
+});
+
