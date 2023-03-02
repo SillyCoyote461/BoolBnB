@@ -130,11 +130,10 @@
 <script>
 export default {
     name: "IndexVue",
-    props: {
-        apartments: Array,
-    },
     data() {
         return {
+            apartments: [],
+            services: [],
             address: "",
             price: "",
             rooms: "",
@@ -256,7 +255,18 @@ export default {
 
             }
         },
+        // appartamenti e servizi
+        getApartments(){
+            axios.get('http://127.0.0.1:8000/api/apartments')
+            .then(res=>{
+                this.apartments = res.data.apartments;
+                this.services = res.data.services;
+            })
+        }
     },
+    created(){
+        this.getApartments();
+    }
 };
 </script>
 

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\apartment;
+use App\Models\service;
+
 class ApartmentApi extends Controller
 {
     /**
@@ -20,9 +22,9 @@ class ApartmentApi extends Controller
 
         $query = Apartment::query();
         $query->where('visibility', '=', true);
-        $apartments = $query->get();
-
-        return response()->json($apartments);
+        $data['apartments'] = $query->get();
+        $data['services'] = Service::all();
+        return response()->json($data);
 
     }
 

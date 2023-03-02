@@ -3,7 +3,7 @@
         <!---<HeaderVue/>-->
        <!-- <IndexVue /> -->
 
-       <router-view :apartments="apartments"></router-view>
+       <router-view></router-view>
 
     </div>
 </template>
@@ -17,21 +17,5 @@ export default {
         IndexVue,
         HeaderVue
     },
-    data(){
-        return{
-            apartments: []
-        }
-    },
-    methods: {
-        getApartments(){
-            axios.get('http://127.0.0.1:8000/api/apartments')
-            .then(res=>{
-                this.apartments = res.data;
-            })
-        }
-    },
-    mounted(){
-        this.getApartments()
-    }
 }
 </script>
