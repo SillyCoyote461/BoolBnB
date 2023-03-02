@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use App\Models\image;
@@ -25,8 +24,8 @@ class ApartmentController extends Controller
     public function index()
     {
         $apartments = Apartment::where('user_id', '=', auth()->id())->get();
-
-        return view('admin.apartments.index', compact('apartments'));
+        $messages = Message::all();
+        return view('admin.apartments.index', compact('apartments', 'messages'));
     }
 
     /**
