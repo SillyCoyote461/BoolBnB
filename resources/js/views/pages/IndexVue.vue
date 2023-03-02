@@ -66,7 +66,7 @@
 
                         <div class="card-body">
                             <h5 class="card-title">{{ apartment.name }}</h5>
-                            <p class="card-text">{{ apartment.description }}</p>
+                            <!-- <p class="card-text">{{ apartment.description }}</p> -->
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     Prezzo: {{ apartment.price }} €
@@ -99,7 +99,7 @@
 
                         <div class="card-body">
                             <h5 class="card-title">{{ item.name }}</h5>
-                            <p class="card-text">{{ item.description }}</p>
+                            <!-- <p class="card-text">{{ item.description }}</p> -->
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     Prezzo: {{ item.price }} €

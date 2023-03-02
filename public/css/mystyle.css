@@ -262,3 +262,6 @@ li{
   color: #6f42c1;
 }
 
+.messaggio{
+    border-bottom: 1px solid gray;
+}

@@ -66,10 +66,24 @@
                         <div class="modal-dialog modal-dialog-scrollable">
                           <div class="modal-content">
                             <div class="modal-header">
-                              <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                              <h1 class="modal-title fs-5" id="staticBackdropLabel">Messaggi</h1>
                             </div>
                             <div class="modal-body">
-                              
+                              @foreach ($messages as $item)
+
+                                <div class="messaggio">
+                                    <div class="fw-bold">
+                                        {{$item->name}} {{ $item->surname }} 
+                                    </div>
+                                    <div>
+                                        {{$item->email}} | {{ $item->date }}
+                                    </div>
+                                    <div>
+                                        {{ $item->message }}
+                                    </div>
+                                </div>
+
+                              @endforeach
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i></button>
