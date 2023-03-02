@@ -41,12 +41,51 @@
         {{-- apartments --}}
         <section class="container d-flex row mt-4 mx-auto">
             {{-- title --}}
-            <h3 class="col-12">Le mie inserzioni</h3>
+            <div class="d-flex justify-content-between">
+                <div>
+                    <h3 class="col-12">Le mie inserzioni</h3>
+                </div>
+                <div>
+                    {{-- <button type="button" class="notifica modal-dialog modal-dialog-scrollable" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+                        <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M20 17h2v2H2v-2h2v-7a8 8 0 1 1 16 0v7zm-2 0v-7a6 6 0 1 0-12 0v7h12zm-9 4h6v2H9v-2z"
+                                fill="currentColor"></path>
+                        </svg>
+                    </button> --}}
+                    <button type="button" class="notifica " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M20 17h2v2H2v-2h2v-7a8 8 0 1 1 16 0v7zm-2 0v-7a6 6 0 1 0-12 0v7h12zm-9 4h6v2H9v-2z"
+                                fill="currentColor"></path>
+                        </svg>
+                    </button>
+
+                    {{-- modale --}}
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                            </div>
+                            <div class="modal-body">
+                              
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i></button>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
 
             <div class="container pb-5 mt-5 d-flex flex-wrap justify-content-evenly">
                 {{-- loop --}}
                 @foreach ($apartments as $item)
-
                     {{-- card --}}
                     <div class="card">
                         <div class="card-img">
@@ -70,32 +109,37 @@
                                 </div>
 
                                 <div>
-                                    <button type="button" class="" data-bs-toggle="modal" data-bs-target="#{{$item->id}}">
+                                    <button type="button" class="" data-bs-toggle="modal"
+                                        data-bs-target="#{{ $item->id }}">
                                         cancella
-                                      </button>
+                                    </button>
 
-                                      <!-- Modal -->
-                                      <div class="modal fade" id="{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="{{ $item->id }}" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
-                                          <div class="modal-content">
-                                            <div class="modal-header">
-                                              <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
 
+                                                </div>
+                                                <div class="modal-body">
+                                                    sei sicuro di voler cancellaere <span
+                                                        class="fw-bold">{{ $item->name }}</span> ?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class=""
+                                                        data-bs-dismiss="modal">Close</button>
+                                                    <form method="POST" id="delete-form"
+                                                        action="{{ route('admin.apartments.destroy', $item->id) }}">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="">Cancella</button>
+                                                    </form>
+                                                </div>
                                             </div>
-                                            <div class="modal-body">
-                                              sei sicuro di voler cancellaere <span class="fw-bold">{{$item->name}}</span> ?
-                                            </div>
-                                            <div class="modal-footer">
-                                              <button type="button" class="" data-bs-dismiss="modal">Close</button>
-                                              <form method="POST" id="delete-form" action="{{ route('admin.apartments.destroy', $item->id) }}">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="">Cancella</button>
-                                                </form>
-                                            </div>
-                                          </div>
                                         </div>
-                                      </div>
+                                    </div>
                                 </div>
 
                                 {{-- <div>
