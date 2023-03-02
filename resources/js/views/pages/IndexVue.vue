@@ -6,8 +6,13 @@
             <div
                 class="d-flex align-items-center justify-content-center flex-grow-1"
             >
-                <div class="">
+                <div class="contenitore-input">
                     <div>
+
+                        <div class="pb-3">
+                            <label class="purple fs-5">Cerca un luogo</label>
+                            <div id="searchbox" ref="searchbox"></div>
+                        </div>
 
                         <input
                             type="number"
@@ -24,21 +29,19 @@
                             v-model="beds"
                             placeholder="Min number of beds"
                         />
-                        <button @click="searchApartments">Search</button>
+
 
 
                         <!--  -->
                         <!-- prova longitudine -->
                         <!--  -->
-                        <div>
-                            <div id="searchbox" ref="searchbox"></div>
-                        </div>
+
                         <input
                             type="number"
                             v-model="range"
                             placeholder="Range di ricerca in Km"
                         />
-
+                        <button @click="searchApartments" class="bottonefigo">Search</button>
                         <!-- <button @click="longitudeTest">Search</button> -->
                     </div>
                 </div>
@@ -322,14 +325,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+input{
+    border: 0px;
+    border-bottom: 1px solid grey;
+    color: #6f42c1;
+    font-weight: bold;
+}
+
 .backgroundImg {
     border-bottom: 5px solid #6f42c1;
-    background-image: url("../../../../public/img/jumbo.jpg");
+    background-image:
+    linear-gradient(to top, rgba(255, 255, 255, 0.30), rgb(255, 255, 255)), url('../../../../public/img/bnbbed.webp');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     width: 100%;
-    height: 80vh;
+    height: 70vh;
 }
 .containerCustom {
     margin: auto;

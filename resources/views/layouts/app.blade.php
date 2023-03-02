@@ -43,11 +43,11 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar purple-bg navbar-expand-md navbar-dark ">
+        <nav class="navbar  navbar-expand-md navbar-dark ">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{-- {{ config('app.name', 'Laravel') }} --}}
-                    <i class="fa-brands fa-airbnb"></i>
+                    <h2 class="purple">BoolBnB</h2>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -64,11 +64,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}"><div class="p-1">{{ __('Login') }}</div> </a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}"><div class="bottone-register">{{ __('Register') }}</div> </a>
                                 </li>
                             @endif
                         @else
@@ -101,6 +101,9 @@
             @yield('content')
         </main>
     </div>
+
+
+
 
    {{--  <script>
         $(document).ready(function() {
