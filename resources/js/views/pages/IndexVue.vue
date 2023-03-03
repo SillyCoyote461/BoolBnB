@@ -14,35 +14,52 @@
                             <div id="searchbox" ref="searchbox"></div>
                         </div>
 
-                        <input
-                            type="number"
-                            v-model="price"
-                            placeholder="Max price"
-                        />
-                        <input
-                            type="number"
-                            v-model="rooms"
-                            placeholder="Min number of rooms"
-                        />
-                        <input
-                            type="number"
-                            v-model="beds"
-                            placeholder="Min number of beds"
-                        />
 
 
+                        <div class="d-flex">
+                            <div>
+                                <label class="d-block label-email text-center">Max price</label>
+                                <input
+                                    type="number"
+                                    v-model="price"
+                                    placeholder=""
+                                />
+                            </div>
 
-                        <!--  -->
-                        <!-- prova longitudine -->
-                        <!--  -->
+                            <div class="px-3">
+                                 <label class="d-block label-email text-center">Min number of rooms</label>
+                                <input
+                                    type="number"
+                                    v-model="rooms"
+                                    placeholder=""
+                                />
+                            </div>
 
-                        <input
-                            type="number"
-                            v-model="range"
-                            placeholder="Range di ricerca in Km"
-                        />
-                        <button @click="searchApartments" class="bottonefigo">Search</button>
-                        <!-- <button @click="longitudeTest">Search</button> -->
+                            <div class="px-3">
+                                <label class="d-block label-email text-center">Min number of beds</label>
+                                <input
+                                    type="number"
+                                    v-model="beds"
+                                    placeholder=""
+                                />
+                            </div>
+
+                            <!--  -->
+                            <!-- prova longitudine -->
+                            <!--  -->
+
+                            <div class="px-3">
+                                <label class="d-block label-email text-center">Range di ricerca in Km</label>
+                                <input
+                                    type="number"
+                                    v-model="range"
+                                    placeholder=""
+                                />
+                            </div>
+
+                            <button @click="searchApartments" class="bottonefigo">Search</button>
+                            <!-- <button @click="longitudeTest">Search</button> -->
+                        </div>
                     </div>
                 </div>
             </div>
