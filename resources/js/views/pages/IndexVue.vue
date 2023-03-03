@@ -68,17 +68,14 @@
         <div class="background2">
             <div class="container p-5 d-flex flex-wrap grid gap-3">
                 <div class="card-deck">
-                    <!-- index -->
-                    <div
-                        v-if="filter.length == 0"
+                    <!-- loop cards -->
+                    <div v-if="apartments.length != 0"
                         v-for="apartment in apartments"
                         :key="apartment.id"
                         class="card border border-5 borderpurple"
                         style="width: 18rem">
-                        <img
-                            :src="
-                                require(`../../../../public/storage/${apartment.cover}`)
-                            "
+                        <!-- immagine -->
+                        <img :src="require(`../../../../public/storage/${apartment.cover}`)"
                             class="card-img-top"
                             :alt="apartment.name"/>
 
@@ -106,45 +103,12 @@
                                 class="btn btn-primary my-2">Details</a>
                         </div>
                     </div>
-                    <!-- filtrati :key="apartment.id"-->
-                    <div
-                        v-if="filter.length != 0"
-                        v-for="item in filter"
-                        :key="item.id"
+                    <!-- se non trovato nulla -->
+                    <div v-if="apartments.length == 0"
                         class="card border border-5 borderpurple"
-                        style="width: 18rem"
-                    >
-                        <img :src="require(`../../../../public/storage/${item.cover}`)"
-                            class="card-img-top"
-                            :alt="item.name"/>
+                        style="width: 18rem">
 
-                        <div class="card-body">
-                            <h5 class="card-title">{{ item.name }}</h5>
-                            <!-- <p class="card-text">{{ item.description }}</p> -->
-                            <ul class="list-group list-group-flush">
-
-                                <li class="list-group-item">
-                                    Luogo: {{ item.address }}
-                                </li>
-                                <li class="list-group-item">
-                                    Prezzo: {{ item.price }} €
-                                </li>
-                                <li class="list-group-item">
-                                    N° Stanze: {{ item.rooms }}
-                                </li>
-                                <li class="list-group-item">
-                                    N° Bagni: {{ item.baths }}
-                                </li>
-                                <li class="list-group-item">
-                                    Posti letto: {{ item.beds }}
-                                </li>
-                            </ul>
-                            <a :href="'/apartments/' + item.id"
-                                class="btn btn-primary my-2">
-                                Details
-                            </a>
-
-                        </div>
+                        <h1>Non abbiamo trovato nulla</h1>
                     </div>
                 </div>
             </div>
@@ -187,110 +151,96 @@ export default {
     methods: {
         // filtro
         searchApartments() {
-            // se i parametri di ricerca sono vuoti
-            if(this.address == ""  && this.price == ""  && this.rooms == ""  && this.baths == ""  && this.beds =="" && this.range == "" ){
-                // svuota l'array filtrato
-                this.filter = []
-            }
+
             // invece se
-            else{
-                // controlla i parametri e setta su null per evitare problemi
-                if(this.address == ""){
-                    this.address = null
-                    this.adressX = true
-                }
 
-                if(this.price == ""){
-                    this.price = null
-                    this.priceX = true
-                }
-
-                if(this.rooms == ""){
-                    this.rooms = null
-                    this.roomsX = true
-                }
-
-                if(this.baths == ""){
-                    this.baths = null
-                    this.bathsX = true
-                }
-
-                if(this.beds == ""){
-                    this.beds = null
-                    this.bedsX = true
-                }
-                // validazioni range
-                if(this.range == ""){
-                    this.range = null
-                    this.rangeX = true
-                }
-                else if(this.range < 0){
-                    this.range = this.range * (-1)
-                }
-                else if(this.range > 0 && this.range < 20){
-                    this.range = 20
-                }
-
-                // procedi con axios
-                axios
-                // chiamata api al controller del filtro
-                .get("http://127.0.0.1:8000/api/filtered", {
-                    // parametri da filtrare
-                    params: {
-                        address: this.address,
-                        price: this.price,
-                        rooms: this.rooms,
-                        baths: this.baths,
-                        beds: this.beds,
-                        lon: this.lng,
-                        lat: this.lat,
-                        range: this.range,
-                    },
-                })
-                .then((response) => {
-                    this.filter = response.data
-
-                    if(this.filter.length == 0){
-                    // svuota il filtro
-                    this.filter = []
-                    alert("non sono stati trovati appartamenti nella zona specificata")
-                }
-
-                })
-                .catch((error) => {
-                    console.error(error.response.data);
-                });
-
-
-                // se la ricerca non trova nulla
-
-                // validazioni pt.2
-                if(this.addressX == true){
-                    this.adressX = false
-                    this.address = ""
-                }
-                if(this.priceX == true){
-                    this.priceX = false
-                    this.price = ""
-                }
-                if(this.roomsX == true){
-                    this.roomsX = false
-                    this.rooms = ""
-                }
-                if(this.bathsX == true){
-                    this.bathsX = false
-                    this.baths = ""
-                }
-                if(this.bedsX == true){
-                    this.bedsX = false
-                    this.beds = ""
-                }
-                if(this.rangeX == true){
-                    this.rangeX = false
-                    this.range = ""
-                }
-
+            // controlla i parametri e setta su null per evitare problemi
+            if(this.address == ""){
+                this.address = null
+                this.adressX = true
             }
+
+            if(this.price == ""){
+                this.price = null
+                this.priceX = true
+            }
+
+            if(this.rooms == ""){
+                this.rooms = null
+                this.roomsX = true
+            }
+
+            if(this.baths == ""){
+                this.baths = null
+                this.bathsX = true
+            }
+
+            if(this.beds == ""){
+                this.beds = null
+                this.bedsX = true
+            }
+            // validazioni range
+            if(this.range == ""){
+                this.range = null
+                this.rangeX = true
+            }
+            else if(this.range < 0){
+                this.range = this.range * (-1)
+            }
+
+            // procedi con axios
+            axios
+            // chiamata api al controller del filtro
+            .get("http://127.0.0.1:8000/api/filtered", {
+                // parametri da filtrare
+                params: {
+                    address: this.address,
+                    price: this.price,
+                    rooms: this.rooms,
+                    baths: this.baths,
+                    beds: this.beds,
+                    lon: this.lng,
+                    lat: this.lat,
+                    range: this.range,
+                },
+            })
+            .then((response) => {
+                this.apartments = response.data
+            })
+            .catch((error) => {
+                console.error(error.response.data);
+            });
+
+
+            // se la ricerca non trova nulla
+
+            // validazioni pt.2
+            if(this.addressX == true){
+                this.adressX = false
+                this.address = ""
+            }
+            if(this.priceX == true){
+                this.priceX = false
+                this.price = ""
+            }
+            if(this.roomsX == true){
+                this.roomsX = false
+                this.rooms = ""
+            }
+            if(this.bathsX == true){
+                this.bathsX = false
+                this.baths = ""
+            }
+            if(this.bedsX == true){
+                this.bedsX = false
+                this.beds = ""
+            }
+            if(this.rangeX == true){
+                this.rangeX = false
+                this.range = ""
+            }
+
+
         },
         // appartamenti e servizi
         getApartments(){
