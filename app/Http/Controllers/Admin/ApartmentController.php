@@ -174,8 +174,9 @@ class ApartmentController extends Controller
             $cover_url= Storage::put('apartment_cover', $data['cover']);
             $data['cover'] = $cover_url;
         }
+        // dd($data);
         // visibility
-        if(array_key_exists('visibility', $data)) {
+        if($data['visibility'] == 1) {
             $data['visibility'] = true;
         }
         else{

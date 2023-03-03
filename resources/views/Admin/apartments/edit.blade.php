@@ -42,7 +42,7 @@
     <div class="{{-- container-fluid w-75 m-auto right-section py-2 --}} container  mt-3">
 
         <div>
-            <h1 class=" p-4">Add Apartment</h1>
+            <h1 class=" p-4">Edit Apartment</h1>
         </div>
 
         <div class="container">
@@ -68,17 +68,15 @@
         </div>
     </div>
 
-    <form class="d-flex flex-column w-50 m-auto" method="POST" action="{{ route('admin.apartments.update', $apartment->id) }}"
-        enctype="multipart/form-data">
-
+    <form class="d-flex flex-column w-50 m-auto" method="POST" action="{{ route('admin.apartments.update', $apartment->id) }}" enctype="multipart/form-data">
         @csrf
-
+        @method('PUT')
         {{-- INPUT LAT LONG HIDDEN --}}
         <div class="d-flex  justify-content-center ">
 
-            <input class="form-control d-none" name="lat" type="text" id="lat" required >
+            <input class="form-control d-none" name="lat" type="number" id="lat" value="{{$apartment->lat}}" required >
 
-            <input class="form-control d-none" name="lon" type="text" id="long" required>
+            <input class="form-control d-none" name="lon" type="number" id="long" value="{{$apartment->lon}}" required>
 
             @error('lat')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -109,7 +107,7 @@
         {{-- IMMAGINE --}}
         <div class="mb-4">
             <label class="form-label form-check-label" for="">Image *</label>
-            <input type="file" name="cover" class="form-control-file" required>
+            <input type="file" name="cover" class="form-control-file">
             @error('cover_image')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
@@ -174,8 +172,16 @@
             <label class="form-label form-check-label" for="">Visibility <i
                     class="fa-solid fa-caret-down"></i></label>
             <select name="visibility" class="form-control">
-                <option value=1 >Visible</option>
-                <option value=0>Not visible</option>
+                @if ($apartment->visibility == 1)
+                <option value="1" selected>Visible</option>
+                <option value="0" >Not visible</option>
+
+                @elseif ($apartment->visibility == 0)
+                <option value="1">Visible</option>
+                <option value="0" selected>Not visible</option>
+                @endif
+
+
             </select>
         </div>
 
@@ -184,8 +190,8 @@
             @foreach ($services as $service)
                 <div class="cat action">
                     <label>
-                        <input type="checkbox" name="services[]" value="{{ $service->id }}"><span
-                            class="ps-2 form-label">{{ $service->name }}</span>
+                        <input type="checkbox" name="services[]" value="{{ $service->id }}" {{ $apartment->services->contains($service) ? 'checked' : '' }}>
+                        <span class="ps-2 form-label">{{ $service->name }}</span>
                     </label>
                 </div>
             @endforeach
@@ -195,53 +201,12 @@
             </div>
         </div>
 
-        {{-- class=" text-danger fw-bold fs-3" --}}
-        {{-- <div class="mt-4">
-            <label>Servizi: </label>
-            @php
-                $isRequired = false;
-            @endphp
-            @foreach ($services as $service)
-                <label class="mx-2" for="service{{ $service->id }}">
-                    <input type="checkbox" id="service{{ $service->id }}" name="services[]" value="{{ $service->id }}"
-                    onclick="@php $isRequired = true; @endphp"
-                    >
-                    {{ $service->name }}
-                </label>
-            @endforeach
-            <script>
-                const checkboxes = document.getElementsByName('services[]');
-                const checkRequired = () => {
-                    let isChecked = false;
-                    for (let i = 0; i < checkboxes.length; i++) {
-                        if (checkboxes[i].checked) {
-                            isChecked = true;
-                            break;
-                        }
-                    }
-                    if (!isChecked) {
-                        checkboxes[Math.floor(Math.random() * checkboxes.length)].checked = true;
-                    }
-                };
-                document.getElementById('form-id').addEventListener('submit', checkRequired);
-            </script>
-        </div>                  NON FUNZIONA UN 8==D DI NIENTE         --}}
-
-        {{-- INPUT LAT LONG HIDDEN --}}
-        {{-- <input  name="lat" type="text" id="lat"> </input>
-        <input  name="lon" type="text" id="long"> </input> --}}
 
         {{-- INVIO d-flex align-item-center justify-content-evenly --}}
         <div class="mt-5 mb-5 d-flex ">
             <div>
-                <button type="submit" class="me-2" onclick="return validateForm()">Crea Nuovo</button>
+                <button type="submit" class="me-2" onclick="return validateForm()">Modifica Appartamento</button>
             </div>
-
-            {{-- <div>
-                <a href="{{ route('admin.apartments.index') }}">
-                    <div class="btn btn-danger ">Annulla</div>
-                </a>
-            </div> --}}
 
         </div>
     </form>
