@@ -115,7 +115,7 @@
                     </span>
                 @enderror
                 <span class="highlight-span"></span>
-                <label class="lebal-email">Nome</label>
+                <label class="lebal-email">Nome *</label>
             </div>
 
 
@@ -130,12 +130,12 @@
                     </span>
                 @enderror
                 <span class="highlight-span"></span>
-                <label class="lebal-email">Cognome</label>
+                <label class="lebal-email">Cognome *</label>
             </div>
 
             <div class="group mt-4">
                 {{-- <input required="true" class="main-input" type="text"> --}}
-                <label class="purple">Data di Nascita</label>
+                <label class="purple">Data di Nascita *</label>
                 <input id="birthdate" type="date"
                     class="form-control form-control1 @error('birthdate') is-invalid @enderror" name="birthdate"
                     value="{{ old('birthdate') }}" required autocomplete="birthdate">
@@ -160,7 +160,7 @@
                     </span>
                 @enderror
                 <span class="highlight-span"></span>
-                <label class="lebal-email">Email</label>
+                <label class="lebal-email">Email *</label>
             </div>
 
             <div class="group mt-4">
@@ -175,20 +175,20 @@
                     </span>
                 @enderror
                 <span class="highlight-span"></span>
-                <label class="lebal-email">Password</label>
+                <label class="lebal-email">Password *</label>
             </div>
 
             <div class="group mt-4">
                 {{-- <input required="true" class="main-input" type="text"> --}}
                 <input id="password-confirm" type="password" class="main-input form-control1" name="password_confirmation" required autocomplete="new-password">
                 <span class="highlight-span"></span>
-                <label class="lebal-email">Confirm Password</label>
+                <label class="lebal-email">Confirm Password *</label>
             </div>
 
 
 
 
-            
+
             <button class="bottonefigo mt-3">Registrati</button>
         </form>
     </div>
