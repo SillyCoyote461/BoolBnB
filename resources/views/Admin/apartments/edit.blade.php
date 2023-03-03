@@ -68,7 +68,7 @@
         </div>
     </div>
 
-    <form class="d-flex flex-column w-50 m-auto" method="POST" action="{{ route('admin.apartments.update') }}"
+    <form class="d-flex flex-column w-50 m-auto" method="POST" action="{{ route('admin.apartments.update', $apartment->id) }}"
         enctype="multipart/form-data">
 
         @csrf
@@ -174,7 +174,7 @@
             <label class="form-label form-check-label" for="">Visibility <i
                     class="fa-solid fa-caret-down"></i></label>
             <select name="visibility" class="form-control">
-                <option value=1 {{}}>Visible</option>
+                <option value=1 >Visible</option>
                 <option value=0>Not visible</option>
             </select>
         </div>
