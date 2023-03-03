@@ -75,7 +75,7 @@
             <p class="purple">Login</p>
             <div class="group">
                 {{-- <input required="true" class="main-input" type="text"> --}}
-                <input id="email" type="email" class="main-input @error('email') is-invalid @enderror" name="email"
+                <input id="email" type="email" class="text-dark main-input @error('email') is-invalid @enderror"  name="email"
                     value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                 @error('email')
@@ -89,7 +89,7 @@
 
             <div class="group mt-4">
                 {{-- <input required="true" class="main-input" type="text"> --}}
-                <input id="password" type="password" class="main-input @error('password') is-invalid @enderror"
+                <input id="password" type="password" class="text-dark main-input @error('password') is-invalid @enderror"
                     name="password" required autocomplete="current-password">
 
                 @error('password')
