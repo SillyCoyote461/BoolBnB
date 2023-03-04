@@ -6,6 +6,12 @@ body    {
     z-index: 99;
 }
 
+.navbar-toggler{
+    background-color: #6e42c1c4 !important;
+}
+
+
+
 .logo-home{
     color: #6f42c1;
 }
