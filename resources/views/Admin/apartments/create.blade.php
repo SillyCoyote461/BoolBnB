@@ -56,12 +56,12 @@
 
     </div>
 
-    <div class="d-flex align-items-center justify-content-center h-50">
+    <div class="d-flex flex-column align-items-center justify-content-center h-50">
         <div id="map" style="width: 40%; height: 90%;" class="me-3"></div>
         <div>
 
             <div class="mb-5 fs-1 form-label">
-                <i class="fa-solid fa-hand-point-left"></i>
+                <i class="fa-solid fa-hand-point-up"></i>
                 Dove ti trovi?
 
             </div>
