@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<?php
-/* dump($apartments) */
-?>
+    <?php
+    /* dump($apartments) */
+    ?>
     <div class="container mt-5">
 
         <h1 class="py-3">{{ Auth::user()->name }}'s Dashboard</h1>
@@ -65,17 +65,17 @@
                     </button>
 
                     {{-- modale --}}
-                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-scrollable">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h1 class="modal-title fs-5" id="staticBackdropLabel">Messaggi</h1>
-                            </div>
-                            <div class="modal-body">
-                              @foreach ($apartments as $apartment)
-                                @foreach($apartment->messages as $item)
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-fullscreen">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Messaggi</h1>
+                                </div>
+                                <div class="modal-body">
 
-                                <div class="messaggio">
+
+                                    {{-- <div class="messaggio">
                                     <div class="fw-bold">
                                         {{$item->name}} {{ $item->surname }} é interessato a {{$apartment->name}}
                                     </div>
@@ -85,14 +85,37 @@
                                     <div>
                                         {{ $item->message }}
                                     </div>
+                                </div> --}}
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Appartamento</th>
+                                                <th scope="col">Chi?</th>
+                                                <th scope="col">Messaggio</th>
+                                                <th scope="col">Data</th>
+                                            </tr>
+                                        </thead>
+                                        @foreach ($apartments as $apartment)
+                                            @foreach ($apartment->messages as $item)
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="fw-bold purple">{{$apartment->name}}</td>
+                                                        <td>{{$item->email}}</td>
+                                                        <td>{{ $item->message }}</td>
+                                                        <td>{{ $item->date }}</td>
+                                                    </tr>
+                                                    
+                                                </tbody>
+                                            @endforeach
+                                        @endforeach
+                                    </table>
+
                                 </div>
-                                @endforeach
-                              @endforeach
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i
+                                            class="fa-solid fa-xmark"></i></button>
+                                </div>
                             </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i></button>
-                            </div>
-                          </div>
                         </div>
                     </div>
 
