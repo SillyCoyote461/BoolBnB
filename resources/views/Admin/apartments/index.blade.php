@@ -72,7 +72,7 @@
                                 <div class="modal-header">
                                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Messaggi</h1>
                                 </div>
-                                <div class="modal-body">
+                                <div class="modal-body container">
 
 
                                     {{-- <div class="messaggio">
@@ -90,21 +90,30 @@
                                         <thead>
                                             <tr>
                                                 <th scope="col">Appartamento</th>
-                                                <th scope="col">Chi?</th>
                                                 <th scope="col">Messaggio</th>
-                                                <th scope="col">Data</th>
                                             </tr>
                                         </thead>
                                         @foreach ($apartments as $apartment)
                                             @foreach ($apartment->messages as $item)
                                                 <tbody>
                                                     <tr>
-                                                        <td class="fw-bold purple">{{$apartment->name}}</td>
-                                                        <td>{{$item->email}}</td>
+                                                        <td>
+                                                            <h5 class="fw-bold purple">
+                                                                {{$apartment->name}}
+                                                            </h5>
+                                                            <div style="font-size: small">
+                                                                {{$item->email}}
+                                                            </div>
+                                                            <div style="font-size: small">
+                                                                {{$item->date}}
+                                                            </div>
+
+
+                                                        </td>
+
                                                         <td>{{ $item->message }}</td>
-                                                        <td>{{ $item->date }}</td>
                                                     </tr>
-                                                    
+
                                                 </tbody>
                                             @endforeach
                                         @endforeach
