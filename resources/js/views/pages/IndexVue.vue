@@ -4,7 +4,7 @@
 
         <div class="backgroundImg d-flex flex-column">
             <div class="d-flex align-items-center justify-content-center flex-grow-1">
-                <div class="contenitore-input">
+                <div class="contenitore-input container">
                     <div>
 
                         <div class="pb-3">
@@ -14,19 +14,19 @@
 
 
 
-                        <div class="d-flex">
+                        <div class="d-flex flex-wrap justify-content-center">
                             <div>
-                                <label class="d-block label-email text-center">Max price</label>
+                                <label class="d-block label-email text-center purple">Max price</label>
                                 <input type="number" v-model="price" placeholder="" />
                             </div>
 
                             <div class="px-3">
-                                <label class="d-block label-email text-center">Min number of rooms</label>
+                                <label class="d-block label-email text-center purple">Min number of rooms</label>
                                 <input type="number" v-model="rooms" placeholder="" />
                             </div>
 
                             <div class="px-3">
-                                <label class="d-block label-email text-center">Min number of beds</label>
+                                <label class="d-block label-email text-center purple">Min number of beds</label>
                                 <input type="number" v-model="beds" placeholder="" />
                             </div>
 
@@ -35,11 +35,13 @@
                             <!--  -->
 
                             <div class="px-3">
-                                <label class="d-block label-email text-center">Range di ricerca in Km</label>
+                                <label class="d-block label-email text-center purple">Range di ricerca in Km</label>
                                 <input type="number" v-model="range" placeholder="" />
                             </div>
 
-                            <button @click="searchApartments" class="bottonefigo">Search</button>
+                            <br/>
+
+                            <button @click="searchApartments" class="bottonefigo mt-2">Search</button>
                             <!-- <button @click="longitudeTest">Search</button> -->
                         </div>
                     </div>
@@ -63,6 +65,9 @@
                         <div>
                             <div class="sottotitolo">
                                 {{ apartment.address }}
+                            </div>
+                            <div class="fw-bold purple fs-5">
+                                {{ apartment.price }}
                             </div>
                             <div>
                                 <a :href="'/apartments/' + apartment.id">
