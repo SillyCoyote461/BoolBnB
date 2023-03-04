@@ -44,9 +44,9 @@
         {{-- apartments --}}
         <section class="container d-flex row mt-4 mx-auto">
             {{-- title --}}
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between pb-4">
                 <div>
-                    <h3 class="col-12">Le mie inserzioni</h3>
+                    <h2 class="col-12 fw-bold">Le mie inserzioni</h2>
                 </div>
                 <div>
                     {{-- <button type="button" class="notifica modal-dialog modal-dialog-scrollable" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
