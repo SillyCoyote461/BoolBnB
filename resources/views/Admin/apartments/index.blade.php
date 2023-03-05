@@ -49,13 +49,6 @@
                     <h2 class="col-12 fw-bold">Le mie inserzioni</h2>
                 </div>
                 <div>
-                    {{-- <button type="button" class="notifica modal-dialog modal-dialog-scrollable" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
-                        <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M20 17h2v2H2v-2h2v-7a8 8 0 1 1 16 0v7zm-2 0v-7a6 6 0 1 0-12 0v7h12zm-9 4h6v2H9v-2z"
-                                fill="currentColor"></path>
-                        </svg>
-                    </button> --}}
                     <button type="button" class="notifica " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                         <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0 0h24v24H0z" fill="none"></path>
@@ -74,18 +67,6 @@
                                 </div>
                                 <div class="modal-body container">
 
-
-                                    {{-- <div class="messaggio">
-                                    <div class="fw-bold">
-                                        {{$item->name}} {{ $item->surname }} é interessato a {{$apartment->name}}
-                                    </div>
-                                    <div>
-                                        {{$item->email}} | {{ $item->date }}
-                                    </div>
-                                    <div>
-                                        {{ $item->message }}
-                                    </div>
-                                </div> --}}
                                     <table class="table">
                                         <thead>
                                             <tr>
@@ -149,7 +130,7 @@
                                 {{ $item->name }}
                             </div>
 
-                            <div class="d-flex justify-content-evenly mt-2">
+                            <div class="d-flex justify-content-evenly mt-3">
 
                                 <div>
                                     <a href="{{ route('admin.apartments.show', $item->id) }}" class="card-link"><button
@@ -195,7 +176,7 @@
                     sei sicuro di voler cancellaere <span
                         class="fw-bold">{{ $item->name }}</span> ?
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer mt-3">
                     <button type="button" class="bottonefigo"
                         data-bs-dismiss="modal">Close</button>
                     <form method="POST" id="delete-form"
