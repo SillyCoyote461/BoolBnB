@@ -48,21 +48,20 @@
         <div class="container">
             <a href="{{ route('admin.apartments.index') }}">
                 {{-- <div class="btn btn-danger fw-bold mt-5 mb-4"><i class="fa-solid fa-left-long"></i> Dashboard</div> --}}
-                <button>Dashboard</button>
+                <button class="bottonefigo">Dashboard</button>
             </a>
         </div>
 
 
     </div>
 
-    <div class="d-flex align-items-center justify-content-center h-50">
+    <div class="d-flex flex-column align-items-center justify-content-center h-50">
         <div id="map" style="width: 40%; height: 90%;" class="me-3"></div>
         <div>
 
             <div class="mb-5 fs-1 form-label">
-                <i class="fa-solid fa-hand-point-left"></i>
+                <i class="fa-solid fa-hand-point-up"></i>
                 Dove ti trovi?
-
             </div>
 
         </div>
@@ -205,7 +204,7 @@
         {{-- INVIO d-flex align-item-center justify-content-evenly --}}
         <div class="mt-5 mb-5 d-flex ">
             <div>
-                <button type="submit" class="me-2" onclick="return validateForm()">Modifica Appartamento</button>
+                <button type="submit" class="me-2 bottonefigo" onclick="return validateForm()">Modifica Appartamento</button>
             </div>
 
         </div>

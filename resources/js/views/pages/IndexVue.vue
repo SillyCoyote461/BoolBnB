@@ -41,7 +41,7 @@
 
                             <br/>
 
-                            <button @click="searchApartments" class="bottonefigo mt-2"><i class="fa-solid fa-magnifying-glass"></i></button>
+                            <button @click="searchApartments" class="bottonefigo mt-2"> Search   <i class="fa-solid fa-magnifying-glass ms-1"></i></button>
                             <!-- <button @click="longitudeTest">Search</button> -->
                         </div>
                     </div>
