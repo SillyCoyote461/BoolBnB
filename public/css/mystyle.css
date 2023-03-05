@@ -160,8 +160,8 @@ li{
 }
 
 .riga{
-    background-color: #6e42c142;
-    border-radius: 20px;
+    background-color: #0714cc98;
+    border-radius: 10px;
     padding: 5px;
 }
 
@@ -176,13 +176,13 @@ li{
 }
 
 .titolo-show{
-    color: #6f42c1;
+    color: #000000;
     font-weight: bold;
     font-size: 30px;
 }
 
 .title-lista{
-    color: #6f42c1;
+    color: #000000;
     font-weight: bold;
     font-size: 20px;
 }

@@ -67,7 +67,7 @@
                                 {{ apartment.address }}
                             </div>
                             <div class="fw-bold purple fs-5">
-                                {{ apartment.price }}
+                                {{ apartment.price }} €
                             </div>
                             <div>
                                 <a :href="'/apartments/' + apartment.id">
