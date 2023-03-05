@@ -116,6 +116,7 @@
 
             <div class="container{{--  pb-5 mt-5 --}} d-flex flex-row flex-wrap align-items-center gap-4 {{-- justify-content-evenly --}}">
                 {{-- loop --}}
+
                 @foreach ($apartments as $item)
                     {{-- card --}}
 
@@ -163,6 +164,8 @@
 
     </div>
 
+    @foreach ($apartments as $item)
+
 
     <div class="modal fade" id="{{ $item->id }}" tabindex="-1"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -189,78 +192,6 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-                    {{-- <div class="card">
-                        <div class="card-img">
-                            <img src="{{ asset("storage/$item->cover") }}" class="card-img-top" alt="...">
-                        </div>
-                        <div class="card-info">
-                            <p class="text-title">{{ $item->name }} </p>
-                            <p class="text-body">Posti letto: {{ $item->beds }}</p>
-                        </div>
-                        <div class="card-footer">
-                            <span class="text-title bold-violet">&euro;{{ $item->price }}</span>
-                            <div class="d-flex align-items-center justify-content-evenly mt-3">
-                                <div>
-                                    <a href="{{ route('admin.apartments.show', $item->id) }}" class="card-link"><button
-                                            class="butt-2"><i class="fa-solid fa-info"></i></button></a>
-                                </div>
-
-                                <div>
-                                    <a href="{{ route('admin.apartments.edit', $item->id) }}" class="card-link"><button
-                                            class="butt-2"><i class="fa-solid fa-pen-to-square"></i></button></a>
-                                </div>
-
-                                <div>
-                                    <button type="button" class="bottonefigo" data-bs-toggle="modal"
-                                        data-bs-target="#{{ $item->id }}">
-                                        cancella
-                                    </button>
-
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="{{ $item->id }}" tabindex="-1"
-                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-
-                                                </div>
-                                                <div class="modal-body">
-                                                    sei sicuro di voler cancellaere <span
-                                                        class="fw-bold">{{ $item->name }}</span> ?
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="bottonefigo"
-                                                        data-bs-dismiss="modal">Close</button>
-                                                    <form method="POST" id="delete-form"
-                                                        action="{{ route('admin.apartments.destroy', $item->id) }}">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="bottonefigo">Cancella</button>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-
-                            </div>
-
-                        </div>
-                    </div> --}}
-
-                {{-- loop end --}}
-
+    @endforeach
 
 @endsection
