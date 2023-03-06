@@ -39,13 +39,17 @@
                                 <label>Messaggio</label>
                                 <textarea name="" id="" cols="30" rows="10" class="w-100" v-model="text"></textarea>
                             </div>
+
+                            <div role="alert" id="alert" class="text-success  p-3">
+
+                            </div>
                         </form>
                     </div>
                     <div class="modal-footer">
                         <!-- btn cancel -->
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                         <!-- btn send -->
-                        <button class="send" @click="sendMessage">
+                        <button class="send" @click="rispostamessaggio">
                             <div class="svg-wrapper-1">
                                 <div class="svg-wrapper">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -141,6 +145,13 @@ export default {
         this.incrementViewCount();
     },
     methods: {
+
+        rispostamessaggio() {
+
+            document.getElementById('alert').innerHTML = "Messaggio inviato con successo!"
+
+        },
+
         // prendi dati appartamento
         getApartment() {
             const apartmentId = this.$route.params.id;
