@@ -63,13 +63,13 @@
             </div>
         </div>
 
-        <div class=" d-flex pt-5 flex-wrap ">
+        <div class=" d-flex pt-5 flex-wrap gap-5">
 
             <div class="customwidth">
                 <img class="w-100" :src="'/storage/' + apartment.cover" alt="">
             </div>
 
-            <div class="d-flex flex-column ms-4">
+            <div class="d-flex flex-column">
                 <div class=" fs-1 fw-bold">
                     <h1>{{ apartment.name }}</h1>
                 </div>
