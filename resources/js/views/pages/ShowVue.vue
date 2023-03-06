@@ -273,7 +273,7 @@ export default {
     margin-right: 8px;
 }
 .ipadquery{
-
+    //
 }
 
 @media (max-width: 767.98px) {

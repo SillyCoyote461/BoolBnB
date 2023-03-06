@@ -152,15 +152,19 @@ body    {
 
 ul{
     list-style-type: none;
+    padding-left: 0px !important;
+    margin-left: 0px !important;
 }
 
 li{
     margin-top: 15px;
     font-size: 17px;
+    padding-left: 0px !important;
+    margin-left: 0px !important;
 }
 
 .riga{
-    background-color: #0714cc98;
+    background-color: #a18acc00;
     border-radius: 10px;
     padding: 5px;
 }
@@ -182,9 +186,13 @@ li{
 }
 
 .title-lista{
-    color: #000000;
+    color: #6f42c1 ;
     font-weight: bold;
     font-size: 20px;
+}
+
+.sfondo-dati{
+    background-color: #6e42c12d;
 }
 
 .card {

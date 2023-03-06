@@ -1,12 +1,76 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container pt-4">
-        <div class="row">
+    <div class="container pt-4 pb-5">
+        <div class="d-flex flex-column align-items-center">
+
             <div class="col-md-6 mb-5">
                 <img src=" {{ asset("storage/$apartment->cover") }} " alt="" class="img-show">
             </div>
 
-            <div class="left-description col-md-6">
+
+            <div>
+                <div class="titolo-show text-center purple pb-4">
+                    {{ $apartment->name }}
+                </div>
+                <ul class="mt-3 ">
+                    <div class="d-flex justify-content-evenly flex-wrap sfondo-dati ps-4 pe-4 pb-2">
+                        <li>
+                            <span class="title-lista">Rooms:</span>
+                            <div class="riga text-center text-dark fw-bold">
+                                {{ $apartment->rooms }}
+                            </div>
+                        </li>
+                        <li>
+                            <span class="title-lista">Beds:</span>
+                            <div class="riga text-center text-dark fw-bold">
+                                {{ $apartment->beds }}
+                            </div>
+                        </li>
+                        <li>
+                            <span class="title-lista">Baths:</span>
+                            <div class="riga text-center text-dark fw-bold">
+                                {{ $apartment->baths }}
+                            </div>
+                        </li>
+                        <li>
+                            <span class="title-lista">Meters:</span>
+                            <div class="riga text-center text-dark fw-bold">
+                                {{ $apartment->meters }}
+                            </div>
+                        </li>
+                        <li>
+                            <span class="title-lista">Price:</span>
+                            <div class="riga text-center text-dark fw-bold">
+                                {{ $apartment->price }} &euro;
+                            </div>
+                        </li>
+                        <li>
+                            <span class="title-lista">Address</span>
+                            <div class="riga text-center text-dark fw-bold">
+                                {{ $apartment->address }}
+                            </div>
+                        </li>
+                    </div>
+
+                    <div>
+                        <li>
+                            <span class="title-lista">Description:</span>
+                            <div class="riga text-dark fw-bold">
+                                {{ $apartment->description }}
+                            </div>
+                        </li>
+
+                    </div>
+
+                </ul>
+            </div>
+
+
+
+
+
+
+            {{-- <div class="left-description col-md-6">
                 <div class="titolo-show text-center">
                     {{ $apartment->name }}
                 </div>
@@ -54,6 +118,6 @@
                         </div>
                     </li>
                 </ul>
-            </div>
+            </div> --}}
         </div>
     @endsection
