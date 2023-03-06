@@ -43,12 +43,37 @@
                             <div role="alert" id="alert" class="text-success  p-3">
 
                             </div>
+
+
+
                         </form>
+
+                        <div class="d-flex">
+
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                            <!-- btn send -->
+                            <button type="submit" class="send" @click="sendMessage">
+                                <div class="svg-wrapper-1">
+                                    <div class="svg-wrapper">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                                            height="24">
+                                            <path fill="none" d="M0 0h24v24H0z"></path>
+                                            <path fill="currentColor"
+                                                d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <span>Send</span>
+                            </button>
+
+
+                        </div>
                     </div>
-                    <div class="modal-footer">
-                        <!-- btn cancel -->
+                    <!-- <div class="modal-footer">
+
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                        <!-- btn send -->
+
                         <button class="send" @click="rispostamessaggio">
                             <div class="svg-wrapper-1">
                                 <div class="svg-wrapper">
@@ -62,7 +87,7 @@
                             </div>
                             <span>Send</span>
                         </button>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -162,18 +187,18 @@ export default {
                 .catch(error => {
                     console.log(error);
                 }
-            )
+                )
 
         },
 
         // incrementa view count
-        incrementViewCount(){
-            axios.get(`/api/view`,{
+        incrementViewCount() {
+            axios.get(`/api/view`, {
                 params: {
                     fk: this.apartment.id,
                 }
             })
-            .then()
+                .then()
             /* .catch((error)=>{
                 alert("C'é stato un errore")
                 console.error(error.response.data)
@@ -182,8 +207,9 @@ export default {
         },
 
         // manda messaggio
-        sendMessage(){
-            axios.get(`/api/message`,{
+        sendMessage() {
+            document.getElementById('alert').innerHTML = "Messaggio inviato con successo!"
+            axios.get(`/api/message`, {
                 params: {
                     name: this.name,
                     surname: this.surname,
@@ -277,15 +303,14 @@ export default {
     }
 }
 
-.icone-custom{
-    color:#6f42c1;
+.icone-custom {
+    color: #6f42c1;
     font-size: 20px;
     margin-top: 25px;
     margin-right: 8px;
 }
-.ipadquery{
-    //
-}
+
+
 
 @media (max-width: 767.98px) {
 
@@ -294,18 +319,18 @@ export default {
         margin-bottom: 2rem;
     }
 
+}
+
+@media (max-width: 991.98px) {
+    .ipadquery {
+        flex-direction: column !important;
+        width: 100% !important;
+
     }
 
-    @media (max-width: 991.98px) {
-        .ipadquery{
-           flex-direction: column !important;
-            width: 100% !important;
+    .customwidth {
+        width: 100% !important;
+    }
 
-        }
-
-        .customwidth {
-             width: 100% !important;
-            }
-
-         }
+}
 </style>
