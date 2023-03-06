@@ -8,12 +8,13 @@
                     <div>
 
                         <div class="pb-3">
-                            
+
                             <div class="d-flex flex-column align-items-center justify-content-center">
                                 <label class="w-75 purple text-start fs-5">Cerca un luogo</label>
-                                 <input class="form-control w-75 me-2" v-model="address" type="search" placeholder="Search" aria-label="Search">
+                                <div id="searchbox" ref="searchbox"></div>
+
                             </div>
-                           
+
                         </div>
 
                         <div class="d-flex flex-wrap justify-content-center">
@@ -88,61 +89,7 @@
 
                         <h3>Non abbiamo trovato nulla</h3>
                     </div>
-
                 </div>
-
-
-
-
-
-                <!--     loop cards
-                    <div v-if="apartments.length != 0"
-                        v-for="apartment in apartments"
-                        :key="apartment.id"
-                        class="card border border-5 borderpurple"
-                        style="width: 18rem">
-                        immagine
-                        <img :src="require(`../../../../public/storage/${apartment.cover}`)"
-                            class="card-img-top"
-                            :alt="apartment.name"/>
-
-                        <div class="card-body">
-                            <h5 class="card-title">{{ apartment.name }}</h5>
-
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    Luogo: {{ apartment.name }}
-                                </li>
-                                <li class="list-group-item">
-                                    Prezzo: {{ apartment.price }} €
-                                </li>
-                                <li class="list-group-item">
-                                    N° Stanze: {{ apartment.rooms }}
-                                </li>
-                                <li class="list-group-item">
-                                    N° Bagni: {{ apartment.baths }}
-                                </li>
-                                <li class="list-group-item">
-                                    Posti letto: {{ apartment.beds }}
-                                </li>
-                            </ul>
-                            <a :href="'/apartments/' + apartment.id"
-                                class="btn btn-primary my-2">Details</a>
-                        </div>
-                    </div>
-                    se non trovato nulla
-                    <div v-if="apartments.length == 0"
-                        class="card border border-5 borderpurple"
-                        style="width: 18rem">
-
-                        <h1>Non abbiamo trovato nulla</h1>
-                    </div>
-                </div> -->
-
-
-
-
-
             </div>
         </div>
     </div>
@@ -281,6 +228,8 @@ export default {
                 })
         },
         handleResultSelection(event) {
+            console.log(event.data.result)
+            this.address = event.data.result.address.freeformAddress
             this.lat = event.data.result.position.lat
             this.lng = event.data.result.position.lng
             return
