@@ -43,7 +43,7 @@
     <div class="{{-- container-fluid w-75 m-auto right-section py-2 --}} container  mt-3">
 
         <div>
-            <h1 class=" p-4">Add Apartment</h1>
+            <h1 class=" p-4">Aggiungi un appartamento</h1>
         </div>
 
         <div class="container">

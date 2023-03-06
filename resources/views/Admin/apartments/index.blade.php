@@ -4,7 +4,7 @@
     <?php
     /* dump($apartments) */
     ?>
-    <div class="container mt-5">
+    <div class="container mt-5 pb-5">
 
         <h1 class="py-3">{{ Auth::user()->name }}'s Dashboard</h1>
 
@@ -114,7 +114,7 @@
             </div>
 
 
-            <div class="container{{--  pb-5 mt-5 --}} d-flex flex-row flex-wrap align-items-center gap-4 {{-- justify-content-evenly --}}">
+            <div class="container{{--  pb-5 mt-5 --}} d-flex flex-row flex-wrap justify-content-center gap-4 {{-- justify-content-evenly --}}">
                 {{-- loop --}}
 
                 @foreach ($apartments as $item)
@@ -131,7 +131,7 @@
                                 {{ $item->name }}
                             </div>
 
-                            <div class="d-flex justify-content-evenly mt-3">
+                            <div class="d-flex {{-- justify-content-evenly --}} gap-2 mt-3">
 
                                 <div>
                                     <a href="{{ route('admin.apartments.show', $item->id) }}" class="card-link"><button

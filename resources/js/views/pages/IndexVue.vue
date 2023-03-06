@@ -315,8 +315,8 @@ export default {
 <style lang="scss" scoped>
 .card-app {
     width: 300px;
-    height: 400px;
-    //border: 1px solid gray;
+    height: 430px;
+    border: 1px solid #6f42c1;
     border-radius: 8px;
 }
 
