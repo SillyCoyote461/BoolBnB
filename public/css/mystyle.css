@@ -11,15 +11,15 @@ body    {
 }
 
 .card-app {
-    width: 300px;
-    height: 400px;
+    width: 280px;
+    height: 380px;
     border: 1px solid #6f42c1;
     border-radius: 8px;
 }
 
 .immagine-contenitore {
-    width: 280px;
-    height: 250px;
+    width: 260px;
+    height: 230px;
     background-color: gray;
     border-radius: 6px;
     margin: auto;

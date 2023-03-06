@@ -114,7 +114,7 @@
             </div>
 
 
-            <div class="container{{--  pb-5 mt-5 --}} d-flex flex-row flex-wrap justify-content-center gap-4 {{-- justify-content-evenly --}}">
+            <div class="container{{--  pb-5 mt-5 --}} d-flex flex-row flex-wrap  gap-4 {{-- justify-content-evenly --}}">
                 {{-- loop --}}
 
                 @foreach ($apartments as $item)

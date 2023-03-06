@@ -52,7 +52,7 @@
         </div>
 
         <div class="background2">
-            <div class="container p-5 d-flex flex-wrap grid gap-3">
+            <div class="container p-5 d-flex flex-wrap  grid gap-3">
                 <!-- <div class="card-deck"> -->
 
                 <div class="card-app" v-if="apartments.length != 0" v-for="apartment in apartments" :key="apartment.id">
@@ -314,15 +314,15 @@ export default {
 
 <style lang="scss" scoped>
 .card-app {
-    width: 300px;
-    height: 430px;
+    width: 280px;
+    height: 400px;
     border: 1px solid #6f42c1;
     border-radius: 8px;
 }
 
 .immagine-contenitore {
-    width: 280px;
-    height: 250px;
+    width: 260px;
+    height: 230px;
     background-color: gray;
     border-radius: 6px;
     margin: auto;
