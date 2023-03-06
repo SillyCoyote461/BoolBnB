@@ -204,7 +204,7 @@
         {{-- INVIO d-flex align-item-center justify-content-evenly --}}
         <div class="mt-5 mb-5 d-flex ">
             <div>
-                <button type="submit" class="me-2 bottonefigo" onclick="return validateForm()">Modifica Appartamento</button>
+                <button type="submit" class="me-2 bottonefigo" onclick="return validateForm()">Modifica</button>
             </div>
 
         </div>
