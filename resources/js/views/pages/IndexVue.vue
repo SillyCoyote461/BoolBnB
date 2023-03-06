@@ -8,11 +8,13 @@
                     <div>
 
                         <div class="pb-3">
-                            <label class="purple fs-5">Cerca un luogo</label>
-                            <div id="searchbox" ref="searchbox"></div>
+                            
+                            <div class="d-flex flex-column align-items-center justify-content-center">
+                                <label class="w-75 purple text-start fs-5">Cerca un luogo</label>
+                                 <input class="form-control w-75 me-2" v-model="address" type="search" placeholder="Search" aria-label="Search">
+                            </div>
+                           
                         </div>
-
-
 
                         <div class="d-flex flex-wrap justify-content-center">
                             <div>
@@ -269,8 +271,6 @@ export default {
                 this.rangeX = false
                 this.range = ""
             }
-
-
         },
         // appartamenti e servizi
         getApartments() {
