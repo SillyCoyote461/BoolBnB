@@ -228,11 +228,20 @@ export default {
                 })
         },
         handleResultSelection(event) {
-            console.log(event.data.result)
+
             this.address = event.data.result.address.freeformAddress
             this.lat = event.data.result.position.lat
             this.lng = event.data.result.position.lng
             return
+        },
+        resultsCleared(){
+            this.address = ""
+            this.price = ""
+            this.rooms = ""
+            this.baths = ""
+            this.beds = ""
+            this.range = ""
+            this.getApartments()
         }
     },
     created() {
@@ -257,6 +266,7 @@ export default {
         const searchBoxHTML = ttSearchBox.getSearchBoxHTML();
         document.getElementById('searchbox').appendChild(searchBoxHTML);
         ttSearchBox.on("tomtom.searchbox.resultselected", this.handleResultSelection)
+        ttSearchBox.on("tomtom.searchbox.resultscleared", this.resultsCleared)
 
     }
 };
