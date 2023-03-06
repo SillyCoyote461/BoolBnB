@@ -14,8 +14,8 @@ class AddFkApartmentToViewsTable extends Migration
     public function up()
     {
         Schema::table('views', function (Blueprint $table) {
-            $table->unsignedBigInteger('fk_apartment');
-            $table->foreign('fk_apartment')->references('id')->on('apartments')->onDelete('cascade');
+            $table->unsignedBigInteger('apartment_id');
+            $table->foreign('apartment_id')->references('id')->on('apartments')->onDelete('cascade');
         });
     }
 
