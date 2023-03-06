@@ -163,10 +163,10 @@ export default {
                 }
             })
             .then()
-            .catch((error)=>{
+            /* .catch((error)=>{
                 alert("C'é stato un errore")
                 console.error(error.response.data)
-            })
+            }) */
 
         },
 
@@ -181,11 +181,11 @@ export default {
                     fk: this.apartment.id,
                 }
             })
-            .then(alert("Il messaggio é stato inviato correttamente"))
+            /* .then(alert("Il messaggio é stato inviato correttamente"))
             .catch((error)=>{
                 alert("C'é stato un errore")
                 console.error(error.response.data)
-            })
+            }) */
         }
     }
 }

@@ -11,7 +11,7 @@
 
                             <div class="d-flex flex-column align-items-center justify-content-center">
                                 <label class="w-75 purple text-start fs-5">Cerca un luogo</label>
-                                <div id="searchbox" ref="searchbox"></div>
+                                <div id="searchbox" ref="searchbox" class="w-75"></div>
 
                             </div>
 
