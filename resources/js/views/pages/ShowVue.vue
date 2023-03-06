@@ -63,7 +63,7 @@
             </div>
         </div>
 
-        <div class=" d-flex pt-5 flex-wrap gap-5">
+        <div class=" d-flex pt-5 flex-wrap gap-5 ipadquery">
 
             <div class="customwidth">
                 <img class="w-100" :src="'/storage/' + apartment.cover" alt="">
@@ -101,12 +101,12 @@
             </div>
         </div>
 
-        <div>
+        <div class="pb-5">
             <div class="fs-1 mt-4 fw-bold" style="color:#6f42c1">
                 Descrizione
             </div>
 
-            <div class="mt-2">
+            <div class="mt-2 pb-5 mb-3">
                 {{ apartment.description }}
 
             </div>
@@ -272,6 +272,9 @@ export default {
     margin-top: 25px;
     margin-right: 8px;
 }
+.ipadquery{
+
+}
 
 @media (max-width: 767.98px) {
 
@@ -282,4 +285,16 @@ export default {
 
     }
 
+    @media (max-width: 991.98px) {
+        .ipadquery{
+           flex-direction: column !important;
+            width: 100% !important;
+
+        }
+
+        .customwidth {
+             width: 100% !important;
+            }
+
+         }
 </style>
