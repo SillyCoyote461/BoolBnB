@@ -172,16 +172,16 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Elimina Appartamento</h1>
 
                 </div>
                 <div class="modal-body">
-                    sei sicuro di voler cancellaere <span
+                    Sei sicuro di voler cancellare <span
                         class="fw-bold">{{ $item->name }}</span> ?
                 </div>
                 <div class="modal-footer mt-3">
                     <button type="button" class="bottonefigo"
-                        data-bs-dismiss="modal">Close</button>
+                        data-bs-dismiss="modal">Chiudi</button>
                     <form method="POST" id="delete-form"
                         action="{{ route('admin.apartments.destroy', $item->id) }}">
                         @csrf
