@@ -22,22 +22,22 @@
                             <div class="d-flex flex-column ">
                                 <!-- name -->
                                 <label>Nome</label>
-                                <input type="text" class="w-100" v-model="name">
+                                <input type="text" class="w-100" required v-model="name">
                             </div>
                             <div class="d-flex flex-column ">
                                 <!-- surname -->
                                 <label>Cognome</label>
-                                <input type="text" class="w-100" v-model="surname">
+                                <input type="text" class="w-100" required v-model="surname">
                             </div>
                             <div class="d-flex flex-column ">
                                 <!-- email -->
                                 <label>Email</label>
-                                <input type="email" class="w-100" v-model="email">
+                                <input type="email" class="w-100" required v-model="email">
                             </div>
                             <div class="d-flex flex-column ">
                                 <!-- message -->
                                 <label>Messaggio</label>
-                                <textarea name="" id="" cols="30" rows="10" class="w-100" v-model="text"></textarea>
+                                <textarea name="" id="" cols="30" rows="10" class="w-100" required v-model="text"></textarea>
                             </div>
 
                             <div role="alert" id="alert" class="text-success  p-3">
